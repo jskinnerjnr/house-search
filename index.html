@@ -124,8 +124,8 @@
   <div class="filter-group">
     <label>Min Baths</label>
     <select id="f-baths">
-      <option value="0">Any</option>
-      <option value="2" selected>2+</option>
+      <option value="0" selected>Any</option>
+      <option value="2">2+</option>
       <option value="3">3+</option>
     </select>
   </div>
@@ -511,7 +511,7 @@
   function matchesFilters(p, f) {
     if (p.askingPrice && p.askingPrice > f.price) return false;
     if (f.beds && (!p.beds || p.beds < f.beds)) return false;
-    if (f.baths && (!p.baths || p.baths < f.baths)) return false;
+    if (f.baths && p.baths && p.baths < f.baths) return false;
     if (f.type && p.propType !== f.type) return false;
     if (f.area && p.town !== f.area) return false;
     if (f.garden && p.garden !== 'Yes') return false;
