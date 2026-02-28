@@ -28,6 +28,8 @@
   .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); transition: box-shadow 0.2s; }
   .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
 
+  .card-img { width: 100%; height: 200px; object-fit: cover; display: block; background: #f0f0f0; }
+  .card-img-placeholder { width: 100%; height: 160px; background: linear-gradient(135deg, #f0f0f0, #e0e0e0); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #ccc; }
   .card-header { padding: 14px 16px 10px; border-bottom: 1px solid #f0f0f0; }
   .card-address { font-weight: 600; font-size: 0.95rem; }
   .card-location { font-size: 0.8rem; color: #777; margin-top: 2px; }
@@ -170,9 +172,35 @@
   <div class="filter-group">
     <label>Primary School</label>
     <select id="f-school">
-      <option value="">Any</option>
+      <option value="">Any Ofsted</option>
       <option value="Outstanding">Outstanding</option>
       <option value="Good">Good+</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Primary Distance</label>
+    <select id="f-pri-dist-filter">
+      <option value="">Any</option>
+      <option value="0.5">Within 0.5mi</option>
+      <option value="1">Within 1mi</option>
+      <option value="2">Within 2mi</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Secondary School</label>
+    <select id="f-sec-school">
+      <option value="">Any Ofsted</option>
+      <option value="Outstanding">Outstanding</option>
+      <option value="Good">Good+</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Secondary Distance</label>
+    <select id="f-sec-dist-filter">
+      <option value="">Any</option>
+      <option value="1">Within 1mi</option>
+      <option value="2">Within 2mi</option>
+      <option value="3">Within 3mi</option>
     </select>
   </div>
   <div class="filter-group">
@@ -515,6 +543,9 @@
       garden: document.getElementById('f-garden').value,
       outbuildings: document.getElementById('f-outbuildings').value,
       school: document.getElementById('f-school').value,
+      secSchool: document.getElementById('f-sec-school').value,
+      priDistMax: parseFloat(document.getElementById('f-pri-dist-filter').value) || 0,
+      secDistMax: parseFloat(document.getElementById('f-sec-dist-filter').value) || 0,
       status: document.getElementById('f-status').value,
       rating: parseInt(document.getElementById('f-rating').value) || 0,
     };
@@ -530,6 +561,10 @@
     if (f.outbuildings && p.outbuildings !== 'Yes') return false;
     if (f.school === 'Outstanding' && p.priOfsted !== 'Outstanding') return false;
     if (f.school === 'Good' && !['Outstanding', 'Good'].includes(p.priOfsted)) return false;
+    if (f.secSchool === 'Outstanding' && p.secOfsted !== 'Outstanding') return false;
+    if (f.secSchool === 'Good' && !['Outstanding', 'Good'].includes(p.secOfsted)) return false;
+    if (f.priDistMax && p.priDist && p.priDist > f.priDistMax) return false;
+    if (f.secDistMax && p.secDist && p.secDist > f.secDistMax) return false;
     if (f.status && p.status !== f.status) return false;
     if (f.rating && (!p.rating || p.rating < f.rating)) return false;
     return true;
@@ -559,6 +594,9 @@
 
     grid.innerHTML = filtered.map(p => `
       <div class="card" onclick="openModal('${p.id}')">
+        ${p.photos && p.photos.length > 0
+          ? `<img class="card-img" src="${p.photos[0]}" alt="${p.address}" loading="lazy" onerror="this.style.display='none'">`
+          : `<div class="card-img-placeholder">🏡</div>`}
         <div class="card-header">
           <div class="card-address">${p.address || 'Address TBC'}</div>
           <div class="card-location">${[p.town, p.postcode].filter(Boolean).join(' · ')}</div>
@@ -579,7 +617,8 @@
             ${p.garage === 'Yes' ? '<span class="tag tag-yes">Garage ✓</span>' : ''}
             ${p.tenure ? `<span class="tag tag-neutral">${p.tenure}</span>` : ''}
           </div>
-          ${p.priSchool ? `<div class="school-info">🏫 ${p.priSchool} — <span class="${ofstedClass(p.priOfsted)}">${p.priOfsted || '?'}</span>${p.priDist ? ` · ${p.priDist}mi` : ''}</div>` : ''}
+          ${p.priSchool ? `<div class="school-info">🏫 <strong>Primary:</strong> ${p.priSchool} — <span class="${ofstedClass(p.priOfsted)}">${p.priOfsted || '?'}</span>${p.priDist ? ` · ${p.priDist}mi` : ''}</div>` : ''}
+          ${p.secSchool ? `<div class="school-info">🎓 <strong>Secondary:</strong> ${p.secSchool} — <span class="${ofstedClass(p.secOfsted)}">${p.secOfsted || '?'}</span>${p.secDist ? ` · ${p.secDist}mi` : ''}</div>` : ''}
           ${p.other ? `<div class="school-info" style="color:#555">✨ ${p.other}</div>` : ''}
         </div>
         ${(p.pros || p.cons) ? `<div class="pros-cons">
@@ -708,6 +747,9 @@
     document.getElementById('f-status').value = '';
     document.getElementById('f-rating').value = '0';
     document.getElementById('f-sort').value = 'default';
+    document.getElementById('f-sec-school').value = '';
+    document.getElementById('f-pri-dist-filter').value = '';
+    document.getElementById('f-sec-dist-filter').value = '';
     render();
   }
 
@@ -716,7 +758,7 @@
     render();
   });
 
-  ['f-beds','f-baths','f-type','f-area','f-garden','f-outbuildings','f-school','f-status','f-rating'].forEach(id => {
+  ['f-beds','f-baths','f-type','f-area','f-garden','f-outbuildings','f-school','f-sec-school','f-pri-dist-filter','f-sec-dist-filter','f-status','f-rating'].forEach(id => {
     document.getElementById(id).addEventListener('change', render);
   });
 
