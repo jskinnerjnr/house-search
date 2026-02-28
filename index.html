@@ -31,7 +31,27 @@
   .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); transition: box-shadow 0.2s; }
   .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
 
-  .card-img { width: 100%; height: 200px; object-fit: cover; display: block; background: #f0f0f0; }
+  .card-img { width: 100%; height: 200px; object-fit: cover; display: block; background: #f0f0f0; cursor: zoom-in; }
+
+  /* LIGHTBOX */
+  .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:300; justify-content:center; align-items:center; flex-direction:column; }
+  .lightbox.open { display:flex; }
+  .lightbox-img { max-width:90vw; max-height:80vh; object-fit:contain; border-radius:8px; }
+  .lightbox-close { position:fixed; top:16px; right:20px; color:white; font-size:2rem; cursor:pointer; z-index:301; }
+  .lightbox-prev, .lightbox-next { position:fixed; top:50%; transform:translateY(-50%); color:white; font-size:2rem; cursor:pointer; background:rgba(255,255,255,0.1); border:none; padding:10px 16px; border-radius:8px; z-index:301; }
+  .lightbox-prev { left:12px; }
+  .lightbox-next { right:12px; }
+  .lightbox-thumbs { display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; justify-content:center; max-width:90vw; }
+  .lightbox-thumb { width:60px; height:45px; object-fit:cover; border-radius:4px; cursor:pointer; opacity:0.6; border:2px solid transparent; }
+  .lightbox-thumb.active { opacity:1; border-color:white; }
+  .lightbox-caption { color:rgba(255,255,255,0.7); font-size:0.8rem; margin-top:6px; }
+  .lightbox-tabs { display:flex; gap:8px; margin-bottom:10px; }
+  .lightbox-tab { padding:5px 14px; background:rgba(255,255,255,0.15); color:white; border:none; border-radius:6px; cursor:pointer; font-size:0.82rem; }
+  .lightbox-tab.active { background:white; color:#2c2c2c; font-weight:600; }
+  /* Card photo click indicator */
+  .card-img { cursor:zoom-in; }
+  .card-img-placeholder { cursor:default; }
+
   .card-img-placeholder { width: 100%; height: 160px; background: linear-gradient(135deg, #f0f0f0, #e0e0e0); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #ccc; }
   .card-header { padding: 14px 16px 10px; border-bottom: 1px solid #f0f0f0; }
   .card-address { font-weight: 600; font-size: 0.95rem; }
@@ -248,6 +268,18 @@
 <div class="stats-bar" id="stats-bar">Showing 0 properties</div>
 
 <div class="grid" id="grid"></div>
+
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-prev" onclick="event.stopPropagation();lightboxNav(-1)">‹</button>
+  <button class="lightbox-next" onclick="event.stopPropagation();lightboxNav(1)">›</button>
+  <div class="lightbox-tabs" id="lb-tabs"></div>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lb-caption"></div>
+  <div class="lightbox-thumbs" id="lb-thumbs"></div>
+</div>
 
 <button class="add-btn" onclick="openModal()" title="Add property">+</button>
 
@@ -601,7 +633,7 @@
     grid.innerHTML = filtered.map(p => `
       <div class="card" onclick="openModal('${p.id}')">
         ${p.photos && p.photos.length > 0
-          ? `<img class="card-img" src="${p.photos[0]}" alt="${p.address}" loading="lazy" onerror="this.style.display='none'">`
+          ? `<img class="card-img" src="${p.photos[0]}" alt="${p.address}" loading="lazy" onerror="this.style.display='none'" onclick="event.stopPropagation();openLightbox(${JSON.stringify(p).replace(/\/g,'\\').replace(/`/g,'\`')},0,'photos')">`
           : `<div class="card-img-placeholder">🏡</div>`}
         <div class="card-header">
           <div class="card-address">${p.address || 'Address TBC'}</div>
@@ -623,8 +655,7 @@
             ${p.garage === 'Yes' ? '<span class="tag tag-yes">Garage ✓</span>' : ''}
             ${p.tenure ? `<span class="tag tag-neutral">${p.tenure}</span>` : ''}
           </div>
-          ${p.postcode ? `<div class="school-info">🏫 <strong>Primary catchment:</strong> <a href="https://www.gloucestershire.gov.uk/education-and-learning/schools-and-admissions/school-admissions/find-your-catchment-area-school/?postcode=${encodeURIComponent(p.postcode)}&phase=primary" target="_blank" onclick="event.stopPropagation()" style="color:#2c2c2c;text-decoration:underline">Check for ${p.postcode} ↗</a></div>` : ''}
-          ${p.postcode ? `<div class="school-info">🎓 <strong>Secondary catchment:</strong> <a href="https://www.gloucestershire.gov.uk/education-and-learning/schools-and-admissions/school-admissions/find-your-catchment-area-school/?postcode=${encodeURIComponent(p.postcode)}&phase=secondary" target="_blank" onclick="event.stopPropagation()" style="color:#2c2c2c;text-decoration:underline">Check for ${p.postcode} ↗</a></div>` : ''}
+          ${getCatchmentSchools(p.postcode)}
           ${p.other ? `<div class="school-info" style="color:#555">✨ ${p.other}</div>` : ''}
         </div>
         ${(p.pros || p.cons) ? `<div class="pros-cons">
@@ -636,9 +667,10 @@
           <span class="status-badge ${statusClass(p.status)}">${p.status || 'New'}</span>
           <span class="rating">${stars(p.rating)}</span>
           <div class="links">
-            ${p.rmLink ? `<a href="${p.rmLink}" target="_blank" onclick="e=>e.stopPropagation()">RM</a>` : ''}
-            ${p.zpLink ? `<a href="${p.zpLink}" target="_blank" onclick="e=>e.stopPropagation()">ZP</a>` : ''}
-            ${p.otmLink ? `<a href="${p.otmLink}" target="_blank" onclick="e=>e.stopPropagation()">OTM</a>` : ''}
+            ${p.rmLink ? `<a href="${p.rmLink}" target="_blank" onclick="event.stopPropagation()">RM</a>` : ''}
+            ${p.zpLink ? `<a href="${p.zpLink}" target="_blank" onclick="event.stopPropagation()">ZP</a>` : ''}
+            ${p.otmLink ? `<a href="${p.otmLink}" target="_blank" onclick="event.stopPropagation()">OTM</a>` : ''}
+            ${p.floorPlans && p.floorPlans.length > 0 ? `<a href="#" onclick="event.preventDefault();event.stopPropagation();openLightbox(${JSON.stringify(p).replace(/\/g,'\\').replace(/`/g,'\`')},0,'floorplan')" style="background:#2c2c2c;color:white;border-color:#2c2c2c">📐 Plan</a>` : ''}
           </div>
         </div>
       </div>
@@ -771,6 +803,164 @@
   document.getElementById('modal').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
   });
+
+
+  // LIGHTBOX
+  let lbImages = [];
+  let lbIndex = 0;
+  let lbMode = 'photos'; // 'photos' or 'floorplan'
+  let lbCurrentProp = null;
+
+  function openLightbox(prop, startIndex=0, mode='photos') {
+    lbCurrentProp = prop;
+    lbMode = mode;
+    lbImages = mode === 'floorplan' ? (prop.floorPlans||[]) : (prop.photos||[]);
+    if (!lbImages.length) return;
+    lbIndex = startIndex;
+    // Tabs
+    const hasFP = prop.floorPlans && prop.floorPlans.length > 0;
+    document.getElementById('lb-tabs').innerHTML = hasFP ? `
+      <button class="lightbox-tab ${mode==='photos'?'active':''}" onclick="event.stopPropagation();switchLbMode('photos')">📷 Photos (${(prop.photos||[]).length})</button>
+      <button class="lightbox-tab ${mode==='floorplan'?'active':''}" onclick="event.stopPropagation();switchLbMode('floorplan')">📐 Floor Plan</button>
+    ` : `<button class="lightbox-tab active">📷 Photos (${(prop.photos||[]).length})</button>`;
+    renderLightbox();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function switchLbMode(mode) {
+    lbMode = mode;
+    lbImages = mode === 'floorplan' ? (lbCurrentProp.floorPlans||[]) : (lbCurrentProp.photos||[]);
+    lbIndex = 0;
+    const tabs = document.querySelectorAll('.lightbox-tab');
+    tabs.forEach((t,i) => t.classList.toggle('active', (i===0&&mode==='photos')||(i===1&&mode==='floorplan')));
+    renderLightbox();
+  }
+
+  function renderLightbox() {
+    document.getElementById('lightbox-img').src = lbImages[lbIndex] || '';
+    document.getElementById('lb-caption').textContent = `${lbIndex+1} / ${lbImages.length}`;
+    document.getElementById('lb-thumbs').innerHTML = lbImages.map((img,i) =>
+      `<img class="lightbox-thumb ${i===lbIndex?'active':''}" src="${img}" onclick="event.stopPropagation();lbIndex=${i};renderLightbox()" loading="lazy">`
+    ).join('');
+  }
+
+  function lightboxNav(dir) {
+    lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+    renderLightbox();
+  }
+
+  function closeLightbox(e) {
+    if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'ArrowLeft') lightboxNav(-1);
+    if (e.key === 'ArrowRight') lightboxNav(1);
+    if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+  });
+
+
+  // CATCHMENT SCHOOL MAPPING (Cheltenham/Glos by postcode sector)
+  function getCatchmentSchools(postcode) {
+    if (!postcode) return '';
+    const pc = postcode.toUpperCase().replace(/\s/g,'');
+    // Postcode sector lookup (first 5-6 chars)
+    const sector = pc.slice(0,5);
+    const district = pc.slice(0,4);
+
+    const PRIMARY = {
+      // GL52 - North/NE Cheltenham
+      'GL525': 'Prestbury CE Primary',
+      'GL526': 'St Philip & St James CE Primary',
+      'GL523': 'Swindon Village Primary Academy',
+      'GL521': 'Bishops Cleeve Primary',
+      // GL53 - SE Cheltenham / Charlton Kings / Leckhampton
+      'GL530': 'Naunton Park Primary',
+      'GL531': 'Leckhampton CE Primary',
+      'GL538': 'Charlton Kings Infant School',
+      'GL539': 'Charlton Kings Infant School',
+      // GL51 - West / Up Hatherley / Shurdington
+      'GL510': 'Up Hatherley CE Junior School',
+      'GL516': 'Hatherley Infant School',
+      'GL513': 'Swindon Village Primary Academy',
+      'GL518': 'Benhall Infant School',
+      'GL519': 'Shurdington CE Primary',
+      // GL50 - Central Cheltenham
+      'GL502': "St Gregory's Catholic Primary",
+      'GL504': 'All Saints Academy',
+      'GL501': 'St Edward's CE Primary',
+    };
+
+    const SECONDARY = {
+      // GL52 - feeds Bournside or Balcarras or Cleeve
+      'GL525': 'Balcarras School',
+      'GL526': 'Cleeve School',
+      'GL523': 'Cheltenham Bournside School',
+      'GL521': 'Cleeve School',
+      // GL53 - Balcarras
+      'GL530': 'Balcarras School',
+      'GL531': 'Balcarras School',
+      'GL538': 'Balcarras School',
+      'GL539': 'Balcarras School',
+      // GL51 - Bournside
+      'GL510': 'Cheltenham Bournside School',
+      'GL516': 'Cheltenham Bournside School',
+      'GL513': 'Cheltenham Bournside School',
+      'GL518': 'Cheltenham Bournside School',
+      'GL519': 'Cheltenham Bournside School',
+      // GL50 - Bournside
+      'GL502': 'Cheltenham Bournside School',
+      'GL504': 'Cheltenham Bournside School',
+      'GL501': 'Pate's Grammar School area',
+    };
+
+    const OFSTED_PRI = {
+      'Prestbury CE Primary': 'Good',
+      'St Philip & St James CE Primary': 'Good',
+      'Swindon Village Primary Academy': 'Good',
+      'Bishops Cleeve Primary': 'Good',
+      'Naunton Park Primary': 'Outstanding',
+      'Leckhampton CE Primary': 'Good',
+      'Charlton Kings Infant School': 'Good',
+      'Up Hatherley CE Junior School': 'Good',
+      'Hatherley Infant School': 'Good',
+      'Benhall Infant School': 'Good',
+      'Shurdington CE Primary': 'Good',
+      "St Gregory's Catholic Primary": 'Good',
+      'All Saints Academy': 'Good',
+      "St Edward's CE Primary": 'Good',
+    };
+    const OFSTED_SEC = {
+      'Balcarras School': 'Outstanding',
+      'Cleeve School': 'Good',
+      'Cheltenham Bournside School': 'Outstanding',
+      "Pate's Grammar School area": 'Outstanding',
+    };
+
+    const key = sector.slice(0,5);
+    const pri = PRIMARY[key] || PRIMARY[district] || null;
+    const sec = SECONDARY[key] || SECONDARY[district] || null;
+
+    let html = '';
+    if (pri) {
+      const ofsted = OFSTED_PRI[pri] || '';
+      const cls = ofsted === 'Outstanding' ? 'ofsted-outstanding' : ofsted === 'Good' ? 'ofsted-good' : '';
+      html += `<div class="school-info">🏫 <strong>Primary:</strong> ${pri}${ofsted ? ` — <span class="${cls}">${ofsted}</span>` : ''}</div>`;
+    }
+    if (sec) {
+      const ofsted = OFSTED_SEC[sec] || '';
+      const cls = ofsted === 'Outstanding' ? 'ofsted-outstanding' : ofsted === 'Good' ? 'ofsted-good' : '';
+      html += `<div class="school-info">🎓 <strong>Secondary:</strong> ${sec}${ofsted ? ` — <span class="${cls}">${ofsted}</span>` : ''}</div>`;
+    }
+    if (!pri && !sec && postcode) {
+      html = `<div class="school-info" style="color:#aaa;font-size:0.74rem">🏫 <a href="https://www.gloucestershire.gov.uk/education-and-learning/schools-and-admissions/school-admissions/find-your-catchment-area-school/?postcode=${encodeURIComponent(postcode)}&phase=primary" target="_blank" onclick="event.stopPropagation()" style="color:#888">Check catchment for ${postcode} ↗</a></div>`;
+    }
+    return html;
+  }
 
   (async function init() {
     await loadRemoteProperties();
