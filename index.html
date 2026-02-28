@@ -486,7 +486,8 @@ function render() {
     var otmLink = p.otmLink ? '<a href="' + p.otmLink + '" target="_blank" onclick="event.stopPropagation()">OTM</a>' : '';
     var priceHtml = fmt(p.askingPrice)
       + (p.priceReduced === 'Yes' ? '<span class="price-reduced">REDUCED</span>' : '')
-      + (isNewListing(p) ? '<span class="new-listing">NEW</span>' : '');
+      + (isNewListing(p) ? '<span class="new-listing">NEW</span>' : '')
+      + (p.lastUpdated ? '<span style="font-size:0.72rem;color:#999;margin-left:6px">' + p.lastUpdated + '</span>' : '');
     return '<div class="card" onclick="openModal(\'' + p.id + '\')">'
       + imgHtml
       + '<div class="card-header">'
