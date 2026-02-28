@@ -196,6 +196,18 @@
       <option value="5">5 ⭐</option>
     </select>
   </div>
+  <div class="filter-group">
+    <label>Sort By</label>
+    <select id="f-sort" onchange="render()">
+      <option value="default">Default</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+      <option value="beds-desc">Most Beds</option>
+      <option value="rating-desc">My Rating</option>
+      <option value="school-dist">School Distance</option>
+      <option value="cheltenham-dist">Distance to Cheltenham</option>
+    </select>
+  </div>
   <button class="reset-btn" onclick="resetFilters()">Reset</button>
 </div>
 
@@ -525,7 +537,17 @@
 
   function render() {
     const f = getFilters();
+    const sortVal = document.getElementById('f-sort').value;
     const filtered = properties.filter(p => matchesFilters(p, f));
+    filtered.sort((a, b) => {
+      if (sortVal === 'price-asc')  return (a.askingPrice||0) - (b.askingPrice||0);
+      if (sortVal === 'price-desc') return (b.askingPrice||0) - (a.askingPrice||0);
+      if (sortVal === 'beds-desc')  return (b.beds||0) - (a.beds||0);
+      if (sortVal === 'rating-desc') return (b.rating||0) - (a.rating||0);
+      if (sortVal === 'school-dist') return (a.priDist||99) - (b.priDist||99);
+      if (sortVal === 'cheltenham-dist') return (a.distance||99) - (b.distance||99);
+      return 0;
+    });
     const grid = document.getElementById('grid');
     document.getElementById('stats-bar').textContent = `Showing ${filtered.length} of ${properties.length} properties`;
     document.getElementById('last-updated').textContent = `${properties.length} properties`;
@@ -685,6 +707,7 @@
     document.getElementById('f-school').value = '';
     document.getElementById('f-status').value = '';
     document.getElementById('f-rating').value = '0';
+    document.getElementById('f-sort').value = 'default';
     render();
   }
 
