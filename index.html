@@ -102,6 +102,9 @@
   .form-group label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; font-weight: 600; }
   .form-group input, .form-group select, .form-group textarea { padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; font-family: inherit; }
   .form-group textarea { resize: vertical; min-height: 60px; }
+  .modal-close-x { position: absolute; top: 14px; right: 14px; background: #f0f0f0; border: none; border-radius: 50%; width: 34px; height: 34px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #555; line-height: 1; }
+  .modal-close-x:hover { background: #e0e0e0; }
+  .modal { position: relative; }
   .modal-actions { display: flex; gap: 10px; margin-top: 16px; justify-content: flex-end; }
   .btn-save { padding: 10px 22px; background: #2c2c2c; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.95rem; font-weight: 600; }
   .btn-cancel { padding: 10px 22px; background: #eee; color: #333; border: none; border-radius: 8px; cursor: pointer; font-size: 0.95rem; }
@@ -302,6 +305,7 @@
 <!-- Add/Edit Modal -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
+    <button class="modal-close-x" onclick="closeModal()" title="Close">✕</button>
     <h2 id="modal-title">Add Property</h2>
     <div class="form-grid">
       <div class="section-divider">📍 Property Details</div>
@@ -786,6 +790,12 @@ document.getElementById('f-radius').addEventListener('input', function() {
 });
 document.getElementById('modal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    if (document.getElementById('lightbox').classList.contains('open')) closeLightbox();
+    else if (document.getElementById('modal').classList.contains('open')) closeModal();
+  }
 });
 
 // INIT - load remote properties.json then render
