@@ -114,8 +114,8 @@
 <div class="filters">
   <div class="filter-group">
     <label>Max Price</label>
-    <input type="range" id="f-price" min="200000" max="5000000" step="50000" value="5000000">
-    <div class="price-display" id="price-display">Up to £5,000,000</div>
+    <input type="range" id="f-price" min="200000" max="5000000" step="50000" value="1200000">
+    <div class="price-display" id="price-display">Up to £1,200,000</div>
   </div>
   <div class="filter-group">
     <label>Min Beds</label>
@@ -147,8 +147,8 @@
   </div>
   <div class="filter-group">
     <label>Max Distance from Cheltenham</label>
-    <input type="range" id="f-radius" min="2" max="20" step="2" value="20">
-    <div class="price-display" id="radius-display">Within 20 miles</div>
+    <input type="range" id="f-radius" min="1" max="20" step="1" value="3">
+    <div class="price-display" id="radius-display">Within 3 miles</div>
   </div>
   <div class="filter-group">
     <label>Garden</label>
@@ -666,10 +666,10 @@ function deleteProperty() {
 }
 
 function resetFilters() {
-  document.getElementById('f-price').value = 5000000;
-  document.getElementById('price-display').textContent = 'Up to £5,000,000';
-  document.getElementById('f-radius').value = 20;
-  document.getElementById('radius-display').textContent = 'Within 20 miles';
+  document.getElementById('f-price').value = 1200000;
+  document.getElementById('price-display').textContent = 'Up to £1,200,000';
+  document.getElementById('f-radius').value = 3;
+  document.getElementById('radius-display').textContent = 'Within 3 miles';
   ['f-beds','f-baths','f-type','f-garden','f-outbuildings','f-school','f-sec-school','f-status','f-sort'].forEach(function(id){
     var el = document.getElementById(id);
     if (el) el.value = id==='f-beds'?'4':id==='f-sort'?'price-desc':'';
