@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏡 Skinner House Search</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; color: #2c2c2c; }
+  
+  header { background: #2c2c2c; color: white; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+  header h1 { font-size: 1.4rem; font-weight: 600; }
+  header span { font-size: 0.85rem; opacity: 0.6; }
+
+  .filters { background: white; padding: 16px 24px; border-bottom: 1px solid #e0e0e0; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+  .filter-group { display: flex; flex-direction: column; gap: 4px; }
+  .filter-group label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; font-weight: 600; }
+  .filter-group select, .filter-group input { padding: 6px 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.85rem; background: white; min-width: 130px; }
+  .filter-group input[type=range] { min-width: 160px; accent-color: #2c2c2c; }
+  .price-display { font-size: 0.8rem; color: #555; margin-top: 2px; }
+  .reset-btn { padding: 7px 16px; background: #2c2c2c; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+  .reset-btn:hover { background: #444; }
+
+  .stats-bar { padding: 10px 24px; background: #f5f4f0; font-size: 0.82rem; color: #666; border-bottom: 1px solid #e0e0e0; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; padding: 20px 24px; }
+
+  .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); transition: box-shadow 0.2s; }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+
+  .card-header { padding: 14px 16px 10px; border-bottom: 1px solid #f0f0f0; }
+  .card-address { font-weight: 600; font-size: 0.95rem; }
+  .card-location { font-size: 0.8rem; color: #777; margin-top: 2px; }
+  .card-price { font-size: 1.1rem; font-weight: 700; color: #2c2c2c; margin-top: 6px; }
+  .price-reduced { font-size: 0.72rem; background: #ff6b35; color: white; padding: 2px 6px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+
+  .card-body { padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
+  
+  .specs { display: flex; gap: 12px; flex-wrap: wrap; }
+  .spec { font-size: 0.8rem; color: #555; display: flex; align-items: center; gap: 4px; }
+  .spec strong { color: #2c2c2c; }
+
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { font-size: 0.72rem; padding: 2px 8px; border-radius: 12px; font-weight: 500; }
+  .tag-yes { background: #e6f4ea; color: #2d7a3a; }
+  .tag-no { background: #f4e6e6; color: #a33; }
+  .tag-neutral { background: #eee; color: #555; }
+
+  .school-info { font-size: 0.78rem; color: #555; }
+  .school-info span { font-weight: 600; }
+  .ofsted-outstanding { color: #1a7340; }
+  .ofsted-good { color: #2e7bb5; }
+  .ofsted-ri { color: #c87000; }
+  .ofsted-inadequate { color: #c0392b; }
+
+  .card-footer { padding: 10px 16px; border-top: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .status-badge { font-size: 0.72rem; padding: 3px 10px; border-radius: 12px; font-weight: 600; }
+  .status-new { background: #e3f2fd; color: #1565c0; }
+  .status-viewing { background: #fff8e1; color: #b8860b; }
+  .status-viewed { background: #f3e5f5; color: #7b1fa2; }
+  .status-interested { background: #e8f5e9; color: #2e7d32; }
+  .status-offer { background: #fce4ec; color: #c62828; }
+  .status-rejected { background: #eeeeee; color: #757575; }
+
+  .rating { color: #f5a623; font-size: 0.9rem; }
+  .links { display: flex; gap: 8px; }
+  .links a { font-size: 0.72rem; color: #2c2c2c; text-decoration: none; padding: 2px 8px; border: 1px solid #ddd; border-radius: 4px; }
+  .links a:hover { background: #f0f0f0; }
+
+  .notes-section { padding: 0 16px 12px; font-size: 0.78rem; color: #666; font-style: italic; }
+  .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 16px 12px; }
+  .pros h4, .cons h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .pros h4 { color: #2d7a3a; }
+  .cons h4 { color: #a33; }
+  .pros ul, .cons ul { font-size: 0.78rem; color: #555; padding-left: 14px; }
+
+  .add-btn { position: fixed; bottom: 24px; right: 24px; background: #2c2c2c; color: white; border: none; border-radius: 50%; width: 52px; height: 52px; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; }
+  .add-btn:hover { background: #444; }
+
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; justify-content: center; align-items: flex-start; padding: 20px; overflow-y: auto; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: white; border-radius: 12px; padding: 24px; width: 100%; max-width: 620px; margin: auto; }
+  .modal h2 { margin-bottom: 16px; font-size: 1.1rem; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-group { display: flex; flex-direction: column; gap: 4px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; font-weight: 600; }
+  .form-group input, .form-group select, .form-group textarea { padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.85rem; font-family: inherit; }
+  .form-group textarea { resize: vertical; min-height: 60px; }
+  .modal-actions { display: flex; gap: 10px; margin-top: 16px; justify-content: flex-end; }
+  .btn-save { padding: 8px 20px; background: #2c2c2c; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
+  .btn-cancel { padding: 8px 20px; background: #eee; color: #333; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
+  .btn-delete { padding: 8px 20px; background: #c0392b; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin-right: auto; }
+
+  .empty-state { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #aaa; }
+  .empty-state p { font-size: 1rem; margin-top: 8px; }
+
+  .section-divider { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #aaa; font-weight: 600; grid-column: 1 / -1; margin-top: 4px; border-top: 1px solid #eee; padding-top: 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏡 Skinner House Search</h1>
+  <span id="last-updated">0 properties</span>
+</header>
+
+<div class="filters">
+  <div class="filter-group">
+    <label>Max Price</label>
+    <input type="range" id="f-price" min="200000" max="1200000" step="25000" value="1200000">
+    <div class="price-display" id="price-display">Up to £1,200,000</div>
+  </div>
+  <div class="filter-group">
+    <label>Min Beds</label>
+    <select id="f-beds">
+      <option value="0">Any</option>
+      <option value="4" selected>4+</option>
+      <option value="5">5+</option>
+      <option value="6">6+</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Min Baths</label>
+    <select id="f-baths">
+      <option value="0">Any</option>
+      <option value="2" selected>2+</option>
+      <option value="3">3+</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Property Type</label>
+    <select id="f-type">
+      <option value="">Any</option>
+      <option value="Detached">Detached</option>
+      <option value="Semi">Semi-detached</option>
+      <option value="Barn">Barn</option>
+      <option value="Cottage">Cottage</option>
+      <option value="Farmhouse">Farmhouse</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Area</label>
+    <select id="f-area">
+      <option value="">All Areas</option>
+      <option value="Cheltenham">Cheltenham</option>
+      <option value="Prestbury">Prestbury</option>
+      <option value="Bishops Cleeve">Bishops Cleeve</option>
+      <option value="Bredon">Bredon</option>
+      <option value="Severhampton">Severhampton</option>
+      <option value="Winchcombe">Winchcombe</option>
+      <option value="Shurdington">Shurdington</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Garden</label>
+    <select id="f-garden">
+      <option value="">Any</option>
+      <option value="Yes">Must have</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Outbuildings</label>
+    <select id="f-outbuildings">
+      <option value="">Any</option>
+      <option value="Yes">Must have</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Primary School</label>
+    <select id="f-school">
+      <option value="">Any</option>
+      <option value="Outstanding">Outstanding</option>
+      <option value="Good">Good+</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Status</label>
+    <select id="f-status">
+      <option value="">All</option>
+      <option value="New">New</option>
+      <option value="Viewing Booked">Viewing Booked</option>
+      <option value="Viewed">Viewed</option>
+      <option value="Interested">Interested</option>
+      <option value="Offer Made">Offer Made</option>
+      <option value="Rejected">Rejected</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Min Rating</label>
+    <select id="f-rating">
+      <option value="0">Any</option>
+      <option value="3">3+ ⭐</option>
+      <option value="4">4+ ⭐</option>
+      <option value="5">5 ⭐</option>
+    </select>
+  </div>
+  <button class="reset-btn" onclick="resetFilters()">Reset</button>
+</div>
+
+<div class="stats-bar" id="stats-bar">Showing 0 properties</div>
+
+<div class="grid" id="grid"></div>
+
+<button class="add-btn" onclick="openModal()" title="Add property">+</button>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h2 id="modal-title">Add Property</h2>
+    <div class="form-grid">
+      <div class="section-divider">📍 Property Details</div>
+      <div class="form-group full">
+        <label>Address</label>
+        <input type="text" id="f-address" placeholder="123 Example Lane">
+      </div>
+      <div class="form-group">
+        <label>Town / Village</label>
+        <input type="text" id="f-town" placeholder="Prestbury">
+      </div>
+      <div class="form-group">
+        <label>Postcode</label>
+        <input type="text" id="f-postcode" placeholder="GL52 3XX">
+      </div>
+      <div class="form-group">
+        <label>Asking Price (£)</label>
+        <input type="number" id="f-asking-price" placeholder="850000">
+      </div>
+      <div class="form-group">
+        <label>Price Reduced?</label>
+        <select id="f-price-reduced">
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Beds</label>
+        <input type="number" id="f-beds-count" placeholder="4" min="1">
+      </div>
+      <div class="form-group">
+        <label>Baths</label>
+        <input type="number" id="f-baths-count" placeholder="2" min="1">
+      </div>
+      <div class="form-group">
+        <label>Reception Rooms</label>
+        <input type="number" id="f-receptions" placeholder="3" min="0">
+      </div>
+      <div class="form-group">
+        <label>Property Type</label>
+        <select id="f-prop-type">
+          <option>Detached</option>
+          <option>Semi-detached</option>
+          <option>Terraced</option>
+          <option>Barn</option>
+          <option>Cottage</option>
+          <option>Farmhouse</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tenure</label>
+        <select id="f-tenure">
+          <option>Freehold</option>
+          <option>Leasehold</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>New Build?</label>
+        <select id="f-new-build">
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+      </div>
+
+      <div class="section-divider">🌳 Garden & Grounds</div>
+      <div class="form-group">
+        <label>Garden</label>
+        <select id="f-garden-yn">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Garden Size</label>
+        <input type="text" id="f-garden-size" placeholder="Large / 0.5 acres">
+      </div>
+      <div class="form-group">
+        <label>Outbuildings</label>
+        <select id="f-out-yn">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Outbuilding Details</label>
+        <input type="text" id="f-out-detail" placeholder="Barn, Workshop, Store">
+      </div>
+      <div class="form-group">
+        <label>Driveway</label>
+        <select id="f-drive">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Garage</label>
+        <select id="f-garage">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label>Other Features</label>
+        <input type="text" id="f-other" placeholder="Pool, annexe, tennis court...">
+      </div>
+
+      <div class="section-divider">🗺️ Location</div>
+      <div class="form-group">
+        <label>Distance to Cheltenham (miles)</label>
+        <input type="number" id="f-distance" placeholder="1.8" step="0.1">
+      </div>
+      <div class="form-group">
+        <label>Rural / Suburban / Village</label>
+        <select id="f-rural">
+          <option>Rural</option>
+          <option>Village</option>
+          <option>Suburban</option>
+          <option>Town</option>
+        </select>
+      </div>
+
+      <div class="section-divider">🏫 Schools</div>
+      <div class="form-group">
+        <label>Nearest Primary School</label>
+        <input type="text" id="f-pri-school">
+      </div>
+      <div class="form-group">
+        <label>Primary Ofsted</label>
+        <select id="f-pri-ofsted">
+          <option value="">Unknown</option>
+          <option>Outstanding</option>
+          <option>Good</option>
+          <option>Requires Improvement</option>
+          <option>Inadequate</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Primary Distance (miles)</label>
+        <input type="number" id="f-pri-dist" step="0.1">
+      </div>
+      <div class="form-group">
+        <label>Nearest Secondary School</label>
+        <input type="text" id="f-sec-school">
+      </div>
+      <div class="form-group">
+        <label>Secondary Ofsted</label>
+        <select id="f-sec-ofsted">
+          <option value="">Unknown</option>
+          <option>Outstanding</option>
+          <option>Good</option>
+          <option>Requires Improvement</option>
+          <option>Inadequate</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Secondary Distance (miles)</label>
+        <input type="number" id="f-sec-dist" step="0.1">
+      </div>
+
+      <div class="section-divider">🏠 Listing</div>
+      <div class="form-group">
+        <label>Estate Agent</label>
+        <input type="text" id="f-agent" placeholder="Hamptons">
+      </div>
+      <div class="form-group">
+        <label>Date Listed</label>
+        <input type="date" id="f-date-listed">
+      </div>
+      <div class="form-group full">
+        <label>Rightmove Link</label>
+        <input type="url" id="f-rm-link" placeholder="https://www.rightmove.co.uk/...">
+      </div>
+      <div class="form-group full">
+        <label>Zoopla Link</label>
+        <input type="url" id="f-zp-link">
+      </div>
+      <div class="form-group full">
+        <label>OnTheMarket Link</label>
+        <input type="url" id="f-otm-link">
+      </div>
+
+      <div class="section-divider">✅ Your Assessment</div>
+      <div class="form-group">
+        <label>Status</label>
+        <select id="f-stat">
+          <option>New</option>
+          <option>Viewing Booked</option>
+          <option>Viewed</option>
+          <option>Interested</option>
+          <option>Offer Made</option>
+          <option>Rejected</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Viewing Date</label>
+        <input type="date" id="f-view-date">
+      </div>
+      <div class="form-group">
+        <label>Our Rating (1-5)</label>
+        <select id="f-our-rating">
+          <option value="">—</option>
+          <option value="1">1 ⭐</option>
+          <option value="2">2 ⭐</option>
+          <option value="3">3 ⭐</option>
+          <option value="4">4 ⭐</option>
+          <option value="5">5 ⭐</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label>Pros</label>
+        <textarea id="f-pros" placeholder="One per line"></textarea>
+      </div>
+      <div class="form-group full">
+        <label>Cons</label>
+        <textarea id="f-cons" placeholder="One per line"></textarea>
+      </div>
+      <div class="form-group full">
+        <label>Notes</label>
+        <textarea id="f-notes"></textarea>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-delete" id="btn-delete" onclick="deleteProperty()" style="display:none">Delete</button>
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-save" onclick="saveProperty()">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let properties = JSON.parse(localStorage.getItem('house-search-v1') || '[]');
+  let editingId = null;
+
+  function save() {
+    localStorage.setItem('house-search-v1', JSON.stringify(properties));
+  }
+
+  function fmt(n) {
+    if (!n) return '—';
+    return '£' + Number(n).toLocaleString('en-GB');
+  }
+
+  function stars(n) {
+    if (!n) return '';
+    return '⭐'.repeat(Number(n));
+  }
+
+  function ofstedClass(o) {
+    if (!o) return '';
+    if (o === 'Outstanding') return 'ofsted-outstanding';
+    if (o === 'Good') return 'ofsted-good';
+    if (o === 'Requires Improvement') return 'ofsted-ri';
+    if (o === 'Inadequate') return 'ofsted-inadequate';
+    return '';
+  }
+
+  function statusClass(s) {
+    const map = { 'New': 'new', 'Viewing Booked': 'viewing', 'Viewed': 'viewed', 'Interested': 'interested', 'Offer Made': 'offer', 'Rejected': 'rejected' };
+    return 'status-' + (map[s] || 'new');
+  }
+
+  function getFilters() {
+    return {
+      price: parseInt(document.getElementById('f-price').value),
+      beds: parseInt(document.getElementById('f-beds').value),
+      baths: parseInt(document.getElementById('f-baths').value),
+      type: document.getElementById('f-type').value,
+      area: document.getElementById('f-area').value,
+      garden: document.getElementById('f-garden').value,
+      outbuildings: document.getElementById('f-outbuildings').value,
+      school: document.getElementById('f-school').value,
+      status: document.getElementById('f-status').value,
+      rating: parseInt(document.getElementById('f-rating').value) || 0,
+    };
+  }
+
+  function matchesFilters(p, f) {
+    if (p.askingPrice && p.askingPrice > f.price) return false;
+    if (f.beds && (!p.beds || p.beds < f.beds)) return false;
+    if (f.baths && (!p.baths || p.baths < f.baths)) return false;
+    if (f.type && p.propType !== f.type) return false;
+    if (f.area && p.town !== f.area) return false;
+    if (f.garden && p.garden !== 'Yes') return false;
+    if (f.outbuildings && p.outbuildings !== 'Yes') return false;
+    if (f.school === 'Outstanding' && p.priOfsted !== 'Outstanding') return false;
+    if (f.school === 'Good' && !['Outstanding', 'Good'].includes(p.priOfsted)) return false;
+    if (f.status && p.status !== f.status) return false;
+    if (f.rating && (!p.rating || p.rating < f.rating)) return false;
+    return true;
+  }
+
+  function render() {
+    const f = getFilters();
+    const filtered = properties.filter(p => matchesFilters(p, f));
+    const grid = document.getElementById('grid');
+    document.getElementById('stats-bar').textContent = `Showing ${filtered.length} of ${properties.length} properties`;
+    document.getElementById('last-updated').textContent = `${properties.length} properties`;
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `<div class="empty-state"><div style="font-size:3rem">🏡</div><p>${properties.length === 0 ? 'No properties yet — click + to add your first listing' : 'No properties match your filters'}</p></div>`;
+      return;
+    }
+
+    grid.innerHTML = filtered.map(p => `
+      <div class="card" onclick="openModal('${p.id}')">
+        <div class="card-header">
+          <div class="card-address">${p.address || 'Address TBC'}</div>
+          <div class="card-location">${[p.town, p.postcode].filter(Boolean).join(' · ')}</div>
+          <div class="card-price">${fmt(p.askingPrice)}${p.priceReduced === 'Yes' ? '<span class="price-reduced">REDUCED</span>' : ''}</div>
+        </div>
+        <div class="card-body">
+          <div class="specs">
+            ${p.beds ? `<div class="spec">🛏 <strong>${p.beds}</strong> beds</div>` : ''}
+            ${p.baths ? `<div class="spec">🚿 <strong>${p.baths}</strong> baths</div>` : ''}
+            ${p.receptions ? `<div class="spec">🛋 <strong>${p.receptions}</strong> recep</div>` : ''}
+            ${p.propType ? `<div class="spec">🏠 ${p.propType}</div>` : ''}
+            ${p.distance ? `<div class="spec">📍 <strong>${p.distance}mi</strong> Cheltenham</div>` : ''}
+          </div>
+          <div class="tags">
+            ${p.garden === 'Yes' ? '<span class="tag tag-yes">Garden ✓</span>' : ''}
+            ${p.outbuildings === 'Yes' ? `<span class="tag tag-yes">Outbuildings ✓</span>` : ''}
+            ${p.driveway === 'Yes' ? '<span class="tag tag-yes">Driveway ✓</span>' : ''}
+            ${p.garage === 'Yes' ? '<span class="tag tag-yes">Garage ✓</span>' : ''}
+            ${p.tenure ? `<span class="tag tag-neutral">${p.tenure}</span>` : ''}
+          </div>
+          ${p.priSchool ? `<div class="school-info">🏫 ${p.priSchool} — <span class="${ofstedClass(p.priOfsted)}">${p.priOfsted || '?'}</span>${p.priDist ? ` · ${p.priDist}mi` : ''}</div>` : ''}
+          ${p.other ? `<div class="school-info" style="color:#555">✨ ${p.other}</div>` : ''}
+        </div>
+        ${(p.pros || p.cons) ? `<div class="pros-cons">
+          ${p.pros ? `<div class="pros"><h4>Pros</h4><ul>${p.pros.split('\n').filter(Boolean).map(l=>`<li>${l}</li>`).join('')}</ul></div>` : '<div></div>'}
+          ${p.cons ? `<div class="cons"><h4>Cons</h4><ul>${p.cons.split('\n').filter(Boolean).map(l=>`<li>${l}</li>`).join('')}</ul></div>` : '<div></div>'}
+        </div>` : ''}
+        ${p.notes ? `<div class="notes-section">${p.notes}</div>` : ''}
+        <div class="card-footer">
+          <span class="status-badge ${statusClass(p.status)}">${p.status || 'New'}</span>
+          <span class="rating">${stars(p.rating)}</span>
+          <div class="links">
+            ${p.rmLink ? `<a href="${p.rmLink}" target="_blank" onclick="e=>e.stopPropagation()">RM</a>` : ''}
+            ${p.zpLink ? `<a href="${p.zpLink}" target="_blank" onclick="e=>e.stopPropagation()">ZP</a>` : ''}
+            ${p.otmLink ? `<a href="${p.otmLink}" target="_blank" onclick="e=>e.stopPropagation()">OTM</a>` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function openModal(id) {
+    editingId = id || null;
+    const p = id ? properties.find(x => x.id === id) : {};
+    document.getElementById('modal-title').textContent = id ? 'Edit Property' : 'Add Property';
+    document.getElementById('btn-delete').style.display = id ? 'block' : 'none';
+
+    const fields = {
+      'f-address': p.address || '', 'f-town': p.town || '', 'f-postcode': p.postcode || '',
+      'f-asking-price': p.askingPrice || '', 'f-price-reduced': p.priceReduced || 'No',
+      'f-beds-count': p.beds || '', 'f-baths-count': p.baths || '', 'f-receptions': p.receptions || '',
+      'f-prop-type': p.propType || 'Detached', 'f-tenure': p.tenure || 'Freehold', 'f-new-build': p.newBuild || 'No',
+      'f-garden-yn': p.garden || 'Yes', 'f-garden-size': p.gardenSize || '', 'f-out-yn': p.outbuildings || 'No',
+      'f-out-detail': p.outbuildingDetail || '', 'f-drive': p.driveway || 'Yes', 'f-garage': p.garage || 'No',
+      'f-other': p.other || '', 'f-distance': p.distance || '', 'f-rural': p.rural || 'Village',
+      'f-pri-school': p.priSchool || '', 'f-pri-ofsted': p.priOfsted || '', 'f-pri-dist': p.priDist || '',
+      'f-sec-school': p.secSchool || '', 'f-sec-ofsted': p.secOfsted || '', 'f-sec-dist': p.secDist || '',
+      'f-agent': p.agent || '', 'f-date-listed': p.dateListed || '',
+      'f-rm-link': p.rmLink || '', 'f-zp-link': p.zpLink || '', 'f-otm-link': p.otmLink || '',
+      'f-stat': p.status || 'New', 'f-view-date': p.viewDate || '', 'f-our-rating': p.rating || '',
+      'f-pros': p.pros || '', 'f-cons': p.cons || '', 'f-notes': p.notes || '',
+    };
+    for (const [id, val] of Object.entries(fields)) {
+      const el = document.getElementById(id);
+      if (el) el.value = val;
+    }
+    document.getElementById('modal').classList.add('open');
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    editingId = null;
+  }
+
+  function saveProperty() {
+    const p = {
+      id: editingId || Date.now().toString(),
+      address: document.getElementById('f-address').value,
+      town: document.getElementById('f-town').value,
+      postcode: document.getElementById('f-postcode').value,
+      askingPrice: parseFloat(document.getElementById('f-asking-price').value) || null,
+      priceReduced: document.getElementById('f-price-reduced').value,
+      beds: parseInt(document.getElementById('f-beds-count').value) || null,
+      baths: parseInt(document.getElementById('f-baths-count').value) || null,
+      receptions: parseInt(document.getElementById('f-receptions').value) || null,
+      propType: document.getElementById('f-prop-type').value,
+      tenure: document.getElementById('f-tenure').value,
+      newBuild: document.getElementById('f-new-build').value,
+      garden: document.getElementById('f-garden-yn').value,
+      gardenSize: document.getElementById('f-garden-size').value,
+      outbuildings: document.getElementById('f-out-yn').value,
+      outbuildingDetail: document.getElementById('f-out-detail').value,
+      driveway: document.getElementById('f-drive').value,
+      garage: document.getElementById('f-garage').value,
+      other: document.getElementById('f-other').value,
+      distance: parseFloat(document.getElementById('f-distance').value) || null,
+      rural: document.getElementById('f-rural').value,
+      priSchool: document.getElementById('f-pri-school').value,
+      priOfsted: document.getElementById('f-pri-ofsted').value,
+      priDist: parseFloat(document.getElementById('f-pri-dist').value) || null,
+      secSchool: document.getElementById('f-sec-school').value,
+      secOfsted: document.getElementById('f-sec-ofsted').value,
+      secDist: parseFloat(document.getElementById('f-sec-dist').value) || null,
+      agent: document.getElementById('f-agent').value,
+      dateListed: document.getElementById('f-date-listed').value,
+      rmLink: document.getElementById('f-rm-link').value,
+      zpLink: document.getElementById('f-zp-link').value,
+      otmLink: document.getElementById('f-otm-link').value,
+      status: document.getElementById('f-stat').value,
+      viewDate: document.getElementById('f-view-date').value,
+      rating: parseInt(document.getElementById('f-our-rating').value) || null,
+      pros: document.getElementById('f-pros').value,
+      cons: document.getElementById('f-cons').value,
+      notes: document.getElementById('f-notes').value,
+    };
+
+    if (editingId) {
+      const idx = properties.findIndex(x => x.id === editingId);
+      if (idx >= 0) properties[idx] = p;
+    } else {
+      properties.push(p);
+    }
+    save();
+    closeModal();
+    render();
+  }
+
+  function deleteProperty() {
+    if (!editingId) return;
+    if (!confirm('Delete this property?')) return;
+    properties = properties.filter(x => x.id !== editingId);
+    save();
+    closeModal();
+    render();
+  }
+
+  function resetFilters() {
+    document.getElementById('f-price').value = 1200000;
+    document.getElementById('price-display').textContent = 'Up to £1,200,000';
+    document.getElementById('f-beds').value = '4';
+    document.getElementById('f-baths').value = '2';
+    document.getElementById('f-type').value = '';
+    document.getElementById('f-area').value = '';
+    document.getElementById('f-garden').value = '';
+    document.getElementById('f-outbuildings').value = '';
+    document.getElementById('f-school').value = '';
+    document.getElementById('f-status').value = '';
+    document.getElementById('f-rating').value = '0';
+    render();
+  }
+
+  document.getElementById('f-price').addEventListener('input', function() {
+    document.getElementById('price-display').textContent = 'Up to £' + Number(this.value).toLocaleString('en-GB');
+    render();
+  });
+
+  ['f-beds','f-baths','f-type','f-area','f-garden','f-outbuildings','f-school','f-status','f-rating'].forEach(id => {
+    document.getElementById(id).addEventListener('change', render);
+  });
+
+  document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  render();
+</script>
+</body>
+</html>
