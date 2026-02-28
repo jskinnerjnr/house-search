@@ -363,8 +363,9 @@ var OFSTED_SEC = {
 };
 
 function getCatchmentHTML(postcode) {
-  if (!postcode) return '';
+  if (!postcode || postcode.length < 5) return '';
   var pc = postcode.toUpperCase().replace(/\s/g,'');
+  if (pc.length < 5) return '';
   var sector = pc.slice(0,5);
   var pri = CATCHMENT_PRI[sector] || null;
   var sec = CATCHMENT_SEC[sector] || null;
@@ -390,8 +391,8 @@ function getFilters() {
     baths: parseInt(document.getElementById('f-baths').value),
     type: document.getElementById('f-type').value,
     radius: parseFloat(document.getElementById('f-radius').value),
-    garden: document.getElementById('f-garden').value,
-    outbuildings: document.getElementById('f-outbuildings').value,
+    garden: document.getElementById('f-garden').value || '',
+    outbuildings: document.getElementById('f-outbuildings').value || '',
     school: document.getElementById('f-school').value,
     secSchool: document.getElementById('f-sec-school').value,
     status: document.getElementById('f-status').value,
@@ -405,9 +406,9 @@ function matchesFilters(p, f) {
   if (f.beds && (!p.beds || p.beds < f.beds)) return false;
   if (f.baths && p.baths && p.baths < f.baths) return false;
   if (f.type && p.propType !== f.type) return false;
-  if (f.radius && f.radius < 20 && p.distMiles && p.distMiles > f.radius) return false;
-  if (f.garden && p.garden !== 'Yes') return false;
-  if (f.outbuildings && p.outbuildings !== 'Yes') return false;
+  if (f.radius < 20 && p.distMiles != null && p.distMiles > f.radius) return false;
+  if (f.garden === 'Yes' && p.garden !== 'Yes') return false;
+  if (f.outbuildings === 'Yes' && p.outbuildings !== 'Yes') return false;
   if (f.status && p.status !== f.status) return false;
   if (f.rating && (!p.rating || p.rating < f.rating)) return false;
   // School filters using catchment data
