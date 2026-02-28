@@ -146,17 +146,9 @@
     </select>
   </div>
   <div class="filter-group">
-    <label>Area</label>
-    <select id="f-area">
-      <option value="">All Areas</option>
-      <option value="Cheltenham">Cheltenham</option>
-      <option value="Prestbury">Prestbury</option>
-      <option value="Bishops Cleeve">Bishops Cleeve</option>
-      <option value="Bredon">Bredon</option>
-      <option value="Severhampton">Severhampton</option>
-      <option value="Winchcombe">Winchcombe</option>
-      <option value="Shurdington">Shurdington</option>
-    </select>
+    <label>Max Distance from Cheltenham</label>
+    <input type="range" id="f-radius" min="2" max="20" step="2" value="20">
+    <div class="price-display" id="radius-display">Within 20 miles</div>
   </div>
   <div class="filter-group">
     <label>Garden</label>
@@ -397,7 +389,7 @@ function getFilters() {
     beds: parseInt(document.getElementById('f-beds').value),
     baths: parseInt(document.getElementById('f-baths').value),
     type: document.getElementById('f-type').value,
-    area: document.getElementById('f-area').value,
+    radius: parseFloat(document.getElementById('f-radius').value),
     garden: document.getElementById('f-garden').value,
     outbuildings: document.getElementById('f-outbuildings').value,
     school: document.getElementById('f-school').value,
@@ -413,7 +405,7 @@ function matchesFilters(p, f) {
   if (f.beds && (!p.beds || p.beds < f.beds)) return false;
   if (f.baths && p.baths && p.baths < f.baths) return false;
   if (f.type && p.propType !== f.type) return false;
-  if (f.area && p.town !== f.area) return false;
+  if (f.radius && f.radius < 20 && p.distMiles && p.distMiles > f.radius) return false;
   if (f.garden && p.garden !== 'Yes') return false;
   if (f.outbuildings && p.outbuildings !== 'Yes') return false;
   if (f.status && p.status !== f.status) return false;
@@ -481,7 +473,7 @@ function render() {
     if (p.baths) specs += '<div class="spec">🚿 <strong>' + p.baths + '</strong> baths</div>';
     if (p.receptions) specs += '<div class="spec">🛋 <strong>' + p.receptions + '</strong> recep</div>';
     if (p.propType) specs += '<div class="spec">🏠 ' + p.propType + '</div>';
-    if (p.distance) specs += '<div class="spec">📍 <strong>' + p.distance + 'mi</strong></div>';
+    if (p.distMiles) specs += '<div class="spec">📍 <strong>' + p.distMiles + 'mi</strong> from Cheltenham</div>';
     var prosCons = '';
     if (p.pros || p.cons) {
       prosCons = '<div class="pros-cons">';
@@ -675,9 +667,11 @@ function deleteProperty() {
 function resetFilters() {
   document.getElementById('f-price').value = 1200000;
   document.getElementById('price-display').textContent = 'Up to £1,200,000';
-  ['f-beds','f-baths','f-type','f-area','f-garden','f-outbuildings','f-school','f-sec-school','f-status','f-sort'].forEach(function(id){
+  document.getElementById('f-radius').value = 20;
+  document.getElementById('radius-display').textContent = 'Within 20 miles';
+  ['f-beds','f-baths','f-type','f-garden','f-outbuildings','f-school','f-sec-school','f-status','f-sort'].forEach(function(id){
     var el = document.getElementById(id);
-    if (el) { el.value = id==='f-beds'?'4':id==='f-sort'?'default':'0'===el.options?'0':''; }
+    if (el) el.value = id==='f-beds'?'4':id==='f-sort'?'price-desc':'';
   });
   document.getElementById('f-beds').value = '4';
   document.getElementById('f-rating').value = '0';
@@ -689,7 +683,11 @@ document.getElementById('f-price').addEventListener('input', function() {
   document.getElementById('price-display').textContent = 'Up to £' + Number(this.value).toLocaleString('en-GB');
   render();
 });
-['f-beds','f-baths','f-type','f-area','f-garden','f-outbuildings','f-school','f-sec-school','f-status','f-rating','f-sort'].forEach(function(id) {
+document.getElementById('f-radius').addEventListener('input', function() {
+  document.getElementById('radius-display').textContent = 'Within ' + this.value + ' miles';
+  render();
+});
+['f-beds','f-baths','f-type','f-garden','f-outbuildings','f-school','f-sec-school','f-status','f-rating','f-sort'].forEach(function(id) {
   var el = document.getElementById(id);
   if (el) el.addEventListener('change', render);
 });
