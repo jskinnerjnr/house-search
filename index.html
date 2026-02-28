@@ -211,8 +211,8 @@
     <label>Sort By</label>
     <select id="f-sort">
       <option value="default">Default</option>
-      <option value="price-asc">Price: Low to High</option>
-      <option value="price-desc">Price: High to Low</option>
+<option value="price-asc">Price: Low to High</option>
+      <option value="price-desc" selected>Price: High to Low</option>
       <option value="beds-desc">Most Beds</option>
       <option value="rating-desc">My Rating</option>
       <option value="school-dist">School Distance</option>
@@ -677,7 +677,7 @@ function resetFilters() {
   });
   document.getElementById('f-beds').value = '4';
   document.getElementById('f-rating').value = '0';
-  document.getElementById('f-sort').value = 'default';
+  document.getElementById('f-sort').value = 'price-desc';
   render();
 }
 
