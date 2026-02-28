@@ -4,17 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>😬 Wrong Move</title>
-<!-- deploy-2 -->
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; color: #2c2c2c; }
-  
   header { background: #2c2c2c; color: white; display: flex; flex-direction: column; }
   .header-img { width: 100%; height: 160px; object-fit: cover; object-position: center 40%; display: block; }
   .header-bar { padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
   header h1 { font-size: 1.4rem; font-weight: 600; }
   header span { font-size: 0.85rem; opacity: 0.6; }
-
   .filters { background: white; padding: 16px 24px; border-bottom: 1px solid #e0e0e0; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
   .filter-group { display: flex; flex-direction: column; gap: 4px; }
   .filter-group label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; font-weight: 600; }
@@ -23,61 +20,30 @@
   .price-display { font-size: 0.8rem; color: #555; margin-top: 2px; }
   .reset-btn { padding: 7px 16px; background: #2c2c2c; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
   .reset-btn:hover { background: #444; }
-
   .stats-bar { padding: 10px 24px; background: #f5f4f0; font-size: 0.82rem; color: #666; border-bottom: 1px solid #e0e0e0; }
-
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; padding: 20px 24px; }
-
   .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); transition: box-shadow 0.2s; }
   .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-
   .card-img { width: 100%; height: 200px; object-fit: cover; display: block; background: #f0f0f0; cursor: zoom-in; }
-
-  /* LIGHTBOX */
-  .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:300; justify-content:center; align-items:center; flex-direction:column; }
-  .lightbox.open { display:flex; }
-  .lightbox-img { max-width:90vw; max-height:80vh; object-fit:contain; border-radius:8px; }
-  .lightbox-close { position:fixed; top:16px; right:20px; color:white; font-size:2rem; cursor:pointer; z-index:301; }
-  .lightbox-prev, .lightbox-next { position:fixed; top:50%; transform:translateY(-50%); color:white; font-size:2rem; cursor:pointer; background:rgba(255,255,255,0.1); border:none; padding:10px 16px; border-radius:8px; z-index:301; }
-  .lightbox-prev { left:12px; }
-  .lightbox-next { right:12px; }
-  .lightbox-thumbs { display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; justify-content:center; max-width:90vw; }
-  .lightbox-thumb { width:60px; height:45px; object-fit:cover; border-radius:4px; cursor:pointer; opacity:0.6; border:2px solid transparent; }
-  .lightbox-thumb.active { opacity:1; border-color:white; }
-  .lightbox-caption { color:rgba(255,255,255,0.7); font-size:0.8rem; margin-top:6px; }
-  .lightbox-tabs { display:flex; gap:8px; margin-bottom:10px; }
-  .lightbox-tab { padding:5px 14px; background:rgba(255,255,255,0.15); color:white; border:none; border-radius:6px; cursor:pointer; font-size:0.82rem; }
-  .lightbox-tab.active { background:white; color:#2c2c2c; font-weight:600; }
-  /* Card photo click indicator */
-  .card-img { cursor:zoom-in; }
-  .card-img-placeholder { cursor:default; }
-
-  .card-img-placeholder { width: 100%; height: 160px; background: linear-gradient(135deg, #f0f0f0, #e0e0e0); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #ccc; }
+  .card-img-placeholder { width: 100%; height: 120px; background: linear-gradient(135deg,#f0f0f0,#e0e0e0); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #ccc; }
   .card-header { padding: 14px 16px 10px; border-bottom: 1px solid #f0f0f0; }
   .card-address { font-weight: 600; font-size: 0.95rem; }
   .card-location { font-size: 0.8rem; color: #777; margin-top: 2px; }
   .card-price { font-size: 1.1rem; font-weight: 700; color: #2c2c2c; margin-top: 6px; }
   .price-reduced { font-size: 0.72rem; background: #ff6b35; color: white; padding: 2px 6px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
-
   .card-body { padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
-  
   .specs { display: flex; gap: 12px; flex-wrap: wrap; }
   .spec { font-size: 0.8rem; color: #555; display: flex; align-items: center; gap: 4px; }
   .spec strong { color: #2c2c2c; }
-
   .tags { display: flex; gap: 6px; flex-wrap: wrap; }
   .tag { font-size: 0.72rem; padding: 2px 8px; border-radius: 12px; font-weight: 500; }
   .tag-yes { background: #e6f4ea; color: #2d7a3a; }
-  .tag-no { background: #f4e6e6; color: #a33; }
   .tag-neutral { background: #eee; color: #555; }
-
   .school-info { font-size: 0.78rem; color: #555; }
-  .school-info span { font-weight: 600; }
-  .ofsted-outstanding { color: #1a7340; }
-  .ofsted-good { color: #2e7bb5; }
-  .ofsted-ri { color: #c87000; }
-  .ofsted-inadequate { color: #c0392b; }
-
+  .school-info a { color: #888; }
+  .ofsted-outstanding { color: #1a7340; font-weight: 600; }
+  .ofsted-good { color: #2e7bb5; font-weight: 600; }
+  .ofsted-ri { color: #c87000; font-weight: 600; }
   .card-footer { padding: 10px 16px; border-top: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
   .status-badge { font-size: 0.72rem; padding: 3px 10px; border-radius: 12px; font-weight: 600; }
   .status-new { background: #e3f2fd; color: #1565c0; }
@@ -86,22 +52,18 @@
   .status-interested { background: #e8f5e9; color: #2e7d32; }
   .status-offer { background: #fce4ec; color: #c62828; }
   .status-rejected { background: #eeeeee; color: #757575; }
-
   .rating { color: #f5a623; font-size: 0.9rem; }
-  .links { display: flex; gap: 8px; }
+  .links { display: flex; gap: 6px; flex-wrap: wrap; }
   .links a { font-size: 0.72rem; color: #2c2c2c; text-decoration: none; padding: 2px 8px; border: 1px solid #ddd; border-radius: 4px; }
   .links a:hover { background: #f0f0f0; }
-
-  .notes-section { padding: 0 16px 12px; font-size: 0.78rem; color: #666; font-style: italic; }
+  .links a.plan-btn { background: #2c2c2c; color: white; border-color: #2c2c2c; }
   .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 16px 12px; }
   .pros h4, .cons h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
   .pros h4 { color: #2d7a3a; }
   .cons h4 { color: #a33; }
   .pros ul, .cons ul { font-size: 0.78rem; color: #555; padding-left: 14px; }
-
+  .notes-section { padding: 0 16px 12px; font-size: 0.78rem; color: #666; font-style: italic; }
   .add-btn { position: fixed; bottom: 24px; right: 24px; background: #2c2c2c; color: white; border: none; border-radius: 50%; width: 52px; height: 52px; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; }
-  .add-btn:hover { background: #444; }
-
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; justify-content: center; align-items: flex-start; padding: 20px; overflow-y: auto; }
   .modal-overlay.open { display: flex; }
   .modal { background: white; border-radius: 12px; padding: 24px; width: 100%; max-width: 620px; margin: auto; }
@@ -116,11 +78,24 @@
   .btn-save { padding: 8px 20px; background: #2c2c2c; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
   .btn-cancel { padding: 8px 20px; background: #eee; color: #333; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
   .btn-delete { padding: 8px 20px; background: #c0392b; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin-right: auto; }
-
-  .empty-state { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #aaa; }
-  .empty-state p { font-size: 1rem; margin-top: 8px; }
-
   .section-divider { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #aaa; font-weight: 600; grid-column: 1 / -1; margin-top: 4px; border-top: 1px solid #eee; padding-top: 8px; }
+  .empty-state { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #aaa; }
+
+  /* LIGHTBOX */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 300; flex-direction: column; align-items: center; justify-content: center; }
+  .lightbox.open { display: flex; }
+  .lb-close { position: fixed; top: 16px; right: 20px; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; z-index: 301; }
+  .lb-prev, .lb-next { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); border: none; color: white; font-size: 2rem; cursor: pointer; padding: 10px 16px; border-radius: 8px; z-index: 301; }
+  .lb-prev { left: 12px; }
+  .lb-next { right: 12px; }
+  .lb-tabs { display: flex; gap: 8px; margin-bottom: 10px; }
+  .lb-tab { padding: 5px 14px; background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.82rem; }
+  .lb-tab.active { background: white; color: #2c2c2c; font-weight: 600; }
+  .lb-img { max-width: 90vw; max-height: 75vh; object-fit: contain; border-radius: 6px; }
+  .lb-caption { color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-top: 8px; }
+  .lb-thumbs { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; justify-content: center; max-width: 90vw; }
+  .lb-thumb { width: 60px; height: 45px; object-fit: cover; border-radius: 4px; cursor: pointer; opacity: 0.5; border: 2px solid transparent; }
+  .lb-thumb.active { opacity: 1; border-color: white; }
 </style>
 </head>
 <body>
@@ -204,29 +179,11 @@
     </select>
   </div>
   <div class="filter-group">
-    <label>Primary Distance</label>
-    <select id="f-pri-dist-filter">
-      <option value="">Any</option>
-      <option value="0.5">Within 0.5mi</option>
-      <option value="1">Within 1mi</option>
-      <option value="2">Within 2mi</option>
-    </select>
-  </div>
-  <div class="filter-group">
     <label>Secondary School</label>
     <select id="f-sec-school">
       <option value="">Any Ofsted</option>
       <option value="Outstanding">Outstanding</option>
       <option value="Good">Good+</option>
-    </select>
-  </div>
-  <div class="filter-group">
-    <label>Secondary Distance</label>
-    <select id="f-sec-dist-filter">
-      <option value="">Any</option>
-      <option value="1">Within 1mi</option>
-      <option value="2">Within 2mi</option>
-      <option value="3">Within 3mi</option>
     </select>
   </div>
   <div class="filter-group">
@@ -252,261 +209,96 @@
   </div>
   <div class="filter-group">
     <label>Sort By</label>
-    <select id="f-sort" onchange="render()">
+    <select id="f-sort">
       <option value="default">Default</option>
       <option value="price-asc">Price: Low to High</option>
       <option value="price-desc">Price: High to Low</option>
       <option value="beds-desc">Most Beds</option>
       <option value="rating-desc">My Rating</option>
       <option value="school-dist">School Distance</option>
-      <option value="cheltenham-dist">Distance to Cheltenham</option>
     </select>
   </div>
   <button class="reset-btn" onclick="resetFilters()">Reset</button>
 </div>
 
 <div class="stats-bar" id="stats-bar">Showing 0 properties</div>
-
 <div class="grid" id="grid"></div>
-
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <button class="lightbox-prev" onclick="event.stopPropagation();lightboxNav(-1)">‹</button>
-  <button class="lightbox-next" onclick="event.stopPropagation();lightboxNav(1)">›</button>
-  <div class="lightbox-tabs" id="lb-tabs"></div>
-  <img class="lightbox-img" id="lightbox-img" src="" alt="">
-  <div class="lightbox-caption" id="lb-caption"></div>
-  <div class="lightbox-thumbs" id="lb-thumbs"></div>
-</div>
-
 <button class="add-btn" onclick="openModal()" title="Add property">+</button>
 
-<!-- Modal -->
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-prev" onclick="lbNav(-1)">&#8249;</button>
+  <button class="lb-next" onclick="lbNav(1)">&#8250;</button>
+  <div class="lb-tabs" id="lb-tabs"></div>
+  <img class="lb-img" id="lb-img" src="" alt="">
+  <div class="lb-caption" id="lb-caption"></div>
+  <div class="lb-thumbs" id="lb-thumbs"></div>
+</div>
+
+<!-- Add/Edit Modal -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <h2 id="modal-title">Add Property</h2>
     <div class="form-grid">
       <div class="section-divider">📍 Property Details</div>
-      <div class="form-group full">
-        <label>Address</label>
-        <input type="text" id="f-address" placeholder="123 Example Lane">
+      <div class="form-group full"><label>Address</label><input type="text" id="f-address" placeholder="123 Example Lane"></div>
+      <div class="form-group"><label>Town / Village</label><input type="text" id="f-town" placeholder="Prestbury"></div>
+      <div class="form-group"><label>Postcode</label><input type="text" id="f-postcode" placeholder="GL52 3XX"></div>
+      <div class="form-group"><label>Asking Price (£)</label><input type="number" id="f-asking-price" placeholder="850000"></div>
+      <div class="form-group"><label>Price Reduced?</label>
+        <select id="f-price-reduced"><option value="No">No</option><option value="Yes">Yes</option></select>
       </div>
-      <div class="form-group">
-        <label>Town / Village</label>
-        <input type="text" id="f-town" placeholder="Prestbury">
+      <div class="form-group"><label>Beds</label><input type="number" id="f-beds-count" placeholder="4" min="1"></div>
+      <div class="form-group"><label>Baths</label><input type="number" id="f-baths-count" placeholder="2" min="1"></div>
+      <div class="form-group"><label>Reception Rooms</label><input type="number" id="f-receptions" placeholder="3" min="0"></div>
+      <div class="form-group"><label>Property Type</label>
+        <select id="f-prop-type"><option>Detached</option><option>Semi-detached</option><option>Terraced</option><option>Barn</option><option>Cottage</option><option>Farmhouse</option><option>Other</option></select>
       </div>
-      <div class="form-group">
-        <label>Postcode</label>
-        <input type="text" id="f-postcode" placeholder="GL52 3XX">
+      <div class="form-group"><label>Tenure</label>
+        <select id="f-tenure"><option>Freehold</option><option>Leasehold</option></select>
       </div>
-      <div class="form-group">
-        <label>Asking Price (£)</label>
-        <input type="number" id="f-asking-price" placeholder="850000">
+      <div class="form-group"><label>New Build?</label>
+        <select id="f-new-build"><option value="No">No</option><option value="Yes">Yes</option></select>
       </div>
-      <div class="form-group">
-        <label>Price Reduced?</label>
-        <select id="f-price-reduced">
-          <option value="No">No</option>
-          <option value="Yes">Yes</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Beds</label>
-        <input type="number" id="f-beds-count" placeholder="4" min="1">
-      </div>
-      <div class="form-group">
-        <label>Baths</label>
-        <input type="number" id="f-baths-count" placeholder="2" min="1">
-      </div>
-      <div class="form-group">
-        <label>Reception Rooms</label>
-        <input type="number" id="f-receptions" placeholder="3" min="0">
-      </div>
-      <div class="form-group">
-        <label>Property Type</label>
-        <select id="f-prop-type">
-          <option>Detached</option>
-          <option>Semi-detached</option>
-          <option>Terraced</option>
-          <option>Barn</option>
-          <option>Cottage</option>
-          <option>Farmhouse</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Tenure</label>
-        <select id="f-tenure">
-          <option>Freehold</option>
-          <option>Leasehold</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>New Build?</label>
-        <select id="f-new-build">
-          <option value="No">No</option>
-          <option value="Yes">Yes</option>
-        </select>
-      </div>
-
       <div class="section-divider">🌳 Garden & Grounds</div>
-      <div class="form-group">
-        <label>Garden</label>
-        <select id="f-garden-yn">
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
+      <div class="form-group"><label>Garden</label>
+        <select id="f-garden-yn"><option value="Yes">Yes</option><option value="No">No</option></select>
       </div>
-      <div class="form-group">
-        <label>Garden Size</label>
-        <input type="text" id="f-garden-size" placeholder="Large / 0.5 acres">
+      <div class="form-group"><label>Garden Size</label><input type="text" id="f-garden-size" placeholder="Large / 0.5 acres"></div>
+      <div class="form-group"><label>Outbuildings</label>
+        <select id="f-out-yn"><option value="Yes">Yes</option><option value="No">No</option></select>
       </div>
-      <div class="form-group">
-        <label>Outbuildings</label>
-        <select id="f-out-yn">
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
+      <div class="form-group"><label>Outbuilding Details</label><input type="text" id="f-out-detail" placeholder="Barn, Workshop, Store"></div>
+      <div class="form-group"><label>Driveway</label>
+        <select id="f-drive"><option value="Yes">Yes</option><option value="No">No</option></select>
       </div>
-      <div class="form-group">
-        <label>Outbuilding Details</label>
-        <input type="text" id="f-out-detail" placeholder="Barn, Workshop, Store">
+      <div class="form-group"><label>Garage</label>
+        <select id="f-garage"><option value="Yes">Yes</option><option value="No">No</option></select>
       </div>
-      <div class="form-group">
-        <label>Driveway</label>
-        <select id="f-drive">
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Garage</label>
-        <select id="f-garage">
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-      </div>
-      <div class="form-group full">
-        <label>Other Features</label>
-        <input type="text" id="f-other" placeholder="Pool, annexe, tennis court...">
-      </div>
-
+      <div class="form-group full"><label>Other Features</label><input type="text" id="f-other" placeholder="Pool, annexe, tennis court..."></div>
       <div class="section-divider">🗺️ Location</div>
-      <div class="form-group">
-        <label>Distance to Cheltenham (miles)</label>
-        <input type="number" id="f-distance" placeholder="1.8" step="0.1">
+      <div class="form-group"><label>Distance to Cheltenham (miles)</label><input type="number" id="f-distance" placeholder="1.8" step="0.1"></div>
+      <div class="form-group"><label>Rural / Suburban / Village</label>
+        <select id="f-rural"><option>Rural</option><option>Village</option><option>Suburban</option><option>Town</option></select>
       </div>
-      <div class="form-group">
-        <label>Rural / Suburban / Village</label>
-        <select id="f-rural">
-          <option>Rural</option>
-          <option>Village</option>
-          <option>Suburban</option>
-          <option>Town</option>
-        </select>
-      </div>
-
-      <div class="section-divider">🏫 Schools</div>
-      <div class="form-group">
-        <label>Nearest Primary School</label>
-        <input type="text" id="f-pri-school">
-      </div>
-      <div class="form-group">
-        <label>Primary Ofsted</label>
-        <select id="f-pri-ofsted">
-          <option value="">Unknown</option>
-          <option>Outstanding</option>
-          <option>Good</option>
-          <option>Requires Improvement</option>
-          <option>Inadequate</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Primary Distance (miles)</label>
-        <input type="number" id="f-pri-dist" step="0.1">
-      </div>
-      <div class="form-group">
-        <label>Nearest Secondary School</label>
-        <input type="text" id="f-sec-school">
-      </div>
-      <div class="form-group">
-        <label>Secondary Ofsted</label>
-        <select id="f-sec-ofsted">
-          <option value="">Unknown</option>
-          <option>Outstanding</option>
-          <option>Good</option>
-          <option>Requires Improvement</option>
-          <option>Inadequate</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Secondary Distance (miles)</label>
-        <input type="number" id="f-sec-dist" step="0.1">
-      </div>
-
-      <div class="section-divider">🏠 Listing</div>
-      <div class="form-group">
-        <label>Estate Agent</label>
-        <input type="text" id="f-agent" placeholder="Hamptons">
-      </div>
-      <div class="form-group">
-        <label>Date Listed</label>
-        <input type="date" id="f-date-listed">
-      </div>
-      <div class="form-group full">
-        <label>Rightmove Link</label>
-        <input type="url" id="f-rm-link" placeholder="https://www.rightmove.co.uk/...">
-      </div>
-      <div class="form-group full">
-        <label>Zoopla Link</label>
-        <input type="url" id="f-zp-link">
-      </div>
-      <div class="form-group full">
-        <label>OnTheMarket Link</label>
-        <input type="url" id="f-otm-link">
-      </div>
-
+      <div class="section-divider">🏢 Listing</div>
+      <div class="form-group"><label>Estate Agent</label><input type="text" id="f-agent" placeholder="Hamptons"></div>
+      <div class="form-group"><label>Date Listed</label><input type="date" id="f-date-listed"></div>
+      <div class="form-group full"><label>Rightmove Link</label><input type="url" id="f-rm-link"></div>
+      <div class="form-group full"><label>Zoopla Link</label><input type="url" id="f-zp-link"></div>
+      <div class="form-group full"><label>OnTheMarket Link</label><input type="url" id="f-otm-link"></div>
       <div class="section-divider">✅ Your Assessment</div>
-      <div class="form-group">
-        <label>Status</label>
-        <select id="f-stat">
-          <option>New</option>
-          <option>Viewing Booked</option>
-          <option>Viewed</option>
-          <option>Interested</option>
-          <option>Offer Made</option>
-          <option>Rejected</option>
-        </select>
+      <div class="form-group"><label>Status</label>
+        <select id="f-stat"><option>New</option><option>Viewing Booked</option><option>Viewed</option><option>Interested</option><option>Offer Made</option><option>Rejected</option></select>
       </div>
-      <div class="form-group">
-        <label>Viewing Date</label>
-        <input type="date" id="f-view-date">
+      <div class="form-group"><label>Viewing Date</label><input type="date" id="f-view-date"></div>
+      <div class="form-group"><label>Our Rating (1-5)</label>
+        <select id="f-our-rating"><option value="">—</option><option value="1">1 ⭐</option><option value="2">2 ⭐</option><option value="3">3 ⭐</option><option value="4">4 ⭐</option><option value="5">5 ⭐</option></select>
       </div>
-      <div class="form-group">
-        <label>Our Rating (1-5)</label>
-        <select id="f-our-rating">
-          <option value="">—</option>
-          <option value="1">1 ⭐</option>
-          <option value="2">2 ⭐</option>
-          <option value="3">3 ⭐</option>
-          <option value="4">4 ⭐</option>
-          <option value="5">5 ⭐</option>
-        </select>
-      </div>
-      <div class="form-group full">
-        <label>Pros</label>
-        <textarea id="f-pros" placeholder="One per line"></textarea>
-      </div>
-      <div class="form-group full">
-        <label>Cons</label>
-        <textarea id="f-cons" placeholder="One per line"></textarea>
-      </div>
-      <div class="form-group full">
-        <label>Notes</label>
-        <textarea id="f-notes"></textarea>
-      </div>
+      <div class="form-group full"><label>Pros</label><textarea id="f-pros" placeholder="One per line"></textarea></div>
+      <div class="form-group full"><label>Cons</label><textarea id="f-cons" placeholder="One per line"></textarea></div>
+      <div class="form-group full"><label>Notes</label><textarea id="f-notes"></textarea></div>
     </div>
     <div class="modal-actions">
       <button class="btn-delete" id="btn-delete" onclick="deleteProperty()" style="display:none">Delete</button>
@@ -517,448 +309,410 @@
 </div>
 
 <script>
-  let properties = JSON.parse(localStorage.getItem('house-search-v1') || '[]');
-  let editingId = null;
+var properties = [];
+var editingId = null;
+var lbImages = [];
+var lbIndex = 0;
+var lbMode = 'photos';
+var lbCurrentId = null;
 
-  async function loadRemoteProperties() {
-    try {
-      const resp = await fetch('properties.json?t=' + Date.now());
-      if (resp.ok) {
-        const remote = await resp.json();
-        // Merge: remote properties keyed by id, local ones override/add
-        const localProps = JSON.parse(localStorage.getItem('house-search-v1') || '[]');
-        const localIds = new Set(localProps.map(p => p.id));
-        const merged = [...remote.filter(p => !localIds.has(p.id)), ...localProps];
-        properties = merged;
-        // Show last updated date from remote data
-        const dates = remote.map(p => p.lastUpdated).filter(Boolean).sort();
-        if (dates.length) {
-          const el = document.getElementById('remote-updated');
-          if (el) el.textContent = 'Scraped ' + dates[dates.length - 1];
-        }
+function fmt(n) {
+  if (!n) return '—';
+  return '£' + Number(n).toLocaleString('en-GB');
+}
+function stars(n) { return n ? '⭐'.repeat(Number(n)) : ''; }
+function ofstedClass(o) {
+  if (o === 'Outstanding') return 'ofsted-outstanding';
+  if (o === 'Good') return 'ofsted-good';
+  if (o === 'Requires Improvement') return 'ofsted-ri';
+  return '';
+}
+function statusClass(s) {
+  var m = {'New':'new','Viewing Booked':'viewing','Viewed':'viewed','Interested':'interested','Offer Made':'offer','Rejected':'rejected'};
+  return 'status-' + (m[s] || 'new');
+}
+
+// CATCHMENT SCHOOLS by postcode sector
+var CATCHMENT_PRI = {
+  'GL525':'Prestbury CE Primary','GL526':'St Philip and St James CE Primary',
+  'GL523':'Swindon Village Primary Academy','GL521':'Bishops Cleeve Primary',
+  'GL530':'Naunton Park Primary','GL531':'Leckhampton CE Primary',
+  'GL538':'Charlton Kings Infant School','GL539':'Charlton Kings Infant School',
+  'GL510':'Up Hatherley CE Junior School','GL516':'Hatherley Infant School',
+  'GL513':'Swindon Village Primary Academy','GL518':'Benhall Infant School',
+  'GL519':'Shurdington CE Primary','GL502':'St Gregorys Catholic Primary',
+  'GL504':'All Saints Academy','GL501':'St Edwards CE Primary'
+};
+var CATCHMENT_SEC = {
+  'GL525':'Balcarras School','GL526':'Cleeve School',
+  'GL523':'Cheltenham Bournside School','GL521':'Cleeve School',
+  'GL530':'Balcarras School','GL531':'Balcarras School',
+  'GL538':'Balcarras School','GL539':'Balcarras School',
+  'GL510':'Cheltenham Bournside School','GL516':'Cheltenham Bournside School',
+  'GL513':'Cheltenham Bournside School','GL518':'Cheltenham Bournside School',
+  'GL519':'Cheltenham Bournside School','GL502':'Cheltenham Bournside School',
+  'GL504':'Cheltenham Bournside School','GL501':'Cheltenham Bournside School'
+};
+var OFSTED_PRI = {
+  'Naunton Park Primary':'Outstanding',
+  'Prestbury CE Primary':'Good','St Philip and St James CE Primary':'Good',
+  'Swindon Village Primary Academy':'Good','Bishops Cleeve Primary':'Good',
+  'Leckhampton CE Primary':'Good','Charlton Kings Infant School':'Good',
+  'Up Hatherley CE Junior School':'Good','Hatherley Infant School':'Good',
+  'Benhall Infant School':'Good','Shurdington CE Primary':'Good',
+  'St Gregorys Catholic Primary':'Good','All Saints Academy':'Good',
+  'St Edwards CE Primary':'Good'
+};
+var OFSTED_SEC = {
+  'Balcarras School':'Outstanding','Cheltenham Bournside School':'Outstanding',
+  'Cleeve School':'Good'
+};
+
+function getCatchmentHTML(postcode) {
+  if (!postcode) return '';
+  var pc = postcode.toUpperCase().replace(/\s/g,'');
+  var sector = pc.slice(0,5);
+  var pri = CATCHMENT_PRI[sector] || null;
+  var sec = CATCHMENT_SEC[sector] || null;
+  var html = '';
+  if (pri) {
+    var o = OFSTED_PRI[pri] || '';
+    html += '<div class="school-info">🏫 <strong>Primary:</strong> ' + pri + (o ? ' — <span class="' + ofstedClass(o) + '">' + o + '</span>' : '') + '</div>';
+  }
+  if (sec) {
+    var os = OFSTED_SEC[sec] || '';
+    html += '<div class="school-info">🎓 <strong>Secondary:</strong> ' + sec + (os ? ' — <span class="' + ofstedClass(os) + '">' + os + '</span>' : '') + '</div>';
+  }
+  if (!pri && !sec) {
+    html = '<div class="school-info"><a href="https://www.gloucestershire.gov.uk/education-and-learning/schools-and-admissions/school-admissions/find-your-catchment-area-school/?postcode=' + encodeURIComponent(postcode) + '" target="_blank" onclick="event.stopPropagation()">Check catchment ↗</a></div>';
+  }
+  return html;
+}
+
+function getFilters() {
+  return {
+    price: parseInt(document.getElementById('f-price').value),
+    beds: parseInt(document.getElementById('f-beds').value),
+    baths: parseInt(document.getElementById('f-baths').value),
+    type: document.getElementById('f-type').value,
+    area: document.getElementById('f-area').value,
+    garden: document.getElementById('f-garden').value,
+    outbuildings: document.getElementById('f-outbuildings').value,
+    school: document.getElementById('f-school').value,
+    secSchool: document.getElementById('f-sec-school').value,
+    status: document.getElementById('f-status').value,
+    rating: parseInt(document.getElementById('f-rating').value) || 0,
+    sort: document.getElementById('f-sort').value
+  };
+}
+
+function matchesFilters(p, f) {
+  if (p.askingPrice && p.askingPrice > f.price) return false;
+  if (f.beds && (!p.beds || p.beds < f.beds)) return false;
+  if (f.baths && p.baths && p.baths < f.baths) return false;
+  if (f.type && p.propType !== f.type) return false;
+  if (f.area && p.town !== f.area) return false;
+  if (f.garden && p.garden !== 'Yes') return false;
+  if (f.outbuildings && p.outbuildings !== 'Yes') return false;
+  if (f.status && p.status !== f.status) return false;
+  if (f.rating && (!p.rating || p.rating < f.rating)) return false;
+  // School filters using catchment data
+  if (f.school || f.secSchool) {
+    var pc = (p.postcode||'').toUpperCase().replace(/\s/g,'');
+    var sector = pc.slice(0,5);
+    if (f.school === 'Outstanding') {
+      var pri = CATCHMENT_PRI[sector];
+      if (!pri || OFSTED_PRI[pri] !== 'Outstanding') return false;
+    }
+    if (f.school === 'Good') {
+      var pri2 = CATCHMENT_PRI[sector];
+      if (!pri2 || !['Outstanding','Good'].includes(OFSTED_PRI[pri2])) return false;
+    }
+    if (f.secSchool === 'Outstanding') {
+      var sec = CATCHMENT_SEC[sector];
+      if (!sec || OFSTED_SEC[sec] !== 'Outstanding') return false;
+    }
+    if (f.secSchool === 'Good') {
+      var sec2 = CATCHMENT_SEC[sector];
+      if (!sec2 || !['Outstanding','Good'].includes(OFSTED_SEC[sec2])) return false;
+    }
+  }
+  return true;
+}
+
+function render() {
+  var f = getFilters();
+  var filtered = properties.filter(function(p) { return matchesFilters(p, f); });
+  filtered.sort(function(a, b) {
+    if (f.sort === 'price-asc') return (a.askingPrice||0) - (b.askingPrice||0);
+    if (f.sort === 'price-desc') return (b.askingPrice||0) - (a.askingPrice||0);
+    if (f.sort === 'beds-desc') return (b.beds||0) - (a.beds||0);
+    if (f.sort === 'rating-desc') return (b.rating||0) - (a.rating||0);
+    if (f.sort === 'school-dist') return (a.priDist||99) - (b.priDist||99);
+    return 0;
+  });
+  document.getElementById('stats-bar').textContent = 'Showing ' + filtered.length + ' of ' + properties.length + ' properties';
+  document.getElementById('last-updated').textContent = properties.length + ' properties';
+  var grid = document.getElementById('grid');
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="empty-state"><p>' + (properties.length === 0 ? 'No properties yet — click + to add your first listing' : 'No properties match your filters') + '</p></div>';
+    return;
+  }
+  grid.innerHTML = filtered.map(function(p) {
+    var hasPhotos = p.photos && p.photos.length > 0;
+    var hasFP = p.floorPlans && p.floorPlans.length > 0;
+    var imgHtml = hasPhotos
+      ? '<img class="card-img" src="' + p.photos[0] + '" alt="' + (p.address||'') + '" loading="lazy" onerror="this.style.display=\'none\'" onclick="event.stopPropagation();openLightbox(\'' + p.id + '\',0,\'photos\')">'
+      : '<div class="card-img-placeholder">🏡</div>';
+    var planBtn = hasFP
+      ? '<a href="#" class="plan-btn" onclick="event.preventDefault();event.stopPropagation();openLightbox(\'' + p.id + '\',0,\'floorplan\')">📐 Plan</a>'
+      : '';
+    var school = getCatchmentHTML(p.postcode);
+    var tags = '';
+    if (p.garden === 'Yes') tags += '<span class="tag tag-yes">Garden ✓</span>';
+    if (p.outbuildings === 'Yes') tags += '<span class="tag tag-yes">Outbuildings ✓</span>';
+    if (p.driveway === 'Yes') tags += '<span class="tag tag-yes">Driveway ✓</span>';
+    if (p.garage === 'Yes') tags += '<span class="tag tag-yes">Garage ✓</span>';
+    if (p.tenure) tags += '<span class="tag tag-neutral">' + p.tenure + '</span>';
+    var specs = '';
+    if (p.beds) specs += '<div class="spec">🛏 <strong>' + p.beds + '</strong> beds</div>';
+    if (p.baths) specs += '<div class="spec">🚿 <strong>' + p.baths + '</strong> baths</div>';
+    if (p.receptions) specs += '<div class="spec">🛋 <strong>' + p.receptions + '</strong> recep</div>';
+    if (p.propType) specs += '<div class="spec">🏠 ' + p.propType + '</div>';
+    if (p.distance) specs += '<div class="spec">📍 <strong>' + p.distance + 'mi</strong></div>';
+    var prosCons = '';
+    if (p.pros || p.cons) {
+      prosCons = '<div class="pros-cons">';
+      if (p.pros) prosCons += '<div class="pros"><h4>Pros</h4><ul>' + p.pros.split('\n').filter(Boolean).map(function(l){return '<li>'+l+'</li>';}).join('') + '</ul></div>';
+      else prosCons += '<div></div>';
+      if (p.cons) prosCons += '<div class="cons"><h4>Cons</h4><ul>' + p.cons.split('\n').filter(Boolean).map(function(l){return '<li>'+l+'</li>';}).join('') + '</ul></div>';
+      else prosCons += '<div></div>';
+      prosCons += '</div>';
+    }
+    var notes = p.notes ? '<div class="notes-section">' + p.notes + '</div>' : '';
+    var rmLink = p.rmLink ? '<a href="' + p.rmLink + '" target="_blank" onclick="event.stopPropagation()">RM</a>' : '';
+    var zpLink = p.zpLink ? '<a href="' + p.zpLink + '" target="_blank" onclick="event.stopPropagation()">ZP</a>' : '';
+    var otmLink = p.otmLink ? '<a href="' + p.otmLink + '" target="_blank" onclick="event.stopPropagation()">OTM</a>' : '';
+    var priceHtml = fmt(p.askingPrice) + (p.priceReduced === 'Yes' ? '<span class="price-reduced">REDUCED</span>' : '');
+    return '<div class="card" onclick="openModal(\'' + p.id + '\')">'
+      + imgHtml
+      + '<div class="card-header">'
+      + '<div class="card-address">' + (p.address||'Address TBC') + '</div>'
+      + '<div class="card-location">' + [p.town, p.postcode].filter(Boolean).join(' · ') + '</div>'
+      + '<div class="card-price">' + priceHtml + '</div>'
+      + '</div>'
+      + '<div class="card-body">'
+      + '<div class="specs">' + specs + '</div>'
+      + (tags ? '<div class="tags">' + tags + '</div>' : '')
+      + school
+      + (p.other ? '<div class="school-info" style="color:#555">✨ ' + p.other + '</div>' : '')
+      + '</div>'
+      + prosCons + notes
+      + '<div class="card-footer">'
+      + '<span class="status-badge ' + statusClass(p.status) + '">' + (p.status||'New') + '</span>'
+      + '<span class="rating">' + stars(p.rating) + '</span>'
+      + '<div class="links">' + rmLink + zpLink + otmLink + planBtn + '</div>'
+      + '</div>'
+      + '</div>';
+  }).join('');
+}
+
+// LIGHTBOX
+function openLightbox(id, startIndex, mode) {
+  var p = properties.find(function(x) { return x.id === id; });
+  if (!p) return;
+  lbCurrentId = id;
+  lbMode = mode || 'photos';
+  lbImages = lbMode === 'floorplan' ? (p.floorPlans||[]) : (p.photos||[]);
+  if (!lbImages.length) return;
+  lbIndex = startIndex || 0;
+  var hasFP = p.floorPlans && p.floorPlans.length > 0;
+  var tabsHtml = hasFP
+    ? '<button class="lb-tab ' + (lbMode==='photos'?'active':'') + '" onclick="switchLbMode(\'photos\')" style="pointer-events:auto">📷 Photos (' + (p.photos||[]).length + ')</button>'
+      + '<button class="lb-tab ' + (lbMode==='floorplan'?'active':'') + '" onclick="switchLbMode(\'floorplan\')" style="pointer-events:auto">📐 Floor Plan</button>'
+    : '<button class="lb-tab active">📷 Photos (' + (p.photos||[]).length + ')</button>';
+  document.getElementById('lb-tabs').innerHTML = tabsHtml;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function switchLbMode(mode) {
+  var p = properties.find(function(x) { return x.id === lbCurrentId; });
+  if (!p) return;
+  lbMode = mode;
+  lbImages = mode === 'floorplan' ? (p.floorPlans||[]) : (p.photos||[]);
+  lbIndex = 0;
+  var tabs = document.querySelectorAll('.lb-tab');
+  tabs.forEach(function(t, i) {
+    t.classList.toggle('active', (i===0&&mode==='photos')||(i===1&&mode==='floorplan'));
+  });
+  renderLightbox();
+}
+
+function renderLightbox() {
+  document.getElementById('lb-img').src = lbImages[lbIndex] || '';
+  document.getElementById('lb-caption').textContent = (lbIndex+1) + ' / ' + lbImages.length;
+  document.getElementById('lb-thumbs').innerHTML = lbImages.map(function(img, i) {
+    return '<img class="lb-thumb ' + (i===lbIndex?'active':'') + '" src="' + img + '" onclick="lbIndex=' + i + ';renderLightbox()" loading="lazy">';
+  }).join('');
+}
+
+function lbNav(dir) {
+  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+  renderLightbox();
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowLeft') lbNav(-1);
+  if (e.key === 'ArrowRight') lbNav(1);
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// MODAL
+function openModal(id) {
+  editingId = id || null;
+  var p = id ? (properties.find(function(x){return x.id===id;}) || {}) : {};
+  document.getElementById('modal-title').textContent = id ? 'Edit Property' : 'Add Property';
+  document.getElementById('btn-delete').style.display = id ? 'block' : 'none';
+  var flds = {
+    'f-address':p.address||'','f-town':p.town||'','f-postcode':p.postcode||'',
+    'f-asking-price':p.askingPrice||'','f-price-reduced':p.priceReduced||'No',
+    'f-beds-count':p.beds||'','f-baths-count':p.baths||'','f-receptions':p.receptions||'',
+    'f-prop-type':p.propType||'Detached','f-tenure':p.tenure||'Freehold','f-new-build':p.newBuild||'No',
+    'f-garden-yn':p.garden||'Yes','f-garden-size':p.gardenSize||'',
+    'f-out-yn':p.outbuildings||'No','f-out-detail':p.outbuildingDetail||'',
+    'f-drive':p.driveway||'Yes','f-garage':p.garage||'No',
+    'f-other':p.other||'','f-distance':p.distance||'','f-rural':p.rural||'Village',
+    'f-agent':p.agent||'','f-date-listed':p.dateListed||'',
+    'f-rm-link':p.rmLink||'','f-zp-link':p.zpLink||'','f-otm-link':p.otmLink||'',
+    'f-stat':p.status||'New','f-view-date':p.viewDate||'','f-our-rating':p.rating||'',
+    'f-pros':p.pros||'','f-cons':p.cons||'','f-notes':p.notes||''
+  };
+  Object.keys(flds).forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.value = flds[id];
+  });
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  editingId = null;
+}
+
+function saveProperty() {
+  var p = {
+    id: editingId || Date.now().toString(),
+    address: document.getElementById('f-address').value,
+    town: document.getElementById('f-town').value,
+    postcode: document.getElementById('f-postcode').value,
+    askingPrice: parseFloat(document.getElementById('f-asking-price').value)||null,
+    priceReduced: document.getElementById('f-price-reduced').value,
+    beds: parseInt(document.getElementById('f-beds-count').value)||null,
+    baths: parseInt(document.getElementById('f-baths-count').value)||null,
+    receptions: parseInt(document.getElementById('f-receptions').value)||null,
+    propType: document.getElementById('f-prop-type').value,
+    tenure: document.getElementById('f-tenure').value,
+    newBuild: document.getElementById('f-new-build').value,
+    garden: document.getElementById('f-garden-yn').value,
+    gardenSize: document.getElementById('f-garden-size').value,
+    outbuildings: document.getElementById('f-out-yn').value,
+    outbuildingDetail: document.getElementById('f-out-detail').value,
+    driveway: document.getElementById('f-drive').value,
+    garage: document.getElementById('f-garage').value,
+    other: document.getElementById('f-other').value,
+    distance: parseFloat(document.getElementById('f-distance').value)||null,
+    rural: document.getElementById('f-rural').value,
+    agent: document.getElementById('f-agent').value,
+    dateListed: document.getElementById('f-date-listed').value,
+    rmLink: document.getElementById('f-rm-link').value,
+    zpLink: document.getElementById('f-zp-link').value,
+    otmLink: document.getElementById('f-otm-link').value,
+    status: document.getElementById('f-stat').value,
+    viewDate: document.getElementById('f-view-date').value,
+    rating: parseInt(document.getElementById('f-our-rating').value)||null,
+    pros: document.getElementById('f-pros').value,
+    cons: document.getElementById('f-cons').value,
+    notes: document.getElementById('f-notes').value,
+    source: 'local'
+  };
+  if (editingId) {
+    var idx = properties.findIndex(function(x){return x.id===editingId;});
+    if (idx >= 0) properties[idx] = p;
+  } else {
+    properties.push(p);
+  }
+  var localProps = properties.filter(function(x){return x.source==='local'||!x.source;});
+  localStorage.setItem('house-search-v1', JSON.stringify(localProps));
+  closeModal();
+  render();
+}
+
+function deleteProperty() {
+  if (!editingId || !confirm('Delete this property?')) return;
+  properties = properties.filter(function(x){return x.id!==editingId;});
+  var localProps = properties.filter(function(x){return x.source==='local'||!x.source;});
+  localStorage.setItem('house-search-v1', JSON.stringify(localProps));
+  closeModal();
+  render();
+}
+
+function resetFilters() {
+  document.getElementById('f-price').value = 1200000;
+  document.getElementById('price-display').textContent = 'Up to £1,200,000';
+  ['f-beds','f-baths','f-type','f-area','f-garden','f-outbuildings','f-school','f-sec-school','f-status','f-sort'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) { el.value = id==='f-beds'?'4':id==='f-sort'?'default':'0'===el.options?'0':''; }
+  });
+  document.getElementById('f-beds').value = '4';
+  document.getElementById('f-rating').value = '0';
+  document.getElementById('f-sort').value = 'default';
+  render();
+}
+
+document.getElementById('f-price').addEventListener('input', function() {
+  document.getElementById('price-display').textContent = 'Up to £' + Number(this.value).toLocaleString('en-GB');
+  render();
+});
+['f-beds','f-baths','f-type','f-area','f-garden','f-outbuildings','f-school','f-sec-school','f-status','f-rating','f-sort'].forEach(function(id) {
+  var el = document.getElementById(id);
+  if (el) el.addEventListener('change', render);
+});
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// INIT - load remote properties.json then render
+(async function() {
+  try {
+    var resp = await fetch('properties.json?t=' + Date.now());
+    if (resp.ok) {
+      var remote = await resp.json();
+      var local = JSON.parse(localStorage.getItem('house-search-v1') || '[]');
+      var localIds = new Set(local.map(function(p){return p.id;}));
+      properties = remote.filter(function(p){return !localIds.has(p.id);}).concat(local);
+      var dates = remote.map(function(p){return p.lastUpdated;}).filter(Boolean).sort();
+      if (dates.length) {
+        var el = document.getElementById('remote-updated');
+        if (el) el.textContent = 'Updated ' + dates[dates.length-1];
       }
-    } catch(e) {
-      // fallback to localStorage only
-      console.warn('Could not load remote properties:', e);
     }
+  } catch(e) {
+    properties = JSON.parse(localStorage.getItem('house-search-v1') || '[]');
   }
-
-  function save() {
-    localStorage.setItem('house-search-v1', JSON.stringify(properties));
-  }
-
-  function fmt(n) {
-    if (!n) return '—';
-    return '£' + Number(n).toLocaleString('en-GB');
-  }
-
-  function stars(n) {
-    if (!n) return '';
-    return '⭐'.repeat(Number(n));
-  }
-
-  function ofstedClass(o) {
-    if (!o) return '';
-    if (o === 'Outstanding') return 'ofsted-outstanding';
-    if (o === 'Good') return 'ofsted-good';
-    if (o === 'Requires Improvement') return 'ofsted-ri';
-    if (o === 'Inadequate') return 'ofsted-inadequate';
-    return '';
-  }
-
-  function statusClass(s) {
-    const map = { 'New': 'new', 'Viewing Booked': 'viewing', 'Viewed': 'viewed', 'Interested': 'interested', 'Offer Made': 'offer', 'Rejected': 'rejected' };
-    return 'status-' + (map[s] || 'new');
-  }
-
-  function getFilters() {
-    return {
-      price: parseInt(document.getElementById('f-price').value),
-      beds: parseInt(document.getElementById('f-beds').value),
-      baths: parseInt(document.getElementById('f-baths').value),
-      type: document.getElementById('f-type').value,
-      area: document.getElementById('f-area').value,
-      garden: document.getElementById('f-garden').value,
-      outbuildings: document.getElementById('f-outbuildings').value,
-      school: document.getElementById('f-school').value,
-      secSchool: document.getElementById('f-sec-school').value,
-      priDistMax: parseFloat(document.getElementById('f-pri-dist-filter').value) || 0,
-      secDistMax: parseFloat(document.getElementById('f-sec-dist-filter').value) || 0,
-      status: document.getElementById('f-status').value,
-      rating: parseInt(document.getElementById('f-rating').value) || 0,
-    };
-  }
-
-  function matchesFilters(p, f) {
-    if (p.askingPrice && p.askingPrice > f.price) return false;
-    if (f.beds && (!p.beds || p.beds < f.beds)) return false;
-    if (f.baths && p.baths && p.baths < f.baths) return false;
-    if (f.type && p.propType !== f.type) return false;
-    if (f.area && p.town !== f.area) return false;
-    if (f.garden && p.garden !== 'Yes') return false;
-    if (f.outbuildings && p.outbuildings !== 'Yes') return false;
-    if (f.school === 'Outstanding' && p.priOfsted !== 'Outstanding') return false;
-    if (f.school === 'Good' && !['Outstanding', 'Good'].includes(p.priOfsted)) return false;
-    if (f.secSchool === 'Outstanding' && p.secOfsted !== 'Outstanding') return false;
-    if (f.secSchool === 'Good' && !['Outstanding', 'Good'].includes(p.secOfsted)) return false;
-    if (f.priDistMax && p.priDist && p.priDist > f.priDistMax) return false;
-    if (f.secDistMax && p.secDist && p.secDist > f.secDistMax) return false;
-    if (f.status && p.status !== f.status) return false;
-    if (f.rating && (!p.rating || p.rating < f.rating)) return false;
-    return true;
-  }
-
-  function render() {
-    const f = getFilters();
-    const sortVal = document.getElementById('f-sort').value;
-    const filtered = properties.filter(p => matchesFilters(p, f));
-    filtered.sort((a, b) => {
-      if (sortVal === 'price-asc')  return (a.askingPrice||0) - (b.askingPrice||0);
-      if (sortVal === 'price-desc') return (b.askingPrice||0) - (a.askingPrice||0);
-      if (sortVal === 'beds-desc')  return (b.beds||0) - (a.beds||0);
-      if (sortVal === 'rating-desc') return (b.rating||0) - (a.rating||0);
-      if (sortVal === 'school-dist') return (a.priDist||99) - (b.priDist||99);
-      if (sortVal === 'cheltenham-dist') return (a.distance||99) - (b.distance||99);
-      return 0;
-    });
-    const grid = document.getElementById('grid');
-    document.getElementById('stats-bar').textContent = `Showing ${filtered.length} of ${properties.length} properties`;
-    document.getElementById('last-updated').textContent = `${properties.length} properties`;
-
-    if (filtered.length === 0) {
-      grid.innerHTML = `<div class="empty-state"><div style="font-size:3rem">🏡</div><p>${properties.length === 0 ? 'No properties yet — click + to add your first listing' : 'No properties match your filters'}</p></div>`;
-      return;
-    }
-
-    grid.innerHTML = filtered.map(p => `
-      <div class="card" onclick="openModal('${p.id}')">
-        ${p.photos && p.photos.length > 0
-          ? `<img class="card-img" src="${p.photos[0]}" alt="${p.address}" loading="lazy" onerror="this.style.display='none'" onclick="event.stopPropagation();openLightboxById('${p.id}',0,'photos')">`
-          : `<div class="card-img-placeholder">🏡</div>`}
-        <div class="card-header">
-          <div class="card-address">${p.address || 'Address TBC'}</div>
-          <div class="card-location">${[p.town, p.postcode].filter(Boolean).join(' · ')}</div>
-          <div class="card-price">${fmt(p.askingPrice)}${p.priceReduced === 'Yes' ? '<span class="price-reduced">REDUCED</span>' : ''}</div>
-        </div>
-        <div class="card-body">
-          <div class="specs">
-            ${p.beds ? `<div class="spec">🛏 <strong>${p.beds}</strong> beds</div>` : ''}
-            ${p.baths ? `<div class="spec">🚿 <strong>${p.baths}</strong> baths</div>` : ''}
-            ${p.receptions ? `<div class="spec">🛋 <strong>${p.receptions}</strong> recep</div>` : ''}
-            ${p.propType ? `<div class="spec">🏠 ${p.propType}</div>` : ''}
-            ${p.distance ? `<div class="spec">📍 <strong>${p.distance}mi</strong> Cheltenham</div>` : ''}
-          </div>
-          <div class="tags">
-            ${p.garden === 'Yes' ? '<span class="tag tag-yes">Garden ✓</span>' : ''}
-            ${p.outbuildings === 'Yes' ? `<span class="tag tag-yes">Outbuildings ✓</span>` : ''}
-            ${p.driveway === 'Yes' ? '<span class="tag tag-yes">Driveway ✓</span>' : ''}
-            ${p.garage === 'Yes' ? '<span class="tag tag-yes">Garage ✓</span>' : ''}
-            ${p.tenure ? `<span class="tag tag-neutral">${p.tenure}</span>` : ''}
-          </div>
-          ${getCatchmentSchools(p.postcode)}
-          ${p.other ? `<div class="school-info" style="color:#555">✨ ${p.other}</div>` : ''}
-        </div>
-        ${(p.pros || p.cons) ? `<div class="pros-cons">
-          ${p.pros ? `<div class="pros"><h4>Pros</h4><ul>${p.pros.split('\n').filter(Boolean).map(l=>`<li>${l}</li>`).join('')}</ul></div>` : '<div></div>'}
-          ${p.cons ? `<div class="cons"><h4>Cons</h4><ul>${p.cons.split('\n').filter(Boolean).map(l=>`<li>${l}</li>`).join('')}</ul></div>` : '<div></div>'}
-        </div>` : ''}
-        ${p.notes ? `<div class="notes-section">${p.notes}</div>` : ''}
-        <div class="card-footer">
-          <span class="status-badge ${statusClass(p.status)}">${p.status || 'New'}</span>
-          <span class="rating">${stars(p.rating)}</span>
-          <div class="links">
-            ${p.rmLink ? `<a href="${p.rmLink}" target="_blank" onclick="event.stopPropagation()">RM</a>` : ''}
-            ${p.zpLink ? `<a href="${p.zpLink}" target="_blank" onclick="event.stopPropagation()">ZP</a>` : ''}
-            ${p.otmLink ? `<a href="${p.otmLink}" target="_blank" onclick="event.stopPropagation()">OTM</a>` : ''}
-            ${p.floorPlans && p.floorPlans.length > 0 ? `<a href="#" onclick="event.preventDefault();event.stopPropagation();openLightboxById('${p.id}',0,'floorplan')">
-          </div>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  function openModal(id) {
-    editingId = id || null;
-    const p = id ? properties.find(x => x.id === id) : {};
-    document.getElementById('modal-title').textContent = id ? 'Edit Property' : 'Add Property';
-    document.getElementById('btn-delete').style.display = id ? 'block' : 'none';
-
-    const fields = {
-      'f-address': p.address || '', 'f-town': p.town || '', 'f-postcode': p.postcode || '',
-      'f-asking-price': p.askingPrice || '', 'f-price-reduced': p.priceReduced || 'No',
-      'f-beds-count': p.beds || '', 'f-baths-count': p.baths || '', 'f-receptions': p.receptions || '',
-      'f-prop-type': p.propType || 'Detached', 'f-tenure': p.tenure || 'Freehold', 'f-new-build': p.newBuild || 'No',
-      'f-garden-yn': p.garden || 'Yes', 'f-garden-size': p.gardenSize || '', 'f-out-yn': p.outbuildings || 'No',
-      'f-out-detail': p.outbuildingDetail || '', 'f-drive': p.driveway || 'Yes', 'f-garage': p.garage || 'No',
-      'f-other': p.other || '', 'f-distance': p.distance || '', 'f-rural': p.rural || 'Village',
-      'f-pri-school': p.priSchool || '', 'f-pri-ofsted': p.priOfsted || '', 'f-pri-dist': p.priDist || '',
-      'f-sec-school': p.secSchool || '', 'f-sec-ofsted': p.secOfsted || '', 'f-sec-dist': p.secDist || '',
-      'f-agent': p.agent || '', 'f-date-listed': p.dateListed || '',
-      'f-rm-link': p.rmLink || '', 'f-zp-link': p.zpLink || '', 'f-otm-link': p.otmLink || '',
-      'f-stat': p.status || 'New', 'f-view-date': p.viewDate || '', 'f-our-rating': p.rating || '',
-      'f-pros': p.pros || '', 'f-cons': p.cons || '', 'f-notes': p.notes || '',
-    };
-    for (const [id, val] of Object.entries(fields)) {
-      const el = document.getElementById(id);
-      if (el) el.value = val;
-    }
-    document.getElementById('modal').classList.add('open');
-  }
-
-  function closeModal() {
-    document.getElementById('modal').classList.remove('open');
-    editingId = null;
-  }
-
-  function saveProperty() {
-    const p = {
-      id: editingId || Date.now().toString(),
-      address: document.getElementById('f-address').value,
-      town: document.getElementById('f-town').value,
-      postcode: document.getElementById('f-postcode').value,
-      askingPrice: parseFloat(document.getElementById('f-asking-price').value) || null,
-      priceReduced: document.getElementById('f-price-reduced').value,
-      beds: parseInt(document.getElementById('f-beds-count').value) || null,
-      baths: parseInt(document.getElementById('f-baths-count').value) || null,
-      receptions: parseInt(document.getElementById('f-receptions').value) || null,
-      propType: document.getElementById('f-prop-type').value,
-      tenure: document.getElementById('f-tenure').value,
-      newBuild: document.getElementById('f-new-build').value,
-      garden: document.getElementById('f-garden-yn').value,
-      gardenSize: document.getElementById('f-garden-size').value,
-      outbuildings: document.getElementById('f-out-yn').value,
-      outbuildingDetail: document.getElementById('f-out-detail').value,
-      driveway: document.getElementById('f-drive').value,
-      garage: document.getElementById('f-garage').value,
-      other: document.getElementById('f-other').value,
-      distance: parseFloat(document.getElementById('f-distance').value) || null,
-      rural: document.getElementById('f-rural').value,
-      priSchool: document.getElementById('f-pri-school').value,
-      priOfsted: document.getElementById('f-pri-ofsted').value,
-      priDist: parseFloat(document.getElementById('f-pri-dist').value) || null,
-      secSchool: document.getElementById('f-sec-school').value,
-      secOfsted: document.getElementById('f-sec-ofsted').value,
-      secDist: parseFloat(document.getElementById('f-sec-dist').value) || null,
-      agent: document.getElementById('f-agent').value,
-      dateListed: document.getElementById('f-date-listed').value,
-      rmLink: document.getElementById('f-rm-link').value,
-      zpLink: document.getElementById('f-zp-link').value,
-      otmLink: document.getElementById('f-otm-link').value,
-      status: document.getElementById('f-stat').value,
-      viewDate: document.getElementById('f-view-date').value,
-      rating: parseInt(document.getElementById('f-our-rating').value) || null,
-      pros: document.getElementById('f-pros').value,
-      cons: document.getElementById('f-cons').value,
-      notes: document.getElementById('f-notes').value,
-    };
-
-    if (editingId) {
-      const idx = properties.findIndex(x => x.id === editingId);
-      if (idx >= 0) properties[idx] = p;
-    } else {
-      properties.push(p);
-    }
-    save();
-    closeModal();
-    render();
-  }
-
-  function deleteProperty() {
-    if (!editingId) return;
-    if (!confirm('Delete this property?')) return;
-    properties = properties.filter(x => x.id !== editingId);
-    save();
-    closeModal();
-    render();
-  }
-
-  function resetFilters() {
-    document.getElementById('f-price').value = 1200000;
-    document.getElementById('price-display').textContent = 'Up to £1,200,000';
-    document.getElementById('f-beds').value = '4';
-    document.getElementById('f-baths').value = '2';
-    document.getElementById('f-type').value = '';
-    document.getElementById('f-area').value = '';
-    document.getElementById('f-garden').value = '';
-    document.getElementById('f-outbuildings').value = '';
-    document.getElementById('f-school').value = '';
-    document.getElementById('f-status').value = '';
-    document.getElementById('f-rating').value = '0';
-    document.getElementById('f-sort').value = 'default';
-    document.getElementById('f-sec-school').value = '';
-    document.getElementById('f-pri-dist-filter').value = '';
-    document.getElementById('f-sec-dist-filter').value = '';
-    render();
-  }
-
-  document.getElementById('f-price').addEventListener('input', function() {
-    document.getElementById('price-display').textContent = 'Up to £' + Number(this.value).toLocaleString('en-GB');
-    render();
-  });
-
-  ['f-beds','f-baths','f-type','f-area','f-garden','f-outbuildings','f-school','f-sec-school','f-pri-dist-filter','f-sec-dist-filter','f-status','f-rating'].forEach(id => {
-    document.getElementById(id).addEventListener('change', render);
-  });
-
-  document.getElementById('modal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-  });
-
-
-  // LIGHTBOX
-  let lbImages = [];
-  let lbIndex = 0;
-  let lbMode = 'photos'; // 'photos' or 'floorplan'
-  let lbCurrentProp = null;
-
-
-  function openLightboxById(id, startIndex, mode) {
-    const p = properties.find(x => x.id === id);
-    if (p) openLightbox(p, startIndex, mode);
-  }
-
-  function openLightbox(prop, startIndex=0, mode='photos') {
-    lbCurrentProp = prop;
-    lbMode = mode;
-    lbImages = mode === 'floorplan' ? (prop.floorPlans||[]) : (prop.photos||[]);
-    if (!lbImages.length) return;
-    lbIndex = startIndex;
-    // Tabs
-    const hasFP = prop.floorPlans && prop.floorPlans.length > 0;
-    document.getElementById('lb-tabs').innerHTML = hasFP ? `
-      <button class="lightbox-tab ${mode==='photos'?'active':''}" onclick="event.stopPropagation();switchLbMode('photos')">📷 Photos (${(prop.photos||[]).length})</button>
-      <button class="lightbox-tab ${mode==='floorplan'?'active':''}" onclick="event.stopPropagation();switchLbMode('floorplan')">📐 Floor Plan</button>
-    ` : `<button class="lightbox-tab active">📷 Photos (${(prop.photos||[]).length})</button>`;
-    renderLightbox();
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function switchLbMode(mode) {
-    lbMode = mode;
-    lbImages = mode === 'floorplan' ? (lbCurrentProp.floorPlans||[]) : (lbCurrentProp.photos||[]);
-    lbIndex = 0;
-    const tabs = document.querySelectorAll('.lightbox-tab');
-    tabs.forEach((t,i) => t.classList.toggle('active', (i===0&&mode==='photos')||(i===1&&mode==='floorplan')));
-    renderLightbox();
-  }
-
-  function renderLightbox() {
-    document.getElementById('lightbox-img').src = lbImages[lbIndex] || '';
-    document.getElementById('lb-caption').textContent = `${lbIndex+1} / ${lbImages.length}`;
-    document.getElementById('lb-thumbs').innerHTML = lbImages.map((img,i) =>
-      `<img class="lightbox-thumb ${i===lbIndex?'active':''}" src="${img}" onclick="event.stopPropagation();lbIndex=${i};renderLightbox()" loading="lazy">`
-    ).join('');
-  }
-
-  function lightboxNav(dir) {
-    lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
-    renderLightbox();
-  }
-
-  function closeLightbox(e) {
-    if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('keydown', e => {
-    if (!document.getElementById('lightbox').classList.contains('open')) return;
-    if (e.key === 'ArrowLeft') lightboxNav(-1);
-    if (e.key === 'ArrowRight') lightboxNav(1);
-    if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
-  });
-
-
-  // CATCHMENT SCHOOL MAPPING (Cheltenham/Glos by postcode sector)
-  function getCatchmentSchools(postcode) {
-    if (!postcode) return '';
-    const pc = postcode.toUpperCase().replace(/\s/g,'');
-    const sector = pc.slice(0,5);
-    const district = pc.slice(0,4);
-
-    const PRIMARY = {
-      'GL525': 'Prestbury CE Primary',
-      'GL526': 'St Philip & St James CE Primary',
-      'GL523': 'Swindon Village Primary Academy',
-      'GL521': 'Bishops Cleeve Primary',
-      'GL530': 'Naunton Park Primary',
-      'GL531': 'Leckhampton CE Primary',
-      'GL538': 'Charlton Kings Infant School',
-      'GL539': 'Charlton Kings Infant School',
-      'GL510': 'Up Hatherley CE Junior School',
-      'GL516': 'Hatherley Infant School',
-      'GL513': 'Swindon Village Primary Academy',
-      'GL518': 'Benhall Infant School',
-      'GL519': 'Shurdington CE Primary',
-      'GL502': 'St Gregorys Catholic Primary',
-      'GL504': 'All Saints Academy',
-      'GL501': 'St Edwards CE Primary',
-    };
-    const SECONDARY = {
-      'GL525': 'Balcarras School',
-      'GL526': 'Cleeve School',
-      'GL523': 'Cheltenham Bournside School',
-      'GL521': 'Cleeve School',
-      'GL530': 'Balcarras School',
-      'GL531': 'Balcarras School',
-      'GL538': 'Balcarras School',
-      'GL539': 'Balcarras School',
-      'GL510': 'Cheltenham Bournside School',
-      'GL516': 'Cheltenham Bournside School',
-      'GL513': 'Cheltenham Bournside School',
-      'GL518': 'Cheltenham Bournside School',
-      'GL519': 'Cheltenham Bournside School',
-      'GL502': 'Cheltenham Bournside School',
-      'GL504': 'Cheltenham Bournside School',
-      'GL501': 'Cheltenham Bournside School',
-    };
-    const OFSTED_PRI = {
-      'Prestbury CE Primary': 'Good',
-      'St Philip & St James CE Primary': 'Good',
-      'Swindon Village Primary Academy': 'Good',
-      'Bishops Cleeve Primary': 'Good',
-      'Naunton Park Primary': 'Outstanding',
-      'Leckhampton CE Primary': 'Good',
-      'Charlton Kings Infant School': 'Good',
-      'Up Hatherley CE Junior School': 'Good',
-      'Hatherley Infant School': 'Good',
-      'Benhall Infant School': 'Good',
-      'Shurdington CE Primary': 'Good',
-      'St Gregorys Catholic Primary': 'Good',
-      'All Saints Academy': 'Good',
-      'St Edwards CE Primary': 'Good',
-    };
-    const OFSTED_SEC = {
-      'Balcarras School': 'Outstanding',
-      'Cleeve School': 'Good',
-      'Cheltenham Bournside School': 'Outstanding',
-    };
-
-    const pri = PRIMARY[sector] || PRIMARY[district] || null;
-    const sec = SECONDARY[sector] || SECONDARY[district] || null;
-
-    let html = '';
-    if (pri) {
-      const ofsted = OFSTED_PRI[pri] || '';
-      const cls = ofsted === 'Outstanding' ? 'ofsted-outstanding' : ofsted === 'Good' ? 'ofsted-good' : '';
-      html += '<div class="school-info">\u{1F3EB} <strong>Primary:</strong> ' + pri + (ofsted ? ' \u2014 <span class="' + cls + '">' + ofsted + '</span>' : '') + '</div>';
-    }
-    if (sec) {
-      const ofsted = OFSTED_SEC[sec] || '';
-      const cls = ofsted === 'Outstanding' ? 'ofsted-outstanding' : ofsted === 'Good' ? 'ofsted-good' : '';
-      html += '<div class="school-info">\u{1F393} <strong>Secondary:</strong> ' + sec + (ofsted ? ' \u2014 <span class="' + cls + '">' + ofsted + '</span>' : '') + '</div>';
-    }
-    if (!pri && !sec && postcode) {
-      html = '<div class="school-info" style="color:#aaa;font-size:0.74rem"><a href="https://www.gloucestershire.gov.uk/education-and-learning/schools-and-admissions/school-admissions/find-your-catchment-area-school/?postcode=' + encodeURIComponent(postcode) + '&phase=primary" target="_blank" onclick="event.stopPropagation()" style="color:#888">Check catchment for ' + postcode + ' ↗</a></div>';
-    }
-    return html;
-  }
-
-  (async function init() {
-    await loadRemoteProperties();
-    render();
-  })();
+  render();
+})();
 </script>
 </body>
 </html>
