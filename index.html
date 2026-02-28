@@ -874,56 +874,45 @@
   function getCatchmentSchools(postcode) {
     if (!postcode) return '';
     const pc = postcode.toUpperCase().replace(/\s/g,'');
-    // Postcode sector lookup (first 5-6 chars)
     const sector = pc.slice(0,5);
     const district = pc.slice(0,4);
 
     const PRIMARY = {
-      // GL52 - North/NE Cheltenham
       'GL525': 'Prestbury CE Primary',
       'GL526': 'St Philip & St James CE Primary',
       'GL523': 'Swindon Village Primary Academy',
       'GL521': 'Bishops Cleeve Primary',
-      // GL53 - SE Cheltenham / Charlton Kings / Leckhampton
       'GL530': 'Naunton Park Primary',
       'GL531': 'Leckhampton CE Primary',
       'GL538': 'Charlton Kings Infant School',
       'GL539': 'Charlton Kings Infant School',
-      // GL51 - West / Up Hatherley / Shurdington
       'GL510': 'Up Hatherley CE Junior School',
       'GL516': 'Hatherley Infant School',
       'GL513': 'Swindon Village Primary Academy',
       'GL518': 'Benhall Infant School',
       'GL519': 'Shurdington CE Primary',
-      // GL50 - Central Cheltenham
-      'GL502': "St Gregory's Catholic Primary",
+      'GL502': 'St Gregorys Catholic Primary',
       'GL504': 'All Saints Academy',
-      'GL501': 'St Edward's CE Primary',
+      'GL501': 'St Edwards CE Primary',
     };
-
     const SECONDARY = {
-      // GL52 - feeds Bournside or Balcarras or Cleeve
       'GL525': 'Balcarras School',
       'GL526': 'Cleeve School',
       'GL523': 'Cheltenham Bournside School',
       'GL521': 'Cleeve School',
-      // GL53 - Balcarras
       'GL530': 'Balcarras School',
       'GL531': 'Balcarras School',
       'GL538': 'Balcarras School',
       'GL539': 'Balcarras School',
-      // GL51 - Bournside
       'GL510': 'Cheltenham Bournside School',
       'GL516': 'Cheltenham Bournside School',
       'GL513': 'Cheltenham Bournside School',
       'GL518': 'Cheltenham Bournside School',
       'GL519': 'Cheltenham Bournside School',
-      // GL50 - Bournside
       'GL502': 'Cheltenham Bournside School',
       'GL504': 'Cheltenham Bournside School',
-      'GL501': 'Pate's Grammar School area',
+      'GL501': 'Cheltenham Bournside School',
     };
-
     const OFSTED_PRI = {
       'Prestbury CE Primary': 'Good',
       'St Philip & St James CE Primary': 'Good',
@@ -936,34 +925,32 @@
       'Hatherley Infant School': 'Good',
       'Benhall Infant School': 'Good',
       'Shurdington CE Primary': 'Good',
-      "St Gregory's Catholic Primary": 'Good',
+      'St Gregorys Catholic Primary': 'Good',
       'All Saints Academy': 'Good',
-      "St Edward's CE Primary": 'Good',
+      'St Edwards CE Primary': 'Good',
     };
     const OFSTED_SEC = {
       'Balcarras School': 'Outstanding',
       'Cleeve School': 'Good',
       'Cheltenham Bournside School': 'Outstanding',
-      "Pate's Grammar School area": 'Outstanding',
     };
 
-    const key = sector.slice(0,5);
-    const pri = PRIMARY[key] || PRIMARY[district] || null;
-    const sec = SECONDARY[key] || SECONDARY[district] || null;
+    const pri = PRIMARY[sector] || PRIMARY[district] || null;
+    const sec = SECONDARY[sector] || SECONDARY[district] || null;
 
     let html = '';
     if (pri) {
       const ofsted = OFSTED_PRI[pri] || '';
       const cls = ofsted === 'Outstanding' ? 'ofsted-outstanding' : ofsted === 'Good' ? 'ofsted-good' : '';
-      html += `<div class="school-info">🏫 <strong>Primary:</strong> ${pri}${ofsted ? ` — <span class="${cls}">${ofsted}</span>` : ''}</div>`;
+      html += '<div class="school-info">\u{1F3EB} <strong>Primary:</strong> ' + pri + (ofsted ? ' \u2014 <span class="' + cls + '">' + ofsted + '</span>' : '') + '</div>';
     }
     if (sec) {
       const ofsted = OFSTED_SEC[sec] || '';
       const cls = ofsted === 'Outstanding' ? 'ofsted-outstanding' : ofsted === 'Good' ? 'ofsted-good' : '';
-      html += `<div class="school-info">🎓 <strong>Secondary:</strong> ${sec}${ofsted ? ` — <span class="${cls}">${ofsted}</span>` : ''}</div>`;
+      html += '<div class="school-info">\u{1F393} <strong>Secondary:</strong> ' + sec + (ofsted ? ' \u2014 <span class="' + cls + '">' + ofsted + '</span>' : '') + '</div>';
     }
     if (!pri && !sec && postcode) {
-      html = `<div class="school-info" style="color:#aaa;font-size:0.74rem">🏫 <a href="https://www.gloucestershire.gov.uk/education-and-learning/schools-and-admissions/school-admissions/find-your-catchment-area-school/?postcode=${encodeURIComponent(postcode)}&phase=primary" target="_blank" onclick="event.stopPropagation()" style="color:#888">Check catchment for ${postcode} ↗</a></div>`;
+      html = '<div class="school-info" style="color:#aaa;font-size:0.74rem"><a href="https://www.gloucestershire.gov.uk/education-and-learning/schools-and-admissions/school-admissions/find-your-catchment-area-school/?postcode=' + encodeURIComponent(postcode) + '&phase=primary" target="_blank" onclick="event.stopPropagation()" style="color:#888">Check catchment for ' + postcode + ' ↗</a></div>';
     }
     return html;
   }
