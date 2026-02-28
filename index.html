@@ -633,7 +633,7 @@
     grid.innerHTML = filtered.map(p => `
       <div class="card" onclick="openModal('${p.id}')">
         ${p.photos && p.photos.length > 0
-          ? `<img class="card-img" src="${p.photos[0]}" alt="${p.address}" loading="lazy" onerror="this.style.display='none'" onclick="event.stopPropagation();openLightbox(${JSON.stringify(p).replace(/\/g,'\\').replace(/`/g,'\`')},0,'photos')">`
+          ? `<img class="card-img" src="${p.photos[0]}" alt="${p.address}" loading="lazy" onerror="this.style.display='none'" onclick="event.stopPropagation();openLightboxById('${p.id}',0,'photos')">`
           : `<div class="card-img-placeholder">🏡</div>`}
         <div class="card-header">
           <div class="card-address">${p.address || 'Address TBC'}</div>
@@ -670,7 +670,7 @@
             ${p.rmLink ? `<a href="${p.rmLink}" target="_blank" onclick="event.stopPropagation()">RM</a>` : ''}
             ${p.zpLink ? `<a href="${p.zpLink}" target="_blank" onclick="event.stopPropagation()">ZP</a>` : ''}
             ${p.otmLink ? `<a href="${p.otmLink}" target="_blank" onclick="event.stopPropagation()">OTM</a>` : ''}
-            ${p.floorPlans && p.floorPlans.length > 0 ? `<a href="#" onclick="event.preventDefault();event.stopPropagation();openLightbox(${JSON.stringify(p).replace(/\/g,'\\').replace(/`/g,'\`')},0,'floorplan')" style="background:#2c2c2c;color:white;border-color:#2c2c2c">📐 Plan</a>` : ''}
+            ${p.floorPlans && p.floorPlans.length > 0 ? `<a href="#" onclick="event.preventDefault();event.stopPropagation();openLightboxById('${p.id}',0,'floorplan')">
           </div>
         </div>
       </div>
@@ -810,6 +810,12 @@
   let lbIndex = 0;
   let lbMode = 'photos'; // 'photos' or 'floorplan'
   let lbCurrentProp = null;
+
+
+  function openLightboxById(id, startIndex, mode) {
+    const p = properties.find(x => x.id === id);
+    if (p) openLightbox(p, startIndex, mode);
+  }
 
   function openLightbox(prop, startIndex=0, mode='photos') {
     lbCurrentProp = prop;
