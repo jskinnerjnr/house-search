@@ -617,8 +617,8 @@
             ${p.garage === 'Yes' ? '<span class="tag tag-yes">Garage ✓</span>' : ''}
             ${p.tenure ? `<span class="tag tag-neutral">${p.tenure}</span>` : ''}
           </div>
-          ${p.priSchool ? `<div class="school-info">🏫 <strong>Primary:</strong> ${p.priSchool} — <span class="${ofstedClass(p.priOfsted)}">${p.priOfsted || '?'}</span>${p.priDist ? ` · ${p.priDist}mi` : ''}</div>` : ''}
-          ${p.secSchool ? `<div class="school-info">🎓 <strong>Secondary:</strong> ${p.secSchool} — <span class="${ofstedClass(p.secOfsted)}">${p.secOfsted || '?'}</span>${p.secDist ? ` · ${p.secDist}mi` : ''}</div>` : ''}
+          ${p.postcode ? `<div class="school-info">🏫 <strong>Primary catchment:</strong> <a href="https://www.gloucestershire.gov.uk/education-and-learning/schools-and-admissions/school-admissions/find-your-catchment-area-school/?postcode=${encodeURIComponent(p.postcode)}&phase=primary" target="_blank" onclick="event.stopPropagation()" style="color:#2c2c2c;text-decoration:underline">Check for ${p.postcode} ↗</a></div>` : ''}
+          ${p.postcode ? `<div class="school-info">🎓 <strong>Secondary catchment:</strong> <a href="https://www.gloucestershire.gov.uk/education-and-learning/schools-and-admissions/school-admissions/find-your-catchment-area-school/?postcode=${encodeURIComponent(p.postcode)}&phase=secondary" target="_blank" onclick="event.stopPropagation()" style="color:#2c2c2c;text-decoration:underline">Check for ${p.postcode} ↗</a></div>` : ''}
           ${p.other ? `<div class="school-info" style="color:#555">✨ ${p.other}</div>` : ''}
         </div>
         ${(p.pros || p.cons) ? `<div class="pros-cons">
