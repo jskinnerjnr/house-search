@@ -103,6 +103,7 @@
 <header>
   <h1>🏡 Skinner House Search</h1>
   <span id="last-updated">0 properties</span>
+  <span id="remote-updated" style="font-size:0.75rem;opacity:0.5;margin-left:12px;"></span>
 </header>
 
 <div class="filters">
@@ -441,6 +442,29 @@
   let properties = JSON.parse(localStorage.getItem('house-search-v1') || '[]');
   let editingId = null;
 
+  async function loadRemoteProperties() {
+    try {
+      const resp = await fetch('properties.json?t=' + Date.now());
+      if (resp.ok) {
+        const remote = await resp.json();
+        // Merge: remote properties keyed by id, local ones override/add
+        const localProps = JSON.parse(localStorage.getItem('house-search-v1') || '[]');
+        const localIds = new Set(localProps.map(p => p.id));
+        const merged = [...remote.filter(p => !localIds.has(p.id)), ...localProps];
+        properties = merged;
+        // Show last updated date from remote data
+        const dates = remote.map(p => p.lastUpdated).filter(Boolean).sort();
+        if (dates.length) {
+          const el = document.getElementById('remote-updated');
+          if (el) el.textContent = 'Scraped ' + dates[dates.length - 1];
+        }
+      }
+    } catch(e) {
+      // fallback to localStorage only
+      console.warn('Could not load remote properties:', e);
+    }
+  }
+
   function save() {
     localStorage.setItem('house-search-v1', JSON.stringify(properties));
   }
@@ -677,7 +701,10 @@
     if (e.target === this) closeModal();
   });
 
-  render();
+  (async function init() {
+    await loadRemoteProperties();
+    render();
+  })();
 </script>
 </body>
 </html>
