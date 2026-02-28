@@ -407,8 +407,8 @@ function matchesFilters(p, f) {
   if (f.baths && p.baths && p.baths < f.baths) return false;
   if (f.type && p.propType !== f.type) return false;
   if (f.radius < 20 && p.distMiles != null && p.distMiles > f.radius) return false;
-  if (f.garden === 'Yes' && p.garden !== 'Yes') return false;
-  if (f.outbuildings === 'Yes' && p.outbuildings !== 'Yes') return false;
+  if (f.garden === 'Yes' && p.garden === 'No') return false;
+  if (f.outbuildings === 'Yes' && p.outbuildings === 'No') return false;
   if (f.status && p.status !== f.status) return false;
   if (f.rating && (!p.rating || p.rating < f.rating)) return false;
   // School filters using catchment data
