@@ -462,7 +462,7 @@ function render() {
     var hasPhotos = p.photos && p.photos.length > 0;
     var hasFP = p.floorPlans && p.floorPlans.length > 0;
     var imgHtml = hasPhotos
-      ? '<img class="card-img" src="' + p.photos[0] + '" alt="' + (p.address||'') + '" loading="lazy" onerror="this.style.display=\'none\'" onclick="event.stopPropagation();openLightbox(\'' + p.id + '\',0,\'photos\')">'
+      ? '<img class="card-img" src="' + p.photos[0] + '" alt="' + (p.address||'') + '" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'" onclick="event.stopPropagation();openLightbox(\'' + p.id + '\',0,\'photos\')">'
       : '<div class="card-img-placeholder">🏡</div>';
     var planBtn = hasFP
       ? '<a href="#" class="plan-btn" onclick="event.preventDefault();event.stopPropagation();openLightbox(\'' + p.id + '\',0,\'floorplan\')">📐 Plan</a>'
@@ -551,10 +551,12 @@ function switchLbMode(mode) {
 }
 
 function renderLightbox() {
-  document.getElementById('lb-img').src = lbImages[lbIndex] || '';
+  var lbEl = document.getElementById('lb-img');
+  lbEl.referrerPolicy = 'no-referrer';
+  lbEl.src = lbImages[lbIndex] || '';
   document.getElementById('lb-caption').textContent = (lbIndex+1) + ' / ' + lbImages.length;
   document.getElementById('lb-thumbs').innerHTML = lbImages.map(function(img, i) {
-    return '<img class="lb-thumb ' + (i===lbIndex?'active':'') + '" src="' + img + '" onclick="lbIndex=' + i + ';renderLightbox()" loading="lazy">';
+    return '<img class="lb-thumb ' + (i===lbIndex?'active':'') + '" src="' + img + '" referrerpolicy="no-referrer" onclick="lbIndex=' + i + ';renderLightbox()" loading="lazy">';
   }).join('');
 }
 
