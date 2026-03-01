@@ -55,6 +55,11 @@
   .card-img-overlay .ov-price { font-size: 1rem; font-weight: 700; margin-top: 2px; }
   .card-img-overlay .ov-price .price-reduced, .card-img-overlay .ov-price .new-listing { font-size: 0.65rem; }
   .card-img-placeholder { width: 100%; height: 160px; background: linear-gradient(135deg,#f0f0f0,#e0e0e0); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; font-size: 2rem; color: #aaa; }
+  .card-thumb-strip { display: flex; gap: 4px; padding: 6px 8px; background: #fafafa; border-bottom: 1px solid #f0f0f0; overflow: hidden; }
+  .card-thumb { width: 56px; height: 40px; object-fit: cover; border-radius: 4px; cursor: pointer; opacity: 0.85; flex-shrink: 0; }
+  .card-thumb:hover { opacity: 1; }
+  .card-thumb-fp { width: 56px; height: 40px; object-fit: contain; border-radius: 4px; cursor: pointer; background: #f0f0f0; border: 1px solid #e0e0e0; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+  .card-thumb-more { width: 40px; height: 40px; background: #eee; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #888; font-weight: 600; flex-shrink: 0; cursor: pointer; }
   .card-img-placeholder span { font-size: 0.78rem; color: #888; text-decoration: underline; }
   .card-img-link { display: block; text-decoration: none; }
   .card-header { padding: 12px 14px 8px; border-bottom: 1px solid #f0f0f0; }
@@ -459,26 +464,42 @@ function statusClass(s) {
   return 'status-' + (m[s] || 'new');
 }
 
-// CATCHMENT SCHOOLS by postcode sector
+// CATCHMENT SCHOOLS by postcode sector (5-char, space-stripped)
 var CATCHMENT_PRI = {
+  // GL50 - central Cheltenham
+  'GL501':'St Edwards CE Primary','GL502':'St Gregorys Catholic Primary',
+  'GL503':'All Saints Academy','GL504':'All Saints Academy',
+  // GL51 - west/northwest Cheltenham
+  'GL510':'Up Hatherley CE Junior School','GL511':'Hatherley Infant School',
+  'GL513':'Swindon Village Primary Academy','GL515':'Swindon Village Primary Academy',
+  'GL516':'Hatherley Infant School','GL517':'Warden Hill Primary',
+  'GL518':'Benhall Infant School','GL519':'Shurdington CE Primary',
+  // GL52 - north/northeast Cheltenham, Prestbury, Bishops Cleeve
+  'GL521':'Bishops Cleeve Primary','GL522':'Bishops Cleeve Primary',
+  'GL523':'Swindon Village Primary Academy','GL524':'Prestbury CE Primary',
   'GL525':'Prestbury CE Primary','GL526':'St Philip and St James CE Primary',
-  'GL523':'Swindon Village Primary Academy','GL521':'Bishops Cleeve Primary',
+  'GL527':'Woodmancote Primary','GL528':'Gotherington Primary',
+  // GL53 - south Cheltenham, Charlton Kings, Leckhampton
   'GL530':'Naunton Park Primary','GL531':'Leckhampton CE Primary',
+  'GL532':'Charlton Kings Infant School','GL533':'Charlton Kings Infant School',
+  'GL534':'Charlton Kings Infant School','GL537':'Coberley CE Primary',
   'GL538':'Charlton Kings Infant School','GL539':'Charlton Kings Infant School',
-  'GL510':'Up Hatherley CE Junior School','GL516':'Hatherley Infant School',
-  'GL513':'Swindon Village Primary Academy','GL518':'Benhall Infant School',
-  'GL519':'Shurdington CE Primary','GL502':'St Gregorys Catholic Primary',
-  'GL504':'All Saints Academy','GL501':'St Edwards CE Primary'
 };
 var CATCHMENT_SEC = {
+  'GL501':'Cheltenham Bournside School','GL502':'Cheltenham Bournside School',
+  'GL503':'Cheltenham Bournside School','GL504':'Cheltenham Bournside School',
+  'GL510':'Cheltenham Bournside School','GL511':'Cheltenham Bournside School',
+  'GL513':'Cheltenham Bournside School','GL515':'Cheltenham Bournside School',
+  'GL516':'Cheltenham Bournside School','GL517':'Cheltenham Bournside School',
+  'GL518':'Cheltenham Bournside School','GL519':'Cheltenham Bournside School',
+  'GL521':'Cleeve School','GL522':'Cleeve School',
+  'GL523':'Cheltenham Bournside School','GL524':'Balcarras School',
   'GL525':'Balcarras School','GL526':'Cleeve School',
-  'GL523':'Cheltenham Bournside School','GL521':'Cleeve School',
+  'GL527':'Cleeve School','GL528':'Cleeve School',
   'GL530':'Balcarras School','GL531':'Balcarras School',
+  'GL532':'Balcarras School','GL533':'Balcarras School',
+  'GL534':'Balcarras School','GL537':'Balcarras School',
   'GL538':'Balcarras School','GL539':'Balcarras School',
-  'GL510':'Cheltenham Bournside School','GL516':'Cheltenham Bournside School',
-  'GL513':'Cheltenham Bournside School','GL518':'Cheltenham Bournside School',
-  'GL519':'Cheltenham Bournside School','GL502':'Cheltenham Bournside School',
-  'GL504':'Cheltenham Bournside School','GL501':'Cheltenham Bournside School'
 };
 var OFSTED_PRI = {
   'Naunton Park Primary':'Outstanding',
@@ -488,11 +509,23 @@ var OFSTED_PRI = {
   'Up Hatherley CE Junior School':'Good','Hatherley Infant School':'Good',
   'Benhall Infant School':'Good','Shurdington CE Primary':'Good',
   'St Gregorys Catholic Primary':'Good','All Saints Academy':'Good',
-  'St Edwards CE Primary':'Good'
+  'St Edwards CE Primary':'Good','Warden Hill Primary':'Good',
+  'Woodmancote Primary':'Good','Gotherington Primary':'Good',
+  'Coberley CE Primary':'Good'
 };
 var OFSTED_SEC = {
   'Balcarras School':'Outstanding','Cheltenham Bournside School':'Outstanding',
   'Cleeve School':'Good'
+};
+// District-level fallback for properties with only outcode (GL50/GL51/GL52/GL53)
+var DISTRICT_PRI = {
+  'GL50':'St Edwards CE Primary','GL51':'Hatherley Infant School',
+  'GL52':'Prestbury CE Primary','GL53':'Naunton Park Primary',
+  'GL54':'Bourton-on-the-Water Primary'
+};
+var DISTRICT_SEC = {
+  'GL50':'Cheltenham Bournside School','GL51':'Cheltenham Bournside School',
+  'GL52':'Balcarras School','GL53':'Balcarras School','GL54':'Chipping Campden School'
 };
 
 function getCatchmentHTML(p) {
@@ -515,19 +548,26 @@ function getCatchmentHTML(p) {
   }
   if (html) return html;
   // 2. Fall back to hardcoded catchment table
-  if (!postcode || postcode.length < 5) return '';
+  if (!postcode) return '';
   var pc = postcode.toUpperCase().replace(/\s/g,'');
-  if (pc.length < 5) return '';
   var sector = pc.slice(0,5);
-  var pri = CATCHMENT_PRI[sector] || null;
-  var sec = CATCHMENT_SEC[sector] || null;
+  var district = pc.slice(0,4); // e.g. GL50, GL51, GL52, GL53
+  var pri = CATCHMENT_PRI[sector] || DISTRICT_PRI[district] || null;
+  var sec = CATCHMENT_SEC[sector] || DISTRICT_SEC[district] || null;
+  var isDistrictLevel = !CATCHMENT_PRI[sector] && pri; // using fallback
   if (pri) {
     var oo = OFSTED_PRI[pri] || '';
-    html += '<div class="school-info">🏫 <strong>Primary:</strong> ' + pri + (oo ? ' — <span class="' + ofstedClass(oo) + '">' + oo + '</span>' : '') + '</div>';
+    html += '<div class="school-info">🏫 <strong>Primary:</strong> ' + pri
+      + (oo ? ' — <span class="' + ofstedClass(oo) + '">' + oo + '</span>' : '')
+      + (isDistrictLevel ? ' <span style="color:#bbb;font-size:0.68rem">(approx)</span>' : '')
+      + '</div>';
   }
   if (sec) {
     var oss = OFSTED_SEC[sec] || '';
-    html += '<div class="school-info">🎓 <strong>Secondary:</strong> ' + sec + (oss ? ' — <span class="' + ofstedClass(oss) + '">' + oss + '</span>' : '') + '</div>';
+    html += '<div class="school-info">🎓 <strong>Secondary:</strong> ' + sec
+      + (oss ? ' — <span class="' + ofstedClass(oss) + '">' + oss + '</span>' : '')
+      + (isDistrictLevel ? ' <span style="color:#bbb;font-size:0.68rem">(approx)</span>' : '')
+      + '</div>';
   }
   if (!pri && !sec && postcode) {
     html = '<div class="school-info"><a href="https://www.gloucestershire.gov.uk/education-and-learning/schools-and-admissions/school-admissions/find-your-catchment-area-school/?postcode=' + encodeURIComponent(postcode) + '" target="_blank" onclick="event.stopPropagation()">Check catchment ↗</a></div>';
@@ -697,6 +737,28 @@ function render() {
     var notes = p.notes ? '<div class="notes-section">' + p.notes + '</div>' : '';
     var linksHtml = getLinksHTML(p);
     var sourceBadges = getSourceBadges(p);
+    // Thumbnail strip: first 4 photos + floorplan thumbnail
+    var thumbStrip = '';
+    var allPhotos = p.photos || [];
+    var fps = p.floorPlans || [];
+    if (allPhotos.length > 1 || fps.length > 0) {
+      var thumbsHtml = '';
+      var stripPhotos = allPhotos.slice(1, 5); // skip first (already shown as main)
+      stripPhotos.forEach(function(img, i) {
+        thumbsHtml += '<img class="card-thumb" src="' + img + '" referrerpolicy="no-referrer" loading="lazy"'
+          + ' onclick="event.stopPropagation();openLightbox(\'' + p.id + '\',' + (i+1) + ',\'photos\')"'
+          + ' onerror="this.style.display=\'none\'">';
+      });
+      if (fps.length > 0) {
+        thumbsHtml += '<img class="card-thumb card-thumb-fp" src="' + fps[0] + '" referrerpolicy="no-referrer" loading="lazy"'
+          + ' title="Floor Plan" onclick="event.stopPropagation();openLightbox(\'' + p.id + '\',0,\'floorplan\')"'
+          + ' onerror="this.outerHTML=\'<div class=\\\"card-thumb card-thumb-fp\\\" onclick=\\\"event.stopPropagation();openLightbox(\\\\\\\"' + p.id + '\\\\\\\",0,\\\\\\\"floorplan\\\\\\\")\\\">📐</div>\'">';
+      }
+      if (allPhotos.length > 5) {
+        thumbsHtml += '<div class="card-thumb-more" onclick="event.stopPropagation();openLightbox(\'' + p.id + '\',0,\'photos\')">+' + (allPhotos.length - 5) + '</div>';
+      }
+      thumbStrip = '<div class="card-thumb-strip">' + thumbsHtml + '</div>';
+    }
     var photoCount = (p.photos||[]).length;
     var photoCountBadge = photoCount > 1
       ? '<span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.55);color:white;font-size:0.7rem;padding:2px 7px;border-radius:10px;pointer-events:none;">📷 ' + photoCount + '</span>'
@@ -706,7 +768,7 @@ function render() {
       ? imgHtml.slice(0, imgHtml.lastIndexOf('</div>')) + photoCountBadge + '</div>'
       : imgHtml;
     return '<div class="card" onclick="openModal(\'' + p.id + '\')">'
-      + imgHtmlFinal
+      + imgHtmlFinal + thumbStrip
       + '<div class="card-header">'
       + '<div class="card-address">' + (p.address||'Address TBC') + '</div>'
       + '<div class="card-location">' + [p.town, p.postcode].filter(Boolean).join(' · ') + '</div>'
