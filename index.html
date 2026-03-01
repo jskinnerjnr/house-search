@@ -345,6 +345,7 @@
   <div class="modal">
     <button class="modal-close-x" onclick="closeModal()" title="Close">✕</button>
     <h2 id="modal-title">Add Property</h2>
+    <div id="modal-sources" style="font-size:0.75rem;color:#888;margin:-10px 0 12px;"></div>
     <div class="form-grid">
       <div class="section-divider">📍 Property Details</div>
       <div class="form-group full"><label>Address</label><input type="text" id="f-address" placeholder="123 Example Lane"></div>
@@ -393,6 +394,10 @@
       <div class="form-group full"><label>Rightmove Link</label><input type="url" id="f-rm-link"></div>
       <div class="form-group full"><label>Zoopla Link</label><input type="url" id="f-zp-link"></div>
       <div class="form-group full"><label>OnTheMarket Link</label><input type="url" id="f-otm-link"></div>
+      <div class="form-group full" id="modal-agent-links-wrap" style="display:none">
+        <label>Agent Links</label>
+        <div id="modal-agent-links" style="font-size:0.82rem;display:flex;flex-wrap:wrap;gap:6px;padding:8px 0;"></div>
+      </div>
       <div class="section-divider">✅ Your Assessment</div>
       <div class="form-group"><label>Status</label>
         <select id="f-stat"><option>New</option><option>Viewing Booked</option><option>Viewed</option><option>Interested</option><option>Offer Made</option><option>Rejected</option></select>
@@ -490,26 +495,87 @@ var OFSTED_SEC = {
   'Cleeve School':'Good'
 };
 
-function getCatchmentHTML(postcode) {
+function getCatchmentHTML(p) {
+  var postcode = p.postcode || '';
+  // 1. Use merged OSM school data if available
+  var priData = p.nearestPrimary || null;
+  var secData = p.nearestSecondary || null;
+  var html = '';
+  if (priData && priData.name) {
+    var o = priData.ofsted || '';
+    html += '<div class="school-info">🏫 <strong>Primary:</strong> ' + priData.name
+      + (priData.distance ? ' <span style="color:#aaa">(' + priData.distance + 'mi)</span>' : '')
+      + (o ? ' — <span class="' + ofstedClass(o) + '">' + o + '</span>' : '') + '</div>';
+  }
+  if (secData && secData.name) {
+    var os = secData.ofsted || '';
+    html += '<div class="school-info">🎓 <strong>Secondary:</strong> ' + secData.name
+      + (secData.distance ? ' <span style="color:#aaa">(' + secData.distance + 'mi)</span>' : '')
+      + (os ? ' — <span class="' + ofstedClass(os) + '">' + os + '</span>' : '') + '</div>';
+  }
+  if (html) return html;
+  // 2. Fall back to hardcoded catchment table
   if (!postcode || postcode.length < 5) return '';
   var pc = postcode.toUpperCase().replace(/\s/g,'');
   if (pc.length < 5) return '';
   var sector = pc.slice(0,5);
   var pri = CATCHMENT_PRI[sector] || null;
   var sec = CATCHMENT_SEC[sector] || null;
-  var html = '';
   if (pri) {
-    var o = OFSTED_PRI[pri] || '';
-    html += '<div class="school-info">🏫 <strong>Primary:</strong> ' + pri + (o ? ' — <span class="' + ofstedClass(o) + '">' + o + '</span>' : '') + '</div>';
+    var oo = OFSTED_PRI[pri] || '';
+    html += '<div class="school-info">🏫 <strong>Primary:</strong> ' + pri + (oo ? ' — <span class="' + ofstedClass(oo) + '">' + oo + '</span>' : '') + '</div>';
   }
   if (sec) {
-    var os = OFSTED_SEC[sec] || '';
-    html += '<div class="school-info">🎓 <strong>Secondary:</strong> ' + sec + (os ? ' — <span class="' + ofstedClass(os) + '">' + os + '</span>' : '') + '</div>';
+    var oss = OFSTED_SEC[sec] || '';
+    html += '<div class="school-info">🎓 <strong>Secondary:</strong> ' + sec + (oss ? ' — <span class="' + ofstedClass(oss) + '">' + oss + '</span>' : '') + '</div>';
   }
-  if (!pri && !sec) {
+  if (!pri && !sec && postcode) {
     html = '<div class="school-info"><a href="https://www.gloucestershire.gov.uk/education-and-learning/schools-and-admissions/school-admissions/find-your-catchment-area-school/?postcode=' + encodeURIComponent(postcode) + '" target="_blank" onclick="event.stopPropagation()">Check catchment ↗</a></div>';
   }
   return html;
+}
+
+function getLinksHTML(p) {
+  var links = '';
+  // Use allLinks if populated (merged data), else fall back to individual fields
+  var all = p.allLinks || {};
+  var rmUrl = all.rightmove || p.rmLink || '';
+  var otmUrl = all.onthemarket || p.otmLink || '';
+  var zpUrl = p.zpLink || '';
+  if (rmUrl) links += '<a href="' + rmUrl + '" target="_blank" onclick="event.stopPropagation()">RM</a>';
+  if (otmUrl) links += '<a href="' + otmUrl + '" target="_blank" onclick="event.stopPropagation()">OTM</a>';
+  if (zpUrl) links += '<a href="' + zpUrl + '" target="_blank" onclick="event.stopPropagation()">ZP</a>';
+  // Agent-direct links (non-portal sources)
+  var portalSources = new Set(['rightmove','onthemarket','zoopla','']);
+  Object.keys(all).forEach(function(src) {
+    if (!portalSources.has(src) && all[src]) {
+      var label = src.split(' ')[0].slice(0,6);
+      links += '<a href="' + all[src] + '" target="_blank" onclick="event.stopPropagation()" title="' + src + '">' + label + '</a>';
+    }
+  });
+  // Standalone agentLink (not yet in allLinks)
+  if (!Object.keys(all).length && p.agentLink) {
+    var agentLabel = (p.agent||'Agent').split(' ')[0].slice(0,6);
+    links += '<a href="' + p.agentLink + '" target="_blank" onclick="event.stopPropagation()" title="' + (p.agent||'Agent') + '">' + agentLabel + '</a>';
+  }
+  return links;
+}
+
+function getSourceBadges(p) {
+  var sources = p.sources || [p.source || ''];
+  var icons = {
+    'rightmove':'🔴','onthemarket':'🟢','zoopla':'🟣',
+    'Read Maurice':'🏠','Nick Griffith Estate Agents':'🏠',
+    'Kingsley Evans':'🏠','CJ Hole Cheltenham':'🏠',
+    'Peter Ball & Co':'🏠','Charles Lear & Co':'🏠',
+    'Elliot Oliver':'🏠'
+  };
+  return sources.filter(Boolean).map(function(s) {
+    var icon = icons[s] || '📋';
+    var short = s === 'rightmove' ? 'RM' : s === 'onthemarket' ? 'OTM' :
+                s.split(' ')[0].slice(0,8);
+    return '<span style="font-size:0.65rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:#555;" title="' + s + '">' + icon + ' ' + short + '</span>';
+  }).join(' ');
 }
 
 function getFilters() {
@@ -539,26 +605,30 @@ function matchesFilters(p, f) {
   if (f.outbuildings === 'Yes' && p.outbuildings === 'No') return false;
   if (f.status && p.status !== f.status) return false;
   if (f.rating && (!p.rating || p.rating < f.rating)) return false;
-  // School filters using catchment data
+  // School filters — use merged OSM data first, fall back to catchment table
   if (f.school || f.secSchool) {
-    var pc = (p.postcode||'').toUpperCase().replace(/\s/g,'');
-    var sector = pc.slice(0,5);
-    if (f.school === 'Outstanding') {
-      var pri = CATCHMENT_PRI[sector];
-      if (!pri || OFSTED_PRI[pri] !== 'Outstanding') return false;
+    var pc2 = (p.postcode||'').toUpperCase().replace(/\s/g,'');
+    var sector2 = pc2.slice(0,5);
+    // Primary
+    var priOfsted = '';
+    if (p.nearestPrimary && p.nearestPrimary.ofsted) {
+      priOfsted = p.nearestPrimary.ofsted;
+    } else {
+      var priName = CATCHMENT_PRI[sector2];
+      priOfsted = priName ? (OFSTED_PRI[priName]||'') : '';
     }
-    if (f.school === 'Good') {
-      var pri2 = CATCHMENT_PRI[sector];
-      if (!pri2 || !['Outstanding','Good'].includes(OFSTED_PRI[pri2])) return false;
+    // Secondary
+    var secOfsted = '';
+    if (p.nearestSecondary && p.nearestSecondary.ofsted) {
+      secOfsted = p.nearestSecondary.ofsted;
+    } else {
+      var secName = CATCHMENT_SEC[sector2];
+      secOfsted = secName ? (OFSTED_SEC[secName]||'') : '';
     }
-    if (f.secSchool === 'Outstanding') {
-      var sec = CATCHMENT_SEC[sector];
-      if (!sec || OFSTED_SEC[sec] !== 'Outstanding') return false;
-    }
-    if (f.secSchool === 'Good') {
-      var sec2 = CATCHMENT_SEC[sector];
-      if (!sec2 || !['Outstanding','Good'].includes(OFSTED_SEC[sec2])) return false;
-    }
+    if (f.school === 'Outstanding' && priOfsted !== 'Outstanding') return false;
+    if (f.school === 'Good' && !['Outstanding','Good'].includes(priOfsted)) return false;
+    if (f.secSchool === 'Outstanding' && secOfsted !== 'Outstanding') return false;
+    if (f.secSchool === 'Good' && !['Outstanding','Good'].includes(secOfsted)) return false;
   }
   return true;
 }
@@ -602,7 +672,7 @@ function render() {
     var planBtn = hasFP
       ? '<a href="#" class="plan-btn" onclick="event.preventDefault();event.stopPropagation();openLightbox(\'' + p.id + '\',0,\'floorplan\')">📐 Plan</a>'
       : '';
-    var school = getCatchmentHTML(p.postcode);
+    var school = getCatchmentHTML(p);
     var tags = '';
     if (p.garden === 'Yes') tags += '<span class="tag tag-yes">Garden ✓</span>';
     if (p.outbuildings === 'Yes') tags += '<span class="tag tag-yes">Outbuildings ✓</span>';
@@ -625,11 +695,16 @@ function render() {
       prosCons += '</div>';
     }
     var notes = p.notes ? '<div class="notes-section">' + p.notes + '</div>' : '';
-    var rmLink = p.rmLink ? '<a href="' + p.rmLink + '" target="_blank" onclick="event.stopPropagation()">RM</a>' : '';
-    var zpLink = p.zpLink ? '<a href="' + p.zpLink + '" target="_blank" onclick="event.stopPropagation()">ZP</a>' : '';
-    var otmLink = p.otmLink ? '<a href="' + p.otmLink + '" target="_blank" onclick="event.stopPropagation()">OTM</a>' : '';
+    var linksHtml = getLinksHTML(p);
+    var sourceBadges = getSourceBadges(p);
+    var photoCount = (p.photos||[]).length;
+    var photoCountBadge = photoCount > 1
+      ? '<span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.55);color:white;font-size:0.7rem;padding:2px 7px;border-radius:10px;pointer-events:none;">📷 ' + photoCount + '</span>'
+      : '';
+    // Inject photo count badge into imgHtml
+    var imgHtmlFinal = imgHtml.replace('</div>', photoCountBadge + '</div>');
     return '<div class="card" onclick="openModal(\'' + p.id + '\')">'
-      + imgHtml
+      + imgHtmlFinal
       + '<div class="card-header">'
       + '<div class="card-address">' + (p.address||'Address TBC') + '</div>'
       + '<div class="card-location">' + [p.town, p.postcode].filter(Boolean).join(' · ') + '</div>'
@@ -640,12 +715,13 @@ function render() {
       + (tags ? '<div class="tags">' + tags + '</div>' : '')
       + school
       + (p.other ? '<div class="school-info" style="color:#555">✨ ' + p.other + '</div>' : '')
+      + (sourceBadges ? '<div style="margin-top:4px;display:flex;gap:4px;flex-wrap:wrap;">' + sourceBadges + '</div>' : '')
       + '</div>'
       + prosCons + notes
       + '<div class="card-footer">'
       + '<span class="status-badge ' + statusClass(p.status) + '">' + (p.status||'New') + '</span>'
       + '<span class="rating">' + stars(p.rating) + '</span>'
-      + '<div class="links">' + rmLink + zpLink + otmLink + planBtn + '</div>'
+      + '<div class="links">' + linksHtml + planBtn + '</div>'
       + '</div>'
       + '</div>';
   }).join('');
@@ -739,6 +815,27 @@ function openModal(id) {
     var el = document.getElementById(id);
     if (el) el.value = flds[id];
   });
+  // Show agent-direct links from allLinks
+  var allLinks = p.allLinks || {};
+  var portalKeys = new Set(['rightmove','onthemarket','zoopla']);
+  var agentEntries = Object.keys(allLinks).filter(function(k){ return !portalKeys.has(k) && allLinks[k]; });
+  var agentLinksWrap = document.getElementById('modal-agent-links-wrap');
+  var agentLinksDiv = document.getElementById('modal-agent-links');
+  if (agentEntries.length) {
+    agentLinksDiv.innerHTML = agentEntries.map(function(k) {
+      return '<a href="' + allLinks[k] + '" target="_blank" style="padding:5px 10px;border:1px solid #ddd;border-radius:6px;text-decoration:none;color:#2c2c2c;">' + k + ' ↗</a>';
+    }).join('');
+    agentLinksWrap.style.display = '';
+  } else if (p.agentLink) {
+    agentLinksDiv.innerHTML = '<a href="' + p.agentLink + '" target="_blank" style="padding:5px 10px;border:1px solid #ddd;border-radius:6px;text-decoration:none;color:#2c2c2c;">' + (p.agent||'Agent') + ' ↗</a>';
+    agentLinksWrap.style.display = '';
+  } else {
+    agentLinksWrap.style.display = 'none';
+  }
+  // Show sources
+  var sourceStr = (p.sources||[p.source||'']).filter(Boolean).join(', ');
+  var sourceWrap = document.getElementById('modal-sources');
+  if (sourceWrap) sourceWrap.textContent = sourceStr ? 'Listed on: ' + sourceStr : '';
   document.getElementById('modal').classList.add('open');
 }
 
