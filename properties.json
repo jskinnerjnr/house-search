@@ -259,7 +259,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/eeea303f5/172677584/eeea303f50c99fe174a73571e0a607f3_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5af359711/172677584/5af359711f2aabe2ff11042f843ece2d_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/d19c83c4a/172677584/d19c83c4a1765e65154ed9ff60c7a743.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -301,7 +303,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c1a874b1f/171260189/c1a874b1fda08fc30d0a388c732e78a5_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e6b3e99d4/171260189/e6b3e99d46a98ca091541947dee20d73_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/dd86f34ba/164179406/dd86f34ba894b8d21d6b9df11ebdd13b.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -343,7 +347,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0ccd35fa8/165392327/0ccd35fa851fa89e0b0624a81fe08579_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/91aeb078c/165392327/91aeb078c7d27796bfd6db0cfe758c15_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/01116ffaa/169471250/01116ffaa924b7627b5af6e7fc6d5bed.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -385,7 +391,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/4fb319384/171358520/4fb319384864bef204f102775d0c40ec_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/30acb9d6b/171358520/30acb9d6b281944481fca4784dfa1764_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/d65fabd8e/151068599/d65fabd8e56a9144a28924489b167de4.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -427,7 +435,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/8ecdf10d3/171076376/8ecdf10d310802a89be676f87c509585_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0469b7213/171076376/0469b72130a4b002c7d6a4bd0f42f794_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/006c2158a/159694382/006c2158ab34aef064b11dace2f47ef3.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -469,7 +479,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/85a3af3fe/167160077/85a3af3fe2a1e1b0d2ded887922960d8_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/4e747fa5d/167160077/4e747fa5d989691f1d0aa6f6df52f17b_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/21bb95f15/168087044/21bb95f15140ae0dcf08a2987a589ebd.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -511,7 +523,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/6bffee3d0/166571993/6bffee3d07339b368be8410f46d3bf6e_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/162b9a1ce/166571993/162b9a1ceeecca8830ec4ca2bb950bf9_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/f2d6f0020/158615438/f2d6f002007cd62498b050c3f2513e0d.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -549,7 +563,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/292176475/172333583/2921764757ec67d229944cb2dba2d125_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/799cd546f/172333583/799cd546f572a189dcbc89787e198f1f_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/9996f2fe4/172333583/9996f2fe412c89bcb868c9cbc6b3a050.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -591,7 +607,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/cef9d0424/171571259/cef9d042472f726ac93601c5fa2a7770_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5fc719bdd/171571259/5fc719bddf50306c43aeb29903919592_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/5ee5f46a0/172595084/5ee5f46a0dd9ec9839021219e72e324e.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -627,7 +645,10 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e66c8592d/159206174/e66c8592d54ab376be94b890def9565d_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/03e2ab564/159206174/03e2ab564f2392eae377954606d34160_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/d3cde858d/159206174/d3cde858d8836bb003f84e4e9d675f46.jpeg",
+      "https://media.rightmove.co.uk/property-floorplan/e9e56a9e9/159206174/e9e56a9e966e887a931a01aaba543bda.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -669,7 +690,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/a70a27dca/171171149/a70a27dca504c9c10691c3cc33db6091_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/003bad9c6/171171149/003bad9c6676fd0b89c280269b22c02f_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/b6a907cfe/171171149/b6a907cfe88f9924ddffcdb9ce5ed2d4.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -707,7 +730,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/f3871255c/160392503/f3871255cb0eb6634183afc2e3de9ce9_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/001f41867/160392503/001f41867a10b66cb0798289488bd162_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/39b3c1c10/160392503/39b3c1c1087a245bf031bc1599a81f75.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -749,7 +774,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/7074397ab/171495452/7074397abea55ba8c70a04d1b6540108_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c86057ea2/171495452/c86057ea25d0524213b5cb2870bb0d8f_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/e53d81788/163775549/e53d8178875aba4d8772f6d13df0150a.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -791,7 +818,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/2e5c21a30/169658462/2e5c21a3023b54ebd7f7566c7bc7b779_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/475f9d51d/169658462/475f9d51d6aa772f1e7fa1190785f327_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/e869c7e25/170628086/e869c7e2559bf40c080eb7c7b6f8d95d.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -833,7 +862,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/08e835613/172183709/08e835613eaf182396b9e03a63bfc4e2_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/aed4b04ff/172183709/aed4b04ff951baa07e75bc8153529a8e_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/c0c467dd0/172183709/c0c467dd0372a77b3a215bc4cc089ffc.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -875,7 +906,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/182be102a/171994955/182be102a865078a5ad46a92daa94066_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/a037817b5/171994955/a037817b58187568986a48e09e811676_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/4b4c1a667/156032963/4b4c1a66700530d6eba0d75a90f46278.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -917,7 +950,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/74c000d76/170734505/74c000d76c68392204a12f9ce94594b2_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/325d21973/170734505/325d21973c6b05dd130e3ae9ea4882db_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/ecf92d69a/172715591/ecf92d69a6572f47717bd467a76491f4.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -959,7 +994,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/8a976145a/156168212/8a976145a504bf507293bd32f7ec01cd_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/b4c21d5f3/156168212/b4c21d5f3e9857f1fa197a5ce5a277b7_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/9571b865c/164104655/9571b865c82b0134fd06ca5fbbc94e86.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1001,7 +1038,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/b989e4a64/170734520/b989e4a647a75f53d39999d7aa9f75ff_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/06c285018/170734520/06c2850182cb95f9203e774acf22dd30_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/57a83d93d/168497603/57a83d93dffd5706a76dc0c6745b3bb5.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1043,7 +1082,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/16b5bd71a/165382595/16b5bd71a323a13f44f662e632ec41f2_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/ab62a30e6/165382595/ab62a30e6bb3c388782aefafc9067d54_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/fef3682c3/172293356/fef3682c344cfecdceaf6ac192160daa.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1081,7 +1122,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/1baf310a6/163945265/1baf310a6de878eb785b366a89748ea4_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/d0a087adf/163945265/d0a087adf78c5a0bac578333a8d90d1e_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/db1fbb377/163945265/db1fbb377b70cd594279a182a26872e8.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1119,7 +1162,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/cd18f071e/171371765/cd18f071ed0f03d6bd41e566fc5613ce_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/1c11b0825/171371765/1c11b0825a8354cd7a2756ef5e7ca412_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/32c251e0a/171371765/32c251e0a8ed38992513d3fee4ac147a.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1161,7 +1206,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/7d9649dfa/168134363/7d9649dfa3815467979b00e7caabdb22_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/49ced9817/168134363/49ced98171523826998cfa3a32c1b715_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/ef50617fc/169251062/ef50617fc8305049ee3ba6618c584c30.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1199,7 +1246,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c7e3e9572/171965744/c7e3e9572d268f5e08bafa3cd9297a72_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/4c669a060/171965744/4c669a060a2a4b27acadfa943be6c6e9_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/c6ada9cdb/171965744/c6ada9cdb5c5314c59a45d817eca1361.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1237,7 +1286,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/9b3ed4e53/172151585/9b3ed4e534eef789df80ba5512764807_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/59f245022/172151585/59f24502235619eafc429daa96a4d3b0_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/c1884691d/172151585/c1884691ddde87657e19d0bbc5c4bdf2.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1275,7 +1326,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/4e28744be/162866861/4e28744bedb85310fa5c1607e35ee5e2_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/55b454fe4/162866861/55b454fe437f1666c68ab1a7fda4a951_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/3fdf1ed68/162866861/3fdf1ed68da4d4e8a4a7a5d6206895e7.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1317,7 +1370,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/95f3f44c8/87591090/95f3f44c82d54121b2bad1a9fb0b6dc5_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/ff9c2a238/87591090/ff9c2a2382042ad9d7e50f53d9758618_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/4b3745ba1/164784593/4b3745ba13087378914cd4fa51a7ef8a.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1359,7 +1414,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/f30e29234/164701607/f30e29234e1862950033a91a9dbb22dd_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/251c12add/164701607/251c12addc125753cbf8cc291935e772_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/8331e8929/164701607/8331e892964c0bec8cf95d9a972f8221.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1397,7 +1454,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/916a5c6a3/167132108/916a5c6a37712f231ca6b32445f497f4_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/1c6731878/167132108/1c6731878169a6a8278547886321f3dd_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/4b46ee44a/167132108/4b46ee44a9adf929ce924e29a0759bd1.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1435,7 +1494,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/32b5ade6e/170980667/32b5ade6e4552b80b54bfd6d1795f301_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0495f29a3/170980667/0495f29a3a9850849e83b0e3d851389d_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/641c94ab9/170980667/641c94ab9b9ab81686a501b1011268dc.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1481,7 +1542,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c4215db73/166703717/c4215db73e03c016cd6c917107dab1fc_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/8a5fdf744/166703717/8a5fdf744fa69a0e3c01d12e5917cbeb_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/25592253c/170751554/25592253cf1c3bf35915fb4a75b9f604.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1519,7 +1582,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/d4884246e/166361936/d4884246e03133e502a3f1ded40a3ab1_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0911d6940/166361936/0911d69403083180ef64e45942750ed1_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/f547ed200/166361936/f547ed200acdbc02bbcf56e8b7d751a8.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1557,7 +1622,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/eddd24784/156866627/eddd247845d1d26af9e220e3ad2defcf_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/439a006ac/156866627/439a006acd1dd0d0d0881115b8e5aefe_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/cca2780ba/156866627/cca2780ba2a3fc78c23faee7c847291c.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1595,7 +1662,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/41732c749/160862249/41732c74931ea92169e34a3d4ea10a22_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0744bacaa/160862249/0744bacaa68e25b69fdf77892c9be925_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/cf945a526/160862249/cf945a526091f54fb08d85ee04518881.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1641,7 +1710,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/7a934e5d5/168070208/7a934e5d56b39d0649a8a306b61268bd_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/803d06011/168070208/803d060113debb778d609810facf71a7_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/af6f2fdad/87369183/af6f2fdad8bbe38621d58596c80f6641.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1679,7 +1750,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/8980f7f8d/87193623/8980f7f8d448bb6d2cadf4d69b41918e_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/539909b56/87193623/539909b5663efa7b70e352fe3dbcd085_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/ca3e9f5ce/87193623/ca3e9f5ceb787f43c909466b193f38bd.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1721,7 +1794,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5dd9eb2de/169952768/5dd9eb2de894bfdd5a251a036dc09071_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/33393d209/169952768/33393d209798d657fc1274426b9d9d73_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/d820a57de/161208356/d820a57de0d8cbad60e904a02a36228a.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1759,7 +1834,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/7b0095ae2/171217085/7b0095ae2700c29c3216a6d4ee361808_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/351572c9b/171217085/351572c9bc5c96214522aa2c6204e00e_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/bd5ff5ded/171217085/bd5ff5dedb767c1f4e55424f001330c9.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1805,7 +1882,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/2b7a00d61/150756647/2b7a00d615f1ad97e9269c4aedf0f7c3_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c08157e42/150756647/c08157e422769535666b1bbecacea92b_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/5f5365620/165214991/5f536562011829d82f21a4b95783e17e.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1843,7 +1922,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/804db3feb/172248650/804db3febc3092041dafdd032957ea71_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/d89e822aa/172248650/d89e822aa09d4918e7b6a87082acb42f_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/d9e2fe895/172248650/d9e2fe89554013e690bdc85e1a463803.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1885,7 +1966,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e8be4c4ab/172027328/e8be4c4abf24aa2fc642de472d325cb3_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/1967e9303/172027328/1967e9303dcf4f7cb3acea77a33179d4_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/bca2b4e8b/172027328/bca2b4e8b5a8b94e6b7cffd2f71c8fda.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1923,7 +2006,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/92b756038/172308899/92b7560381c6f407c851b5416c58f9d6_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/dd8f0c6ef/172308899/dd8f0c6efdfa087a4ba7ff4a39ad1a76_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/c66d4137b/172308899/c66d4137b5f278fe20ac23e0948e9bb0.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1961,7 +2046,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5b1210345/166250717/5b12103458a9256ea2565145a8d8efcb_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/45295c6c7/166250717/45295c6c7d4a11253cdfbbc5ea55075a_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/1d864ca8f/166250717/1d864ca8f6038aeeab682f54bd60c02d.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -1999,7 +2086,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5e5ea876d/172013153/5e5ea876d35356c762bac30a87303708_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/2e65bfe4a/172013153/2e65bfe4a259efbc7d9a51dff3ac318d_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/91bbf1aca/172013153/91bbf1acabf36524b1d60282a95ff2e5.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2045,7 +2134,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/ada8b3de1/159111485/ada8b3de148b646370e728801a040818_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/890e68581/159111485/890e6858141df0d18ad512053c876bf9_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/52b0eae3e/166714874/52b0eae3e7a1ae92638d7f6c4260da79.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2083,7 +2174,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5142f1b29/169475336/5142f1b2907acf9d356015146b1cec2b_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/cdf941b86/169475336/cdf941b86c2e600bd08e57f82cf4f6b2_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/d5f1116fe/169475336/d5f1116fecbc8468e1708dcec5245df2.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2121,7 +2214,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/17c9629c1/172511108/17c9629c128a1511a3c1d36382c680bb_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/480e80137/172511108/480e80137a6949a4635b12f91bc80129_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/2b0aa6d86/172511108/2b0aa6d864115ab106b980cca2c72106.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2163,7 +2258,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c27da9258/172683851/c27da9258bb0fc98102f328827b26e02_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/86e388f42/172683851/86e388f422440fbd173f12ad7e866638_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/b8cc1afdb/168947468/b8cc1afdbec03735650e8c2e8b7c8e4c.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2201,7 +2298,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/ecaa09e2c/171848498/ecaa09e2c6344566c51fe51f2ff891b2_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/8c0e0c72b/171848498/8c0e0c72bfba9e20e7c0fb9798b297d1_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/e674a525c/171848498/e674a525ce42e32f7d416995cacb13c7.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2239,7 +2338,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/8a6be67ea/169274690/8a6be67eab27cf4c537391f40f52214a_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c9fd0c3a5/169274690/c9fd0c3a52ac3e7fa2aa2f3e7571791d_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/6b8e3a68a/169274690/6b8e3a68aa906e72b068d5aecc6dea76.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2281,7 +2382,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/3c53fe366/167732930/3c53fe36616ecc9a851b4d69bf1309ec_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/b5d1dce18/167732930/b5d1dce18f20b35ad6961aebc8625e65_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/dc355d62f/168067379/dc355d62f56590728559cd51a26be0d5.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2319,7 +2422,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/79aed8b9f/171502145/79aed8b9f38e890abfdef3ea59fdbfca_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e1053f603/171502145/e1053f603c22eae24a6479b982802a91_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/8891adb2b/171502145/8891adb2b1b5d340abdaf419ee24a072.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2361,7 +2466,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/da614711f/170734514/da614711f2edd12ed8157c3d27c476b5_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/cf203935b/170734514/cf203935b4c4d4322f21bec232a059d0_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/509180031/170734514/5091800314a17f5b9e87a8f631f16e8d.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2403,7 +2510,9 @@
       "https://ggfx-peterball.s3.eu-west-2.amazonaws.com/i/properties/CHN250559/images/CHN250559_3.webp",
       "https://ggfx-peterball.s3.eu-west-2.amazonaws.com/i/properties/CHN250559/images/CHN250559_4.webp"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/1c99bc344/169475231/1c99bc344fb208d3aac48d4b34447d1a.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2441,7 +2550,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/376c5aa47/171387683/376c5aa47b804447d32338b06f466ab8_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/dabbd3734/171387683/dabbd3734db3b55d87022d1472f039db_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/2ae07c2aa/171387683/2ae07c2aacdaaa51f9fb2f56d621b419.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2483,7 +2594,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/9c5f3fb76/172001150/9c5f3fb76901e98592273ee0511004fc_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5cfca3765/172001150/5cfca3765804c6d5897c2d9e8e46b467_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/9cd49c100/172001150/9cd49c100b405966a29f2bac6966b191.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2521,7 +2634,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/1fcfd56b1/172063901/1fcfd56b189d815fb811407f20fabea7_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/deceb1ccb/172063901/deceb1ccb2a70e1ff514f12e880de19c_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/79086130f/172063901/79086130f5f257d213e4bd23999c34ab.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2559,7 +2674,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/4ae350ecd/168050765/4ae350ecd1e4df4aca96aecfa2d27bdb_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/3282f3f86/168050765/3282f3f866ae5c742b2016c528d139d0_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/8175fb4d0/168050765/8175fb4d0912997847367726e43d043c.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2597,7 +2714,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/30d54c543/167212841/30d54c543f356836affd88b9f6507e34_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/6cb528186/167212841/6cb528186e7d4687cdee2f9991de5a25_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/a26c78f9e/167212841/a26c78f9e2bf265e332046cf2bb9c092.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2635,7 +2754,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5b917fc9b/169042370/5b917fc9b8f6a7c5267725761392c17e_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5bbcc3f1c/169042370/5bbcc3f1c6c95db7fa1917b898cafbe5_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/512b89b89/169042370/512b89b895b85465d7c24b4828594381.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2673,7 +2794,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/d34ff1087/170351195/d34ff10871a0f3f6277cb7d96256af33_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/4fb67df2f/170351195/4fb67df2fff605b652fedd246e505e90_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/7ec474581/170351195/7ec4745815758fe65e427837d5b59202.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2711,7 +2834,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/f41bf2f63/167553278/f41bf2f6377e06cd1c0232bdc44c2b5f_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/ef0190dcf/167553278/ef0190dcf50efe73973100731415a5a8_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/3050ad9f2/167553278/3050ad9f22554b97e4ac98dd44f818f4.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2749,7 +2874,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0d2597e9a/169568396/0d2597e9a1e317d90ef803a199da6bca_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/87d3d8ccf/169568396/87d3d8ccf6ca8ecd629c09c705a97fc3_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/f0ad9ddd8/169568396/f0ad9ddd89aeaba609f210617741a5ea.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2787,7 +2914,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/dcae502e9/170508590/dcae502e96f43385c4d22f83e6510bd5_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/1e176b00e/170508590/1e176b00ef1843d8bfc807f8cfa36dba_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/15e069b8d/170508590/15e069b8d21d912e70b0daacd4ed8afe.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2829,7 +2958,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0e8743c48/164971037/0e8743c485dae30933baf1cbaa0a2b09_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e5cc8cf21/164971037/e5cc8cf21ff42daf20e2caf791ab71f3_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/54ea9df9d/156077270/54ea9df9d1054efd69e95ac8ca121ab6.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2867,7 +2998,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/43ff440bc/171636146/43ff440bc06409a8c8b3b9514bdd98d4_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/cd30140fa/171636146/cd30140fa9251faeecf21a25719a48a4_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/f025cec37/171636146/f025cec370a3de4075a5b1d11874bf56.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2905,7 +3038,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e81b15417/171701102/e81b15417d2e3557ade8c0a58d93e678_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/58cc62e2c/171701102/58cc62e2c3ae910454e180bb97882b67_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/fead4b3e8/171701102/fead4b3e8224b48caba2160963a809b0.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2947,7 +3082,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/6f1e40461/167094278/6f1e404616649516da27e2e0268137a8_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/9f7a9f190/167094278/9f7a9f190b917021f90903d9584cff90_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/a586be8eb/167094278/a586be8eb331f09ebf9951e96b7016c6.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -2993,7 +3130,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/da13992c9/171382580/da13992c9e62361a7315e4342feba15d_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/63a034d79/171382580/63a034d797b2f08a673a62c9933af89d_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/3bbc7249d/87608955/3bbc7249d98b4a940bdcd3e3e0e7f344.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3031,7 +3170,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/cc0e3fc0b/170460140/cc0e3fc0bd10ba8466e865957c19d335_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/10022c888/170460140/10022c8882ffc7cb364f9c562141d681_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/3d3324638/170460140/3d3324638aa5dfd2b7782ffc21a3bd9c.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3069,7 +3210,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/362f1d56c/167624486/362f1d56c3297708929fe0e8dccb418c_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/db2533ed0/167624486/db2533ed07cd62efb6b3590241aeba2c_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/b1f699ade/167624486/b1f699adeb84c694edc47d7d6cf8a7db.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3107,7 +3250,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/4e076e8c7/166810394/4e076e8c759b48ad8eb0b29adea8ea77_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/6aa822555/166810394/6aa822555b3792d2c92c9b46a5a027c6_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/9df3f6efb/166810394/9df3f6efbb99b7e0ac340ff602b0a217.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3149,7 +3294,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/d5d0fad5d/172283906/d5d0fad5dde19f26861182dd754a9d97_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/816a6ea64/172283906/816a6ea64feb9a3a8e2148c958b1f76d_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/c1ef2fca7/172283906/c1ef2fca7def6265828b7db135869744.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3187,7 +3334,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/18cfb5de6/157965551/18cfb5de6b7ec1d1fa4527ad00c24d33_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/fa1beea4f/157965551/fa1beea4face031eaa3d11a78dae3240_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/4be26869f/157965551/4be26869f7403e365fe60a3fe1972f61.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3225,7 +3374,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/cb0d6830b/172634897/cb0d6830b70b38ddba4d1bb22fc32c36_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5b4ef0aff/172634897/5b4ef0affff1ad1fa258ee824138090f_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/32641e0c1/172634897/32641e0c1fbdfee87c0ea585ac63c4cb.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3263,7 +3414,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/d1afe87cf/168741482/d1afe87cf70eb28ba32b1b1c0fecaf53_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/711dc1507/168741482/711dc1507415649ef1f26193735d1ab9_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/f863496ba/168741482/f863496ba3f322594365ebe313132465.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3297,7 +3450,11 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/39cfbeba8/160799231/39cfbeba83bf04ce1792efc9369beded_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/74673ca13/160799231/74673ca13319a542bf805d2974b18b6c_max_476x317.png"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/20accb9e4/160799231/20accb9e4207af12fef2910456735d03.png",
+      "https://media.rightmove.co.uk/property-floorplan/11c674a3e/160799231/11c674a3e3e6d4816ac064a17dfdb6e8.jpeg",
+      "https://media.rightmove.co.uk/property-floorplan/043cb9224/160799231/043cb9224c7c069b5f9f87d58aa5fe20.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3335,7 +3492,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e501d17c5/169822244/e501d17c596fafa192cc89beec2858ef_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/a771ce1d4/169822244/a771ce1d4f4d41f0b73603df77e209ce_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/0e03fa163/169822244/0e03fa1638df0b28eb60b8b835275786.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3373,7 +3532,12 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/fef3acee8/171582653/fef3acee80ba0397cbcaf01cfe183183_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/9ae5c2a67/171582653/9ae5c2a672603fb97e5a6446b7e5cf86_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/b45f9115d/171582653/b45f9115d78902e6cedf11b9a95ef714.png",
+      "https://media.rightmove.co.uk/property-floorplan/ba46f8e91/171582653/ba46f8e91c9a6b3578ceb97af9a71b6d.png",
+      "https://media.rightmove.co.uk/property-floorplan/511f69ceb/171582653/511f69ceb0dc1f165012dca9577dc5de.png",
+      "https://media.rightmove.co.uk/property-floorplan/dfe06502d/171582653/dfe06502d08ab1fa61280be2c0060e5e.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3415,7 +3579,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/ba57f9090/168614282/ba57f90909578a914db5305509800134_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/fc5836289/168614282/fc5836289fde05cef1fdde3378bae44e_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/39201ce97/168614282/39201ce97e2b950b63c31bef15a5b589.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3461,7 +3627,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/2d0c17b8f/171824582/2d0c17b8fb00c0daba5213dd28242128_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/55bc4bb61/171824582/55bc4bb61375de5e4095bf95c710ba45_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/affc68e22/87414423/affc68e22d86799b7a38022fe94616a5.png"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3499,7 +3667,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/036447061/172593911/03644706182ed4bff8de753f0da2c85c_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e6d293af8/172593911/e6d293af8dc3bdab205edb24407ef541_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/4a56e8b43/172593911/4a56e8b430fc16e9ffa0181cddbddea5.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3541,7 +3711,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c45e0ae59/172673519/c45e0ae596e84cd8084e53787d01787b_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/8254ab923/172673519/8254ab923025e1958c81914399c92c16_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/3ee5997ff/172673519/3ee5997ff5389d609688a5d481e9a796.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3583,7 +3755,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/2d23f5335/168625094/2d23f5335d25d6ea8de457abb80ddb34_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/d8f2da078/168625094/d8f2da078cdfe18398f8841cda9d09bc_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/12f88d2ac/172128263/12f88d2ac83e290e08aedd62a8e23d66.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3621,7 +3795,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/fee86d867/170759396/fee86d8673f6a304113f1e0beb0f2813_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/a04e64a51/170759396/a04e64a51067d211eea7556709ecaf3e_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/3eacf29b4/170759396/3eacf29b4156690f8823ad180a5c3603.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3659,7 +3835,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/a415af2b6/172184333/a415af2b6c4e10b3ae6fad0131bbe7bb_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e23368950/172184333/e233689505d753fd7bcbe8d376d36cdd_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/047d8be0d/172184333/047d8be0db86351d6c585e465f4d869b.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3697,7 +3875,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/f73aa4f2b/170985071/f73aa4f2b6dbf53925b99d4b1690df0a_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c3ed6d3fe/170985071/c3ed6d3fe6d544b922702cf4d440b951_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/468e26332/170985071/468e26332d8a5b716b3ef57581c9d3bf.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3735,7 +3915,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/b16811db3/171819716/b16811db36145b2307c6c0243937bf88_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/a14942e52/171819716/a14942e525f56653e3d726ce892b36a8_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/3817d9baf/171819716/3817d9baf864c8f526536041417b571c.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
@@ -3853,7 +4035,9 @@
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c392d0467/167003576/c392d0467af2196421c742b9cf3c0018_max_476x317.jpeg",
       "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/63cc5a281/167003576/63cc5a28130472b87268e4adc0bdbf94_max_476x317.jpeg"
     ],
-    "floorPlans": [],
+    "floorPlans": [
+      "https://media.rightmove.co.uk/property-floorplan/16a3091e4/167003576/16a3091e4af2b4ac92a230bf4f1e2544.jpeg"
+    ],
     "status": "New",
     "lastUpdated": "2026-03-01",
     "garden": "",
