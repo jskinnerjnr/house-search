@@ -104,10 +104,101 @@
   /* ── FAB (add button) ── */
   .add-btn { position: fixed; bottom: 20px; right: 16px; background: #2c2c2c; color: white; border: none; border-radius: 50%; width: 54px; height: 54px; font-size: 1.6rem; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; z-index: 40; }
 
-  /* ── MODAL ── */
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; justify-content: center; align-items: flex-start; padding: 16px; overflow-y: auto; }
+  /* ── DETAIL SHEET ── */
+  .ds-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:200; align-items:flex-end; }
+  .ds-overlay.open { display:flex; }
+  .ds-sheet { background:#f0eff0; border-radius:24px 24px 0 0; width:100%; max-height:94vh; overflow-y:auto; -webkit-overflow-scrolling:touch; padding-bottom:env(safe-area-inset-bottom,16px); }
+  .ds-handle { width:40px; height:4px; background:#d0d0d0; border-radius:4px; margin:12px auto 0; }
+  /* Photo carousel */
+  .ds-carousel { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .ds-carousel::-webkit-scrollbar { display:none; }
+  .ds-slide { flex-shrink:0; width:100%; scroll-snap-align:start; position:relative; }
+  .ds-slide img { width:100%; height:260px; object-fit:cover; display:block; }
+  .ds-slide-label { position:absolute; bottom:8px; left:10px; background:rgba(0,0,0,0.5); color:white; font-size:0.68rem; padding:2px 8px; border-radius:8px; }
+  .ds-dots { display:flex; justify-content:center; gap:5px; padding:8px 0 4px; }
+  .ds-dot { width:6px; height:6px; border-radius:50%; background:#ccc; transition:background 0.2s; }
+  .ds-dot.active { background:#2c2c2c; }
+  /* Hero price/address */
+  .ds-hero { padding:14px 16px 10px; }
+  .ds-price { font-size:1.6rem; font-weight:800; color:#2c2c2c; line-height:1.1; }
+  .ds-address { font-size:1rem; font-weight:600; color:#2c2c2c; margin-top:4px; }
+  .ds-location { font-size:0.82rem; color:#777; margin-top:2px; }
+  /* Sections */
+  .ds-section { margin:10px 12px; border-radius:16px; overflow:hidden; }
+  .ds-section-head { font-size:0.65rem; font-weight:800; letter-spacing:0.09em; text-transform:uppercase; padding:10px 14px 4px; }
+  .ds-section-body { padding:4px 14px 14px; }
+  /* Section A — Listing (soft indigo) */
+  .ds-a { background:#EEF2FF; }
+  .ds-a .ds-section-head { color:#4338CA; }
+  /* Section B — Location (soft green) */
+  .ds-b { background:#F0FDF4; }
+  .ds-b .ds-section-head { color:#166534; }
+  /* Section C — Schools (soft purple) */
+  .ds-c { background:#FAF5FF; }
+  .ds-c .ds-section-head { color:#6B21A8; }
+  /* Section D — Your Take (soft amber) */
+  .ds-d { background:#FFFBEB; }
+  .ds-d .ds-section-head { color:#92400E; }
+  /* Section E — Links (white) */
+  .ds-e { background:#fff; }
+  .ds-e .ds-section-head { color:#2c2c2c; }
+  /* Spec chips */
+  .ds-specs { display:flex; flex-wrap:wrap; gap:8px; padding:6px 0 4px; }
+  .ds-spec { background:rgba(0,0,0,0.06); border-radius:10px; padding:6px 12px; font-size:0.85rem; font-weight:600; display:flex; align-items:center; gap:5px; }
+  .ds-spec span { font-weight:400; color:#666; font-size:0.78rem; }
+  /* Feature tags */
+  .ds-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .ds-tag-yes { background:#dcfce7; color:#166534; border-radius:8px; padding:5px 10px; font-size:0.78rem; font-weight:600; }
+  .ds-tag-no { background:#fee2e2; color:#991b1b; border-radius:8px; padding:5px 10px; font-size:0.78rem; }
+  .ds-tag-neu { background:#e5e7eb; color:#374151; border-radius:8px; padding:5px 10px; font-size:0.78rem; }
+  /* School rows */
+  .ds-school-row { padding:7px 0; border-bottom:1px solid rgba(0,0,0,0.05); display:flex; flex-direction:column; gap:2px; }
+  .ds-school-row:last-child { border-bottom:none; }
+  .ds-school-name { font-size:0.88rem; font-weight:600; color:#2c2c2c; }
+  .ds-school-meta { font-size:0.75rem; color:#666; }
+  .ds-ofsted-out { color:#166534; font-weight:700; }
+  .ds-ofsted-good { color:#1d4ed8; font-weight:700; }
+  .ds-ofsted-ri { color:#b45309; font-weight:700; }
+  /* Status pills */
+  .ds-status-row { display:flex; flex-wrap:wrap; gap:7px; padding:8px 0; }
+  .ds-pill { padding:9px 14px; border-radius:20px; font-size:0.82rem; font-weight:600; border:2px solid transparent; cursor:pointer; background:#fff; color:#555; border-color:#e5e7eb; transition:all 0.15s; }
+  .ds-pill.active { color:white; border-color:transparent; }
+  .ds-pill-new.active { background:#1d4ed8; }
+  .ds-pill-viewing.active { background:#b45309; }
+  .ds-pill-viewed.active { background:#7c3aed; }
+  .ds-pill-interested.active { background:#166534; }
+  .ds-pill-offer.active { background:#991b1b; }
+  .ds-pill-rejected.active { background:#6b7280; }
+  /* Stars */
+  .ds-stars { display:flex; gap:6px; padding:8px 0; }
+  .ds-star { font-size:1.8rem; cursor:pointer; transition:transform 0.1s; line-height:1; }
+  .ds-star:active { transform:scale(1.3); }
+  /* Text areas */
+  .ds-textarea { width:100%; padding:10px 12px; border:1px solid rgba(0,0,0,0.1); border-radius:10px; font-size:0.9rem; font-family:inherit; background:rgba(255,255,255,0.7); resize:vertical; min-height:70px; margin-top:6px; }
+  .ds-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#999; margin-top:10px; display:block; }
+  /* Save button */
+  .ds-save-btn { width:100%; padding:15px; background:#2c2c2c; color:white; border:none; border-radius:14px; font-size:1rem; font-weight:700; cursor:pointer; margin-top:12px; }
+  /* Link buttons */
+  .ds-link-btn { display:flex; align-items:center; justify-content:space-between; padding:13px 16px; background:#f8f8f8; border-radius:12px; margin-bottom:8px; text-decoration:none; color:#2c2c2c; font-size:0.9rem; font-weight:600; border:1px solid #eee; }
+  .ds-link-btn:last-child { margin-bottom:0; }
+  .ds-link-chevron { color:#aaa; font-size:1rem; }
+  /* Summary expand */
+  .ds-summary { font-size:0.83rem; color:#555; line-height:1.55; margin-top:6px; }
+  /* Close + edit bar */
+  .ds-topbar { display:flex; justify-content:space-between; align-items:center; padding:10px 16px 0; }
+  .ds-close-btn { background:rgba(0,0,0,0.08); border:none; border-radius:50%; width:34px; height:34px; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#555; }
+  .ds-edit-btn { background:#2c2c2c; color:white; border:none; border-radius:20px; padding:7px 16px; font-size:0.82rem; font-weight:600; cursor:pointer; }
+  /* Desktop */
+  @media(min-width:641px){
+    .ds-overlay { align-items:center; padding:20px; }
+    .ds-sheet { border-radius:20px; max-width:560px; margin:auto; max-height:88vh; }
+    .ds-slide img { height:320px; }
+  }
+
+  /* ── ADD/EDIT MODAL ── */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 300; justify-content: center; align-items: flex-start; padding: 16px; overflow-y: auto; }
   .modal-overlay.open { display: flex; }
-  .modal { background: white; border-radius: 16px; padding: 20px; width: 100%; max-width: 620px; margin: auto; }
+  .modal { background: white; border-radius: 16px; padding: 20px; width: 100%; max-width: 620px; margin: auto; position:relative; }
   .modal h2 { margin-bottom: 16px; font-size: 1.1rem; }
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .form-group { display: flex; flex-direction: column; gap: 4px; }
@@ -117,7 +208,6 @@
   .form-group textarea { resize: vertical; min-height: 60px; }
   .modal-close-x { position: absolute; top: 14px; right: 14px; background: #f0f0f0; border: none; border-radius: 50%; width: 34px; height: 34px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #555; line-height: 1; }
   .modal-close-x:hover { background: #e0e0e0; }
-  .modal { position: relative; }
   .modal-actions { display: flex; gap: 10px; margin-top: 16px; justify-content: flex-end; }
   .btn-save { padding: 10px 22px; background: #2c2c2c; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.95rem; font-weight: 600; }
   .btn-cancel { padding: 10px 22px; background: #eee; color: #333; border: none; border-radius: 8px; cursor: pointer; font-size: 0.95rem; }
@@ -345,7 +435,86 @@
   <div class="lb-thumbs" id="lb-thumbs"></div>
 </div>
 
-<!-- Add/Edit Modal -->
+<!-- ── DETAIL SHEET ── -->
+<div class="ds-overlay" id="ds-overlay" onclick="if(event.target===this)closeDetail()">
+ <div class="ds-sheet" id="ds-sheet">
+  <div class="ds-handle"></div>
+  <div class="ds-topbar">
+   <button class="ds-close-btn" onclick="closeDetail()">✕</button>
+   <button class="ds-edit-btn" onclick="openEditFromDetail()">Edit ✏️</button>
+  </div>
+  <!-- Photo carousel -->
+  <div class="ds-carousel" id="ds-carousel"></div>
+  <div class="ds-dots" id="ds-dots"></div>
+  <!-- Hero -->
+  <div class="ds-hero">
+   <div class="ds-price" id="ds-price"></div>
+   <div class="ds-address" id="ds-address"></div>
+   <div class="ds-location" id="ds-location"></div>
+  </div>
+  <!-- Section A: Listing Details -->
+  <div class="ds-section ds-a">
+   <div class="ds-section-head">🏡 Property Details</div>
+   <div class="ds-section-body">
+    <div class="ds-specs" id="ds-specs"></div>
+    <div class="ds-tags" id="ds-tags"></div>
+    <div class="ds-summary" id="ds-summary"></div>
+    <div style="margin-top:8px;font-size:0.75rem;color:#888;" id="ds-agent"></div>
+    <div style="margin-top:4px;display:flex;gap:6px;flex-wrap:wrap;" id="ds-sources"></div>
+   </div>
+  </div>
+  <!-- Section B: Location -->
+  <div class="ds-section ds-b">
+   <div class="ds-section-head">📍 Location</div>
+   <div class="ds-section-body" id="ds-location-body"></div>
+  </div>
+  <!-- Section C: Schools -->
+  <div class="ds-section ds-c">
+   <div class="ds-section-head">🏫 Schools</div>
+   <div class="ds-section-body" id="ds-schools"></div>
+  </div>
+  <!-- Section D: Your Take -->
+  <div class="ds-section ds-d">
+   <div class="ds-section-head">✅ Your Take</div>
+   <div class="ds-section-body">
+    <span class="ds-label">Status</span>
+    <div class="ds-status-row">
+     <button class="ds-pill ds-pill-new" onclick="setStatus('New')">New</button>
+     <button class="ds-pill ds-pill-viewing" onclick="setStatus('Viewing Booked')">Viewing</button>
+     <button class="ds-pill ds-pill-viewed" onclick="setStatus('Viewed')">Viewed</button>
+     <button class="ds-pill ds-pill-interested" onclick="setStatus('Interested')">Interested</button>
+     <button class="ds-pill ds-pill-offer" onclick="setStatus('Offer Made')">Offer</button>
+     <button class="ds-pill ds-pill-rejected" onclick="setStatus('Rejected')">Rejected</button>
+    </div>
+    <span class="ds-label">Rating</span>
+    <div class="ds-stars" id="ds-stars">
+     <span class="ds-star" onclick="setRating(1)">☆</span>
+     <span class="ds-star" onclick="setRating(2)">☆</span>
+     <span class="ds-star" onclick="setRating(3)">☆</span>
+     <span class="ds-star" onclick="setRating(4)">☆</span>
+     <span class="ds-star" onclick="setRating(5)">☆</span>
+    </div>
+    <span class="ds-label">Viewing Date</span>
+    <input type="date" id="ds-view-date" style="width:100%;padding:10px;border:1px solid rgba(0,0,0,0.1);border-radius:10px;font-size:1rem;background:rgba(255,255,255,0.7);margin-top:6px;">
+    <span class="ds-label">Pros</span>
+    <textarea class="ds-textarea" id="ds-pros" placeholder="One per line — what you love about it"></textarea>
+    <span class="ds-label">Cons</span>
+    <textarea class="ds-textarea" id="ds-cons" placeholder="One per line — any concerns"></textarea>
+    <span class="ds-label">Notes</span>
+    <textarea class="ds-textarea" id="ds-notes" placeholder="Anything else to remember..."></textarea>
+    <button class="ds-save-btn" onclick="saveAssessment()">Save</button>
+   </div>
+  </div>
+  <!-- Section E: Links -->
+  <div class="ds-section ds-e">
+   <div class="ds-section-head">🔗 View Listing</div>
+   <div class="ds-section-body" id="ds-links"></div>
+  </div>
+  <div style="height:20px;"></div>
+ </div>
+</div>
+
+<!-- ── ADD/EDIT MODAL ── -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <button class="modal-close-x" onclick="closeModal()" title="Close">✕</button>
@@ -767,7 +936,7 @@ function render() {
     var imgHtmlFinal = photoCountBadge
       ? imgHtml.slice(0, imgHtml.lastIndexOf('</div>')) + photoCountBadge + '</div>'
       : imgHtml;
-    return '<div class="card" onclick="openModal(\'' + p.id + '\')">'
+    return '<div class="card" onclick="openDetail(\'' + p.id + '\')">'
       + imgHtmlFinal + thumbStrip
       + '<div class="card-header">'
       + '<div class="card-address">' + (p.address||'Address TBC') + '</div>'
@@ -855,7 +1024,207 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeLightbox();
 });
 
-// MODAL
+// ── DETAIL SHEET ──────────────────────────────────────────────────────────
+var detailId = null;
+var detailStatus = 'New';
+var detailRating = 0;
+
+function openDetail(id) {
+  var p = properties.find(function(x){ return x.id === id; });
+  if (!p) return;
+  detailId = id;
+  detailStatus = p.status || 'New';
+  detailRating = p.rating || 0;
+
+  // Carousel
+  var slides = [];
+  (p.photos || []).forEach(function(img, i) {
+    slides.push({ url: img, label: 'Photo ' + (i+1) + ' of ' + (p.photos||[]).length });
+  });
+  (p.floorPlans || []).forEach(function(img, i) {
+    slides.push({ url: img, label: '📐 Floor Plan' + (i > 0 ? ' '+(i+1) : '') });
+  });
+  var carousel = document.getElementById('ds-carousel');
+  carousel.innerHTML = slides.map(function(s, i) {
+    return '<div class="ds-slide"><img src="' + s.url + '" referrerpolicy="no-referrer" loading="' + (i<2?'eager':'lazy') + '" onerror="this.parentElement.style.display=\'none\'">'
+      + '<div class="ds-slide-label">' + s.label + '</div></div>';
+  }).join('') || '<div style="height:200px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:2rem;">🏡</div>';
+  // Dots
+  var dots = document.getElementById('ds-dots');
+  dots.innerHTML = slides.length > 1 ? slides.map(function(_,i){ return '<div class="ds-dot' + (i===0?' active':'') + '"></div>'; }).join('') : '';
+  carousel.onscroll = function() {
+    var idx = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+    dots.querySelectorAll('.ds-dot').forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+  };
+
+  // Hero
+  document.getElementById('ds-price').innerHTML = fmt(p.askingPrice)
+    + (p.priceReduced==='Yes' ? ' <span style="font-size:0.7rem;background:#ff6b35;color:white;padding:3px 8px;border-radius:6px;vertical-align:middle">REDUCED</span>' : '')
+    + (isNewListing(p) ? ' <span style="font-size:0.7rem;background:#1a7340;color:white;padding:3px 8px;border-radius:6px;vertical-align:middle">NEW</span>' : '');
+  document.getElementById('ds-address').textContent = p.address || 'Address TBC';
+  document.getElementById('ds-location').textContent = [p.town, p.postcode].filter(Boolean).join(' · ');
+
+  // Section A — specs
+  var specs = '';
+  if (p.beds) specs += '<div class="ds-spec">🛏 <strong>' + p.beds + '</strong><span>beds</span></div>';
+  if (p.baths) specs += '<div class="ds-spec">🚿 <strong>' + p.baths + '</strong><span>baths</span></div>';
+  if (p.receptions) specs += '<div class="ds-spec">🛋 <strong>' + p.receptions + '</strong><span>recep</span></div>';
+  if (p.propType) specs += '<div class="ds-spec">🏠 ' + p.propType + '</div>';
+  if (p.tenure) specs += '<div class="ds-spec">📋 ' + p.tenure + '</div>';
+  document.getElementById('ds-specs').innerHTML = specs;
+
+  var tags = '';
+  [['garden','Garden'],['driveway','Driveway'],['garage','Garage'],['outbuildings','Outbuildings']].forEach(function(pair) {
+    var val = p[pair[0]];
+    if (val==='Yes') tags += '<span class="ds-tag-yes">✓ ' + pair[1] + '</span>';
+    else if (val==='No') tags += '<span class="ds-tag-no">✗ ' + pair[1] + '</span>';
+  });
+  if (p.other) tags += '<span class="ds-tag-neu">✨ ' + p.other + '</span>';
+  document.getElementById('ds-tags').innerHTML = tags;
+
+  var summary = p.summary || '';
+  document.getElementById('ds-summary').textContent = summary ? (summary.length > 200 ? summary.slice(0,200) + '…' : summary) : '';
+  document.getElementById('ds-agent').textContent = p.agent ? '🏢 ' + p.agent : '';
+  document.getElementById('ds-sources').innerHTML = getSourceBadges(p);
+
+  // Section B — location
+  var locHtml = '';
+  if (p.distMiles) locHtml += '<div class="ds-school-row"><div class="ds-school-name">📏 ' + p.distMiles + ' miles from Cheltenham centre</div></div>';
+  if (p.rural) locHtml += '<div class="ds-school-row"><div class="ds-school-name">🌄 ' + p.rural + '</div></div>';
+  if (p.address || p.town) {
+    var mapQ = encodeURIComponent([p.address, p.town, p.postcode].filter(Boolean).join(', '));
+    locHtml += '<a href="https://maps.google.com/?q=' + mapQ + '" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:0.85rem;color:#166534;font-weight:600;text-decoration:none;">🗺 Open in Google Maps ↗</a>';
+  }
+  document.getElementById('ds-location-body').innerHTML = locHtml || '<div style="color:#aaa;font-size:0.82rem">Location details not available</div>';
+
+  // Section C — schools
+  var schoolHtml = buildSchoolsHTML(p);
+  document.getElementById('ds-schools').innerHTML = schoolHtml;
+
+  // Section D — your take
+  renderStatusPills(detailStatus);
+  renderStars(detailRating);
+  document.getElementById('ds-view-date').value = p.viewDate || '';
+  document.getElementById('ds-pros').value = p.pros || '';
+  document.getElementById('ds-cons').value = p.cons || '';
+  document.getElementById('ds-notes').value = p.notes || '';
+
+  // Section E — links
+  var linksHtml = '';
+  var all = p.allLinks || {};
+  var labelMap = { rightmove:'🔴 Rightmove', onthemarket:'🟢 OnTheMarket', zoopla:'🟣 Zoopla' };
+  var rmUrl = all.rightmove || p.rmLink;
+  var otmUrl = all.onthemarket || p.otmLink;
+  var zpUrl = p.zpLink;
+  [[rmUrl,'🔴 Rightmove'],[otmUrl,'🟢 OnTheMarket'],[zpUrl,'🟣 Zoopla']].forEach(function(pair){
+    if (pair[0]) linksHtml += '<a href="' + pair[0] + '" target="_blank" class="ds-link-btn">' + pair[1] + '<span class="ds-link-chevron">↗</span></a>';
+  });
+  var portalKeys = new Set(['rightmove','onthemarket','zoopla']);
+  Object.keys(all).forEach(function(k){
+    if (!portalKeys.has(k) && all[k]) linksHtml += '<a href="' + all[k] + '" target="_blank" class="ds-link-btn">🏠 ' + k + '<span class="ds-link-chevron">↗</span></a>';
+  });
+  if (!Object.keys(all).length && p.agentLink) linksHtml += '<a href="' + p.agentLink + '" target="_blank" class="ds-link-btn">🏠 ' + (p.agent||'Agent site') + '<span class="ds-link-chevron">↗</span></a>';
+  document.getElementById('ds-links').innerHTML = linksHtml || '<div style="color:#aaa;font-size:0.82rem">No listing links available</div>';
+
+  document.getElementById('ds-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function buildSchoolsHTML(p) {
+  // OSM enriched data first
+  var html = '';
+  if (p.nearestPrimary && p.nearestPrimary.name) {
+    var np = p.nearestPrimary;
+    html += '<div class="ds-school-row"><div class="ds-school-name">🏫 ' + np.name + '</div>'
+      + '<div class="ds-school-meta">Primary' + (np.distance?' · '+np.distance+'mi':'') + (np.ofsted?' · <span class="ds-ofsted-'+ofstedCls(np.ofsted)+'">Ofsted: '+np.ofsted+'</span>':'') + '</div></div>';
+  }
+  if (p.nearestSecondary && p.nearestSecondary.name) {
+    var ns = p.nearestSecondary;
+    html += '<div class="ds-school-row"><div class="ds-school-name">🎓 ' + ns.name + '</div>'
+      + '<div class="ds-school-meta">Secondary' + (ns.distance?' · '+ns.distance+'mi':'') + (ns.ofsted?' · <span class="ds-ofsted-'+ofstedCls(ns.ofsted)+'">Ofsted: '+ns.ofsted+'</span>':'') + '</div></div>';
+  }
+  if (html) return html;
+  // Catchment fallback
+  var pc = (p.postcode||'').toUpperCase().replace(/\s/g,'');
+  var sector = pc.slice(0,5), district = pc.slice(0,4);
+  var pri = CATCHMENT_PRI[sector] || DISTRICT_PRI[district];
+  var sec = CATCHMENT_SEC[sector] || DISTRICT_SEC[district];
+  var approx = !CATCHMENT_PRI[sector] && pri;
+  if (pri) html += '<div class="ds-school-row"><div class="ds-school-name">🏫 ' + pri + (approx?' <span style="color:#ccc;font-size:0.72rem">(approx)</span>':'') + '</div>'
+    + '<div class="ds-school-meta">Primary' + (OFSTED_PRI[pri]?' · <span class="ds-ofsted-'+ofstedCls(OFSTED_PRI[pri])+'">Ofsted: '+OFSTED_PRI[pri]+'</span>':'') + '</div></div>';
+  if (sec) html += '<div class="ds-school-row"><div class="ds-school-name">🎓 ' + sec + (approx?' <span style="color:#ccc;font-size:0.72rem">(approx)</span>':'') + '</div>'
+    + '<div class="ds-school-meta">Secondary' + (OFSTED_SEC[sec]?' · <span class="ds-ofsted-'+ofstedCls(OFSTED_SEC[sec])+'">Ofsted: '+OFSTED_SEC[sec]+'</span>':'') + '</div></div>';
+  if (!html && p.postcode) html = '<div style="color:#888;font-size:0.83rem">📍 <a href="https://www.gloucestershire.gov.uk/education-and-learning/schools-and-admissions/school-admissions/find-your-catchment-area-school/?postcode=' + encodeURIComponent(p.postcode) + '" target="_blank" style="color:#6B21A8">Check catchment for ' + p.postcode + ' ↗</a></div>';
+  return html || '<div style="color:#aaa;font-size:0.82rem">No school data available</div>';
+}
+
+function ofstedCls(o) {
+  if (o==='Outstanding') return 'out';
+  if (o==='Good') return 'good';
+  return 'ri';
+}
+
+function renderStatusPills(active) {
+  document.querySelectorAll('.ds-pill').forEach(function(btn) {
+    var map = {'New':'new','Viewing Booked':'viewing','Viewed':'viewed','Interested':'interested','Offer Made':'offer','Rejected':'rejected'};
+    var status = Object.keys(map).find(function(k){ return map[k] === btn.className.split('ds-pill-')[1]; });
+    btn.classList.toggle('active', btn.textContent.trim().toLowerCase().replace(' ','') === active.toLowerCase().replace(' ','') || btn.className.includes('ds-pill-' + (active==='Viewing Booked'?'viewing':active==='Offer Made'?'offer':active.toLowerCase())));
+  });
+}
+
+function setStatus(s) {
+  detailStatus = s;
+  document.querySelectorAll('.ds-pill').forEach(function(btn){
+    var cls = btn.classList[1];
+    var match = (s==='New'&&cls==='ds-pill-new')||(s==='Viewing Booked'&&cls==='ds-pill-viewing')
+      ||(s==='Viewed'&&cls==='ds-pill-viewed')||(s==='Interested'&&cls==='ds-pill-interested')
+      ||(s==='Offer Made'&&cls==='ds-pill-offer')||(s==='Rejected'&&cls==='ds-pill-rejected');
+    btn.classList.toggle('active', match);
+  });
+}
+
+function renderStars(n) {
+  document.querySelectorAll('.ds-star').forEach(function(s, i) {
+    s.textContent = i < n ? '⭐' : '☆';
+  });
+}
+
+function setRating(n) {
+  detailRating = detailRating === n ? 0 : n;
+  renderStars(detailRating);
+}
+
+function saveAssessment() {
+  if (!detailId) return;
+  var idx = properties.findIndex(function(x){ return x.id === detailId; });
+  if (idx < 0) return;
+  properties[idx].status = detailStatus;
+  properties[idx].rating = detailRating || null;
+  properties[idx].viewDate = document.getElementById('ds-view-date').value;
+  properties[idx].pros = document.getElementById('ds-pros').value;
+  properties[idx].cons = document.getElementById('ds-cons').value;
+  properties[idx].notes = document.getElementById('ds-notes').value;
+  // Persist assessment in localStorage (keyed by property id)
+  var assessments = JSON.parse(localStorage.getItem('assessments-v1') || '{}');
+  assessments[detailId] = { status: properties[idx].status, rating: properties[idx].rating,
+    viewDate: properties[idx].viewDate, pros: properties[idx].pros,
+    cons: properties[idx].cons, notes: properties[idx].notes };
+  localStorage.setItem('assessments-v1', JSON.stringify(assessments));
+  closeDetail();
+  render();
+}
+
+function closeDetail() {
+  document.getElementById('ds-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function openEditFromDetail() {
+  closeDetail();
+  openModal(detailId);
+}
+
+// ── ADD/EDIT MODAL ────────────────────────────────────────────────────────────
 function openModal(id) {
   editingId = id || null;
   var p = id ? (properties.find(function(x){return x.id===id;}) || {}) : {};
@@ -1011,6 +1380,11 @@ document.addEventListener('keydown', function(e) {
       var local = JSON.parse(localStorage.getItem('house-search-v1') || '[]');
       var localIds = new Set(local.map(function(p){return p.id;}));
       properties = remote.filter(function(p){return !localIds.has(p.id);}).concat(local);
+      // Overlay saved assessments onto remote properties
+      var assessments = JSON.parse(localStorage.getItem('assessments-v1') || '{}');
+      properties.forEach(function(p) {
+        if (assessments[p.id]) Object.assign(p, assessments[p.id]);
+      });
       var dates = remote.map(function(p){return p.lastUpdated;}).filter(Boolean).sort();
       if (dates.length) {
         var el = document.getElementById('remote-updated');
