@@ -1,5 +1,149 @@
 [
   {
+    "id": "rm-169948907",
+    "source": "rightmove",
+    "address": "Kemerton Road",
+    "town": "Cheltenham",
+    "postcode": "GL50 2QB",
+    "askingPrice": 1150000,
+    "priceReduced": "No",
+    "beds": 5,
+    "baths": 3,
+    "propType": "Flat / Apartment",
+    "agent": "",
+    "rmLink": "https://www.rightmove.co.uk/properties/169948907#/?channel=RES_BUY",
+    "summary": "This beautifully presented home on Kemerton Road offers generous living accommodation across two floors, featuring a welcoming layout ideal for family life",
+    "photos": [
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/d5c0a35f4/169948907/d5c0a35f4873ef788338e68b999d2c9a_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/75d9128bc/169948907/75d9128bc6acca65418a488b0b97a701_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0c551d070/169948907/0c551d07044cf67f06a634895c24e350_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/207cd4adb/169948907/207cd4adb0096f443686bef60b2b6062_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/22b5431b2/169948907/22b5431b22a4623d027a886b13ca1354_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c3ebffa88/169948907/c3ebffa88ccb7239b9ea842033546e57_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/8aca4af41/169948907/8aca4af41d89ae75ef3188d9e7873979_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/fc70a1f77/169948907/fc70a1f77ea57fb378f122534801fca1_max_476x317.jpeg",
+      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250187_02.jpg",
+      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250187_17.jpg",
+      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250187_05.jpg",
+      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250187_15.jpg"
+    ],
+    "floorPlans": [
+      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250187_03.jpg"
+    ],
+    "status": "New",
+    "lastUpdated": "2026-03-01",
+    "garden": "",
+    "driveway": "",
+    "garage": "",
+    "outbuildings": "",
+    "allLinks": {
+      "rightmove": "https://www.rightmove.co.uk/properties/169948907#/?channel=RES_BUY"
+    },
+    "sources": [
+      "rightmove"
+    ],
+    "nearestPrimary": {
+      "name": "Pate's Grammar School",
+      "ofsted": ""
+    }
+  },
+  {
+    "id": "rm-87540147",
+    "source": "rightmove",
+    "address": "Cleevelands Drive",
+    "town": "Cheltenham",
+    "postcode": "GL50 4QD",
+    "askingPrice": 975000,
+    "priceReduced": "No",
+    "beds": 4,
+    "baths": 3,
+    "propType": "House",
+    "agent": "",
+    "rmLink": "https://www.rightmove.co.uk/properties/87540147#/?channel=RES_BUY",
+    "summary": "We are delighted to present 3 Broadmayne Mews, a beautifully designed four-bedroom home situated in a peaceful, private community. This home is finished to exceptional standards and includes modern energy-efficient features such as solar panels and a charging point for electric vehicles. Locat...",
+    "photos": [
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/ca5537a25/87540147/ca5537a25b54b82bfe71cc2ca6f9a0c1_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/85a85a565/87540147/85a85a565ae72e2660f657913abefd8a_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/33e0e7dd5/87540147/33e0e7dd5d3c0e41c7136d400bc7fb84_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/1a53c7202/87540147/1a53c72022955e23dd21efac030eec11_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5535f8c32/87540147/5535f8c320d7ce75c22fa0a77eab025b_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/f3780b0b0/87540147/f3780b0b00ce7c34fd0a292a80ee9dd5_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/54d69254e/87540147/54d69254e17729cab70092c5ef2349d5_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/324ed9594/87540147/324ed959495b2cb96be4e9daede16afc_max_476x317.jpeg",
+      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250136_11.jpg",
+      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250136_27.jpg",
+      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250136_13.jpg",
+      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250136_15.jpg"
+    ],
+    "floorPlans": [
+      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250136_10.jpg"
+    ],
+    "status": "New",
+    "lastUpdated": "2026-03-01",
+    "garden": "",
+    "driveway": "",
+    "garage": "",
+    "outbuildings": "",
+    "allLinks": {
+      "rightmove": "https://www.rightmove.co.uk/properties/87540147#/?channel=RES_BUY"
+    },
+    "sources": [
+      "rightmove"
+    ],
+    "nearestPrimary": {
+      "name": "Hesters Way Primary School",
+      "ofsted": ""
+    }
+  },
+  {
+    "id": "rm-170815340",
+    "source": "rightmove",
+    "address": "Ryeworth Road",
+    "town": "Cheltenham",
+    "postcode": "GL52 6LX",
+    "askingPrice": 950000,
+    "priceReduced": "No",
+    "beds": 5,
+    "baths": 4,
+    "propType": "House",
+    "agent": "",
+    "rmLink": "https://www.rightmove.co.uk/properties/170815340#/?channel=RES_BUY",
+    "summary": "Looks can be deceiving! A four bedroom, extended period cottage, set in beautifully landscaped gardens and with secure gated access. You would not expect to find this hidden gem!",
+    "photos": [
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/3829ad9ef/170815340/3829ad9efa7791f081fcef4782d10401_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0d5bc8e60/170815340/0d5bc8e60a53e92bb32b487fe05f6e47_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e61208f16/170815340/e61208f16104f50543f4fb8d53c47fda_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e273fc512/170815340/e273fc5120fc2562a5cec889d20bc799_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/27cb4165a/170815340/27cb4165ac775784abb13d96f0a649e5_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c97e1209a/170815340/c97e1209aae27b6c0a76f367883c5012_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/8d38a482e/170815340/8d38a482e2983726948a7c3dcdbd46ce_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/4647368c8/170815340/4647368c8e68b074ba4043fc428ac1d6_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0b0a08e18/160219070/0b0a08e1898263ccc822cb0b31368895_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/09ffe3b0f/160219070/09ffe3b0f970119a9f382ab96364da20_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/a44fac9c6/160219070/a44fac9c6e429e9d7dae04ba89f4abc2_max_476x317.jpeg",
+      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/881e3b3c8/160219070/881e3b3c8fc2b293a42ac4ca0aec53d4_max_476x317.jpeg"
+    ],
+    "floorPlans": [
+      "https://docs.rezi.cloud/wByjHUDYLoDHNvKyQNxs03tAGJgmoeqUHHgqAzokUxI%3d/50366550.jpg?v=00000000023889a0&width=2048"
+    ],
+    "status": "New",
+    "lastUpdated": "2026-03-01",
+    "garden": "",
+    "driveway": "",
+    "garage": "",
+    "outbuildings": "",
+    "allLinks": {
+      "rightmove": "https://www.rightmove.co.uk/properties/170815340#/?channel=RES_BUY"
+    },
+    "sources": [
+      "rightmove"
+    ],
+    "nearestPrimary": {
+      "name": "Leckhampton Church of England Primary School",
+      "ofsted": ""
+    }
+  },
+  {
     "id": "rm-250509",
     "source": "Read Maurice",
     "address": "41 Hatherley Road",
@@ -81,12 +225,10 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "Read Maurice": "https://www.readmaurice.co.uk/properties/23-lauriston-park-the-park-cheltenham-gl50-2ql/",
-      "rightmove": "https://www.rightmove.co.uk/properties/165751727#/?channel=RES_BUY"
+      "Read Maurice": "https://www.readmaurice.co.uk/properties/23-lauriston-park-the-park-cheltenham-gl50-2ql/"
     },
     "sources": [
-      "Read Maurice",
-      "rightmove"
+      "Read Maurice"
     ],
     "nearestPrimary": {
       "name": "Pate's Grammar School",
@@ -167,7 +309,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/163896854#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/164179406#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -209,7 +351,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/166589198#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/169471250#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -251,7 +393,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/170767973#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/168513884#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -293,61 +435,11 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/171719753#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/159694382#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
     ]
-  },
-  {
-    "id": "rm-169948907",
-    "source": "rightmove",
-    "address": "Kemerton Road",
-    "town": "Cheltenham",
-    "postcode": "GL50 2QB",
-    "askingPrice": 1150000,
-    "priceReduced": "No",
-    "beds": 5,
-    "baths": 3,
-    "propType": "Flat / Apartment",
-    "agent": "",
-    "rmLink": "https://www.rightmove.co.uk/properties/169948907#/?channel=RES_BUY",
-    "summary": "This beautifully presented home on Kemerton Road offers generous living accommodation across two floors, featuring a welcoming layout ideal for family life",
-    "photos": [
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/d5c0a35f4/169948907/d5c0a35f4873ef788338e68b999d2c9a_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/75d9128bc/169948907/75d9128bc6acca65418a488b0b97a701_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0c551d070/169948907/0c551d07044cf67f06a634895c24e350_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/207cd4adb/169948907/207cd4adb0096f443686bef60b2b6062_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/22b5431b2/169948907/22b5431b22a4623d027a886b13ca1354_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c3ebffa88/169948907/c3ebffa88ccb7239b9ea842033546e57_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/8aca4af41/169948907/8aca4af41d89ae75ef3188d9e7873979_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/fc70a1f77/169948907/fc70a1f77ea57fb378f122534801fca1_max_476x317.jpeg",
-      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250187_02.jpg",
-      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250187_17.jpg",
-      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250187_05.jpg",
-      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250187_15.jpg"
-    ],
-    "floorPlans": [
-      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250187_03.jpg"
-    ],
-    "status": "New",
-    "lastUpdated": "2026-03-01",
-    "garden": "",
-    "driveway": "",
-    "garage": "",
-    "outbuildings": "",
-    "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/169948907#/?channel=RES_BUY",
-      "Kingsley Evans": "https://www.kingsleyevans.co.uk/property/malvern-road-cheltenham-gloucestershire-gl50-2jr/"
-    },
-    "sources": [
-      "rightmove",
-      "Kingsley Evans"
-    ],
-    "nearestPrimary": {
-      "name": "Pate's Grammar School",
-      "ofsted": ""
-    }
   },
   {
     "id": "rm-168087044",
@@ -385,7 +477,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/87454605#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/168087044#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -427,7 +519,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/171146867#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/158615438#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -507,7 +599,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/171571259#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/172595084#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -547,53 +639,11 @@
     },
     "sources": [
       "rightmove"
-    ]
-  },
-  {
-    "id": "rm-87540147",
-    "source": "rightmove",
-    "address": "Cleevelands Drive",
-    "town": "Cheltenham",
-    "postcode": "GL50 4QD",
-    "askingPrice": 975000,
-    "priceReduced": "No",
-    "beds": 4,
-    "baths": 3,
-    "propType": "House",
-    "agent": "",
-    "rmLink": "https://www.rightmove.co.uk/properties/87540147#/?channel=RES_BUY",
-    "summary": "We are delighted to present 3 Broadmayne Mews, a beautifully designed four-bedroom home situated in a peaceful, private community. This home is finished to exceptional standards and includes modern energy-efficient features such as solar panels and a charging point for electric vehicles. Locat...",
-    "photos": [
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/ca5537a25/87540147/ca5537a25b54b82bfe71cc2ca6f9a0c1_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/85a85a565/87540147/85a85a565ae72e2660f657913abefd8a_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/33e0e7dd5/87540147/33e0e7dd5d3c0e41c7136d400bc7fb84_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/1a53c7202/87540147/1a53c72022955e23dd21efac030eec11_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5535f8c32/87540147/5535f8c320d7ce75c22fa0a77eab025b_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/f3780b0b0/87540147/f3780b0b00ce7c34fd0a292a80ee9dd5_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/54d69254e/87540147/54d69254e17729cab70092c5ef2349d5_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/324ed9594/87540147/324ed959495b2cb96be4e9daede16afc_max_476x317.jpeg",
-      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250136_11.jpg",
-      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250136_27.jpg",
-      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250136_13.jpg",
-      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250136_15.jpg"
     ],
-    "floorPlans": [
-      "https://assets.reapit.net/kie/live/pictures/CHL/25/CHL250136_10.jpg"
-    ],
-    "status": "New",
-    "lastUpdated": "2026-03-01",
-    "garden": "",
-    "driveway": "",
-    "garage": "",
-    "outbuildings": "",
-    "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/87540147#/?channel=RES_BUY",
-      "Kingsley Evans": "https://www.kingsleyevans.co.uk/property/cleevelands-drive-cheltenham-gloucestershire-gl50-4qd-3/"
-    },
-    "sources": [
-      "rightmove",
-      "Kingsley Evans"
-    ]
+    "nearestPrimary": {
+      "name": "Leckhampton Church of England Primary School",
+      "ofsted": ""
+    }
   },
   {
     "id": "rm-171171149",
@@ -707,7 +757,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/167465483#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/169797458#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -749,60 +799,10 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/169658462#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/170628086#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
-    ],
-    "nearestPrimary": {
-      "name": "Leckhampton Church of England Primary School",
-      "ofsted": ""
-    }
-  },
-  {
-    "id": "rm-170815340",
-    "source": "rightmove",
-    "address": "Ryeworth Road",
-    "town": "Cheltenham",
-    "postcode": "GL52 6LX",
-    "askingPrice": 950000,
-    "priceReduced": "No",
-    "beds": 5,
-    "baths": 4,
-    "propType": "House",
-    "agent": "",
-    "rmLink": "https://www.rightmove.co.uk/properties/170815340#/?channel=RES_BUY",
-    "summary": "Looks can be deceiving! A four bedroom, extended period cottage, set in beautifully landscaped gardens and with secure gated access. You would not expect to find this hidden gem!",
-    "photos": [
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/3829ad9ef/170815340/3829ad9efa7791f081fcef4782d10401_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0d5bc8e60/170815340/0d5bc8e60a53e92bb32b487fe05f6e47_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e61208f16/170815340/e61208f16104f50543f4fb8d53c47fda_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e273fc512/170815340/e273fc5120fc2562a5cec889d20bc799_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/27cb4165a/170815340/27cb4165ac775784abb13d96f0a649e5_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c97e1209a/170815340/c97e1209aae27b6c0a76f367883c5012_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/8d38a482e/170815340/8d38a482e2983726948a7c3dcdbd46ce_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/4647368c8/170815340/4647368c8e68b074ba4043fc428ac1d6_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/0b0a08e18/160219070/0b0a08e1898263ccc822cb0b31368895_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/09ffe3b0f/160219070/09ffe3b0f970119a9f382ab96364da20_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/a44fac9c6/160219070/a44fac9c6e429e9d7dae04ba89f4abc2_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/881e3b3c8/160219070/881e3b3c8fc2b293a42ac4ca0aec53d4_max_476x317.jpeg"
-    ],
-    "floorPlans": [
-      "https://docs.rezi.cloud/wByjHUDYLoDHNvKyQNxs03tAGJgmoeqUHHgqAzokUxI%3d/50366550.jpg?v=00000000023889a0&width=2048"
-    ],
-    "status": "New",
-    "lastUpdated": "2026-03-01",
-    "garden": "",
-    "driveway": "",
-    "garage": "",
-    "outbuildings": "",
-    "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/160219070#/?channel=RES_BUY",
-      "Nick Griffith Estate Agents": "https://www.nickgriffithestateagents.co.uk/property/hales-road-cheltenham/"
-    },
-    "sources": [
-      "rightmove",
-      "Nick Griffith Estate Agents"
     ],
     "nearestPrimary": {
       "name": "Leckhampton Church of England Primary School",
@@ -883,7 +883,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/171994955#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/156032963#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -925,7 +925,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/163576664#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/172715591#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -967,7 +967,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/168824768#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/164104655#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -1009,7 +1009,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/170734520#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/168497603#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -1051,12 +1051,10 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/165382595#/?channel=RES_BUY",
-      "Peter Ball & Co": "https://www.peterball.co.uk/property-for-sale/4-bedroom-house-for-sale-in-merestones-drive-cheltenham-gloucestershire-gl50"
+      "rightmove": "https://www.rightmove.co.uk/properties/172293356#/?channel=RES_BUY"
     },
     "sources": [
-      "rightmove",
-      "Peter Ball & Co"
+      "rightmove"
     ]
   },
   {
@@ -1171,7 +1169,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/171423482#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/169251062#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -1327,7 +1325,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/87591090#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/164784593#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -1456,44 +1454,6 @@
     }
   },
   {
-    "id": "rm-168513884",
-    "source": "rightmove",
-    "address": "Cirencester Road",
-    "town": "Charlton Kings",
-    "postcode": "GL53",
-    "askingPrice": 750000,
-    "priceReduced": "No",
-    "beds": 4,
-    "baths": 2,
-    "propType": "",
-    "agent": "",
-    "rmLink": "https://www.rightmove.co.uk/properties/168513884#/?channel=RES_BUY",
-    "summary": "A beautifully-presented family home, designed to reflect Cheltenham\u2019s elegant Regency style and offering spacious, modern living throughout.",
-    "photos": [
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/5b2b10947/168513884/5b2b109470ca10539b951a25adf20bfd_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/fb1f134de/168513884/fb1f134de6384222bba3677766a279a6_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/e68492502/168513884/e68492502e3ceb55fcb9a39e845737b7_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/b30836b98/168513884/b30836b98cfe66dbd8e12122509f04ce_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/8ccdeb89e/168513884/8ccdeb89efa6fc22b58d3eb31b0d1c06_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/1d9387036/168513884/1d93870365d78a43910f6011ecd4612e_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/4f1890453/168513884/4f18904533ef16dbad92abfd8020ab1e_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/cf55b82f3/168513884/cf55b82f383feac89f3dfea8d09397b0_max_476x317.jpeg"
-    ],
-    "floorPlans": [],
-    "status": "New",
-    "lastUpdated": "2026-03-01",
-    "garden": "",
-    "driveway": "",
-    "garage": "",
-    "outbuildings": "",
-    "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/168513884#/?channel=RES_BUY"
-    },
-    "sources": [
-      "rightmove"
-    ]
-  },
-  {
     "id": "rm-170751554",
     "source": "rightmove",
     "address": "Linden Close",
@@ -1529,7 +1489,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/166703717#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/170751554#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -1689,7 +1649,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/171091400#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/87369183#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -1769,7 +1729,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/169952768#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/161208356#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -1853,7 +1813,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/150756647#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/165214991#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -2093,7 +2053,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/159111485#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/166714874#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -2211,7 +2171,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/172683851#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/168947468#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -2329,7 +2289,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/169825184#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/168067379#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -2451,12 +2411,10 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/169896116#/?channel=RES_BUY",
-      "Peter Ball & Co": "https://www.peterball.co.uk/property-for-sale/4-bedroom-house-for-sale-in-naunton-lane-cheltenham-gloucestershire-gl53"
+      "rightmove": "https://www.rightmove.co.uk/properties/169475231#/?channel=RES_BUY"
     },
     "sources": [
-      "rightmove",
-      "Peter Ball & Co"
+      "rightmove"
     ]
   },
   {
@@ -2879,7 +2837,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/87503016#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/156077270#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -3043,7 +3001,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/171382580#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/87608955#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -3511,7 +3469,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/171824582#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/87414423#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -3633,7 +3591,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/168625094#/?channel=RES_BUY"
+      "rightmove": "https://www.rightmove.co.uk/properties/172128263#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -3672,44 +3630,6 @@
     "outbuildings": "",
     "allLinks": {
       "rightmove": "https://www.rightmove.co.uk/properties/170759396#/?channel=RES_BUY"
-    },
-    "sources": [
-      "rightmove"
-    ]
-  },
-  {
-    "id": "rm-169797458",
-    "source": "rightmove",
-    "address": "Unwin Road",
-    "town": "Gloucestershire",
-    "postcode": "GL51",
-    "askingPrice": 400000,
-    "priceReduced": "No",
-    "beds": 4,
-    "baths": 2,
-    "propType": "",
-    "agent": "",
-    "rmLink": "https://www.rightmove.co.uk/properties/169797458#/?channel=RES_BUY",
-    "summary": "This four-bedroom family home is situated in the highly sought-after Reddings area, offering a comfortable and versatile living space.",
-    "photos": [
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/29488aedc/169797458/29488aedc937fdbee9e619f05d4cefba_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/308743433/169797458/308743433b60b94b29edbe3e33315a70_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/c42b4ea64/169797458/c42b4ea640dd554ac3ed9f689c20cdb7_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/cb0a5cee3/169797458/cb0a5cee3b9f0549d5f0effff5c9bf53_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/652cd6c3a/169797458/652cd6c3ab717084c2dffaa5611f884f_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/2d9f15c38/169797458/2d9f15c384f81444fba476b1ff2ac044_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/cd991a3b4/169797458/cd991a3b4443dbda6c760018028e6b60_max_476x317.jpeg",
-      "https://media.rightmove.co.uk:443/dir/crop/10:9-16:9/property-photo/965a5e331/169797458/965a5e331c308399b1cca81c74bb2b6a_max_476x317.jpeg"
-    ],
-    "floorPlans": [],
-    "status": "New",
-    "lastUpdated": "2026-03-01",
-    "garden": "",
-    "driveway": "",
-    "garage": "",
-    "outbuildings": "",
-    "allLinks": {
-      "rightmove": "https://www.rightmove.co.uk/properties/169797458#/?channel=RES_BUY"
     },
     "sources": [
       "rightmove"
@@ -4114,7 +4034,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "Nick Griffith Estate Agents": "https://www.nickgriffithestateagents.co.uk/property/merestones-drive-the-park-cheltenham/"
+      "Nick Griffith Estate Agents": "https://www.nickgriffithestateagents.co.uk/property/merestones-drive-the-park-cheltenham-2/"
     },
     "sources": [
       "Nick Griffith Estate Agents"
@@ -4163,12 +4083,10 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "Nick Griffith Estate Agents": "https://www.nickgriffithestateagents.co.uk/property/fletcher-close-alderton-tewkesbury/",
-      "Kingsley Evans": "https://www.kingsleyevans.co.uk/property/fletcher-close-alderton-tewkesbury-gloucestershire-gl20-8pa/"
+      "Nick Griffith Estate Agents": "https://www.nickgriffithestateagents.co.uk/property/fletcher-close-alderton-tewkesbury/"
     },
     "sources": [
-      "Nick Griffith Estate Agents",
-      "Kingsley Evans"
+      "Nick Griffith Estate Agents"
     ]
   },
   {
@@ -4257,12 +4175,10 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "Nick Griffith Estate Agents": "https://www.nickgriffithestateagents.co.uk/property/orchard-villas-danford-lane-hartpury-gloucester-4/",
-      "Kingsley Evans": "https://www.kingsleyevans.co.uk/property/danford-lane-hartpury-gloucestershire-gl19-3fp/"
+      "Nick Griffith Estate Agents": "https://www.nickgriffithestateagents.co.uk/property/orchard-villas-danford-lane-hartpury-gloucester-2/"
     },
     "sources": [
-      "Nick Griffith Estate Agents",
-      "Kingsley Evans"
+      "Nick Griffith Estate Agents"
     ]
   },
   {
@@ -4476,12 +4392,10 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "Nick Griffith Estate Agents": "https://www.nickgriffithestateagents.co.uk/property/leckhampton-road-leckhampton-cheltenham/",
-      "Kingsley Evans": "https://www.kingsleyevans.co.uk/property/leckhampton-road-cheltenham-gloucestershire-gl53-0ae-2/"
+      "Nick Griffith Estate Agents": "https://www.nickgriffithestateagents.co.uk/property/leckhampton-road-leckhampton-cheltenham/"
     },
     "sources": [
-      "Nick Griffith Estate Agents",
-      "Kingsley Evans"
+      "Nick Griffith Estate Agents"
     ],
     "nearestPrimary": {
       "name": "Leckhampton Church of England Primary School",
@@ -4878,7 +4792,11 @@
     },
     "sources": [
       "Kingsley Evans"
-    ]
+    ],
+    "nearestPrimary": {
+      "name": "Birdlip Primary School",
+      "ofsted": ""
+    }
   },
   {
     "id": "kingsley-evans-5426",
@@ -5007,7 +4925,11 @@
     },
     "sources": [
       "Kingsley Evans"
-    ]
+    ],
+    "nearestPrimary": {
+      "name": "Pate's Grammar School",
+      "ofsted": ""
+    }
   },
   {
     "id": "kingsley-evans-4037",
@@ -5180,7 +5102,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "Kingsley Evans": "https://www.kingsleyevans.co.uk/property/crimperland-close-minsterworth-gloucester-gloucestershire-gl2-8lq/"
+      "Kingsley Evans": "https://www.kingsleyevans.co.uk/property/crimperland-close-minsterworth-gloucester-gloucestershire-gl2-8lq-4/"
     },
     "sources": [
       "Kingsley Evans"
@@ -5357,7 +5279,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "CJ Hole Cheltenham": "https://www.cjhole.co.uk/properties-for-sale/4-bedrooms-house-in-bishops-cleeve-cheltenham-gl52/ccn250456/"
+      "CJ Hole Cheltenham": "https://www.cjhole.co.uk/properties-for-sale/5-bedrooms-house-in-charlton-kings-cheltenham-gl52/ccn120320/"
     },
     "sources": [
       "CJ Hole Cheltenham"
@@ -5399,7 +5321,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "CJ Hole Cheltenham": "https://www.cjhole.co.uk/properties-for-sale/4-bedrooms-house-in-cheltenham-gl51/ccn260072/"
+      "CJ Hole Cheltenham": "https://www.cjhole.co.uk/properties-for-sale/4-bedrooms-house-in-benhall-cheltenham-gl51/ccn240067/"
     },
     "sources": [
       "CJ Hole Cheltenham"
@@ -5440,7 +5362,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "CJ Hole Cheltenham": "https://www.cjhole.co.uk/properties-for-sale/4-bedrooms-house-in-cheltenham-gl54/ccn250137/"
+      "CJ Hole Cheltenham": "https://www.cjhole.co.uk/properties-for-sale/4-bedrooms-house-in-chedworth-cheltenham-gloucestershire-gl54/ccn260091/"
     },
     "sources": [
       "CJ Hole Cheltenham"
@@ -5862,7 +5784,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "Peter Ball & Co": "https://www.peterball.co.uk/property-for-sale/4-bedroom-house-for-sale-in-orchard-cottage-pamington-tewkesbury-gloucestershire-gl20"
+      "Peter Ball & Co": "https://www.peterball.co.uk/property-for-sale/4-bedroom-house-for-sale-in-court-farm-close-pamington-tewkesbury-gloucestershire-gl20"
     },
     "sources": [
       "Peter Ball & Co"
@@ -5904,7 +5826,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "Peter Ball & Co": "https://www.peterball.co.uk/property-for-sale/5-bedroom-house-for-sale-in-melrose-walk-tewkesbury-gloucestershire-gl20"
+      "Peter Ball & Co": "https://www.peterball.co.uk/property-for-sale/4-bedroom-house-for-sale-in-elmbury-drive-tewkesbury-gloucestershire-gl20"
     },
     "sources": [
       "Peter Ball & Co"
@@ -5946,7 +5868,7 @@
     "garage": "",
     "outbuildings": "",
     "allLinks": {
-      "Peter Ball & Co": "https://www.peterball.co.uk/property-for-sale/4-bedroom-house-for-sale-in-wagtail-drive-northway-tewkesbury-gloucestershire-gl20"
+      "Peter Ball & Co": "https://www.peterball.co.uk/property-for-sale/5-bedroom-house-for-sale-in-tirlebank-way-tewkesbury-gloucestershire-gl20"
     },
     "sources": [
       "Peter Ball & Co"
