@@ -701,8 +701,10 @@ function render() {
     var photoCountBadge = photoCount > 1
       ? '<span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.55);color:white;font-size:0.7rem;padding:2px 7px;border-radius:10px;pointer-events:none;">📷 ' + photoCount + '</span>'
       : '';
-    // Inject photo count badge into imgHtml
-    var imgHtmlFinal = imgHtml.replace('</div>', photoCountBadge + '</div>');
+    // Badge inserted as last child of card-img-wrap (position:relative), so absolute positioning works
+    var imgHtmlFinal = photoCountBadge
+      ? imgHtml.slice(0, imgHtml.lastIndexOf('</div>')) + photoCountBadge + '</div>'
+      : imgHtml;
     return '<div class="card" onclick="openModal(\'' + p.id + '\')">'
       + imgHtmlFinal
       + '<div class="card-header">'
