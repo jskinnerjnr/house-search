@@ -963,12 +963,12 @@ function render() {
       + school
       + (p.other ? '<div class="school-info" style="color:#555">✨ ' + p.other + '</div>' : '')
       + (getAgentLine(p) ? '<div style="margin-top:5px;font-size:0.78rem;color:#555;font-weight:600;">🏢 ' + getAgentLine(p) + '</div>' : '')
+      + (sourceBadges ? '<div style="margin-top:5px;display:flex;gap:4px;flex-wrap:wrap;">' + sourceBadges + '</div>' : '')
       + '</div>'
       + prosCons + notes
       + '<div class="card-footer">'
       + (p.status && p.status !== 'New' ? '<span class="status-badge ' + statusClass(p.status) + '">' + p.status + '</span>' : '<span></span>')
       + '<span class="rating">' + stars(p.rating) + '</span>'
-      + '<div class="links">' + linksHtml + planBtn + '</div>'
       + '</div>'
       + '</div>';
   }).join('');
