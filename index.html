@@ -883,7 +883,7 @@ function render() {
     var hasPhotos = p.photos && p.photos.length > 0;
     var hasFP = p.floorPlans && p.floorPlans.length > 0;
     var rawImg = hasPhotos
-      ? '<img class="card-img" src="' + p.photos[0] + '" alt="' + (p.address||'') + '" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML=\'<a href=\\\&quot;' + (p.rmLink||p.otmLink||'#') + '\\\&quot; target=\\\&quot;_blank\\\&quot; onclick=\\\&quot;event.stopPropagation()\\\&quot; class=\\\&quot;card-img-link\\\&quot;><div class=\\\&quot;card-img-placeholder\\\&quot;>🏡<br><span>View photos on Rightmove ↗</span></div></a>\'" onclick="event.stopPropagation();openLightbox(\'' + p.id + '\',0,\'photos\')">'
+      ? '<img class="card-img" src="' + p.photos[0] + '" alt="' + (p.address||'') + '" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML=\'<a href=\\\&quot;' + (p.rmLink||p.otmLink||'#') + '\\\&quot; target=\\\&quot;_blank\\\&quot; onclick=\\\&quot;event.stopPropagation()\\\&quot; class=\\\&quot;card-img-link\\\&quot;><div class=\\\&quot;card-img-placeholder\\\&quot;>🏡<br><span>View photos on ' + (p.source==='onthemarket'?'OnTheMarket':'Rightmove') + ' ↗</span></div></a>\'" onclick="event.stopPropagation();openLightbox(\'' + p.id + '\',0,\'photos\')">'
       : '<div class="card-img-placeholder">🏡</div>';
     var imgHtml = '<div class="card-img-wrap">' + rawImg
       + '<div class="card-img-overlay">'
