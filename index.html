@@ -459,6 +459,9 @@
     <button class="ds-arrow ds-arrow-next" onclick="carouselNav(1)">&#8250;</button>
   </div>
   <div class="ds-dots" id="ds-dots"></div>
+  <div style="text-align:center;margin-bottom:2px;">
+    <button id="ds-fp-jump" style="display:none;align-items:center;gap:5px;background:#f0f0f0;border:none;border-radius:20px;padding:6px 14px;font-size:0.8rem;font-weight:600;color:#2c2c2c;cursor:pointer;">📐 Jump to Floor Plan</button>
+  </div>
   <!-- Hero -->
   <div class="ds-hero">
    <div class="ds-price" id="ds-price"></div>
@@ -930,7 +933,7 @@ function render() {
       }
       // 2. Floor plan button
       if (fps.length > 0) {
-        thumbsHtml += '<div class="card-thumb-fp" onclick="event.stopPropagation();openDetail(\'' + p.id + '\')">📐 Plan</div>';
+        thumbsHtml += '<div class="card-thumb-fp" onclick="event.stopPropagation();openLightbox(\'' + p.id + '\',0,\'floorplan\')">📐 Plan</div>';
       }
       // 3. Photo thumbnails
       var stripPhotos = allPhotos.slice(1, 5);
@@ -1069,6 +1072,17 @@ function openDetail(id) {
     var idx = Math.round(carousel.scrollLeft / carousel.offsetWidth);
     dots.querySelectorAll('.ds-dot').forEach(function(d,i){ d.classList.toggle('active', i===idx); });
   };
+  // Floor plan jump button
+  var fpJumpEl = document.getElementById('ds-fp-jump');
+  var fpStartIdx = (p.photos||[]).length; // floor plan is after photos
+  if (p.floorPlans && p.floorPlans.length > 0 && fpJumpEl) {
+    fpJumpEl.style.display = 'inline-flex';
+    fpJumpEl.onclick = function() {
+      carousel.scrollTo({ left: fpStartIdx * carousel.offsetWidth, behavior: 'smooth' });
+    };
+  } else if (fpJumpEl) {
+    fpJumpEl.style.display = 'none';
+  }
 
   // Hero
   document.getElementById('ds-price').innerHTML = fmt(p.askingPrice)
